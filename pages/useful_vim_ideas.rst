@@ -1,2 +1,2 @@
-Useful Vim ideas
-================
+Vim ideas
+=========

@@ -8,10 +8,10 @@ import tinkerer.paths
 # **************************************************************
 
 # Change this to the name of your blog
-project = 'Helpful coding tips.'                   
+project = 'Psuedoneuromancer\'s scientific tool chest.'                   
 
 # Change this to the tagline of your blog
-tagline = 'What is a tag.'                  
+tagline = 'Things that help me explore science and mathematics.'                  
 
 # Change this to your name
 author = 'Srinath Vadlamani'

@@ -1,2 +1,2 @@
-Macs and GPUs
-=============
+Macs & GPUs
+===========
