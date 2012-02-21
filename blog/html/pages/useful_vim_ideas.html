@@ -87,6 +87,10 @@
                 <a href="about_me.html">About me</a>
             </li>
             
+            <li>
+                <a href="snow_leopard_links.html">Snow Leopard Links</a>
+            </li>
+            
             <li class="right">
                 
     <a href="../rss.html" title="Subscribe via RSS">
@@ -144,6 +148,101 @@
     
     <div class="section" id="vim-ideas">
 <h1>Vim ideas</h1>
+<p>MacVim Background Transparancy:
+You have to start the experimental render in perferences &gt; advance:
+Then you can &#8220;set transperancy = 15&#8221; in your .gvimrc</p>
+<p><a class="reference external" href="http://vim.wikia.com/wiki/Best_Vim_Tips">http://vim.wikia.com/wiki/Best_Vim_Tips</a>
+delete all lines containing a pattern</p>
+<p>Using etags: Ctrl-] and Ctrl-T (returns)</p>
+<p>Using cscope: Ctrl-s and Ctrl(space)s</p>
+<p>For Fortran free highlighting fix, your .vimrc needs:</p>
+<p>filetype plugin indent on</p>
+<p>syntax on</p>
+<dl class="docutils">
+<dt>let s:extfname = expand(&#8220;%:e&#8221;)</dt>
+<dd><blockquote class="first">
+<div><dl class="docutils">
+<dt>if s:extfname ==? &#8220;f90&#8221;</dt>
+<dd>let fortran_free_source=1
+unlet! fortran_fixed_source</dd>
+</dl>
+</div></blockquote>
+<dl class="docutils">
+<dt>else</dt>
+<dd><blockquote class="first">
+<div>let fortran_fixed_source=1</div></blockquote>
+<p class="last">unlet! fortran_free_source</p>
+</dd>
+</dl>
+<p class="last">endif</p>
+</dd>
+</dl>
+<p>Bufexplorer:</p>
+<p>With bufexplorer, you can quickly and easily switch between buffers by using the one of the default public interfaces:</p>
+<blockquote>
+<div>&#8216;be&#8217; (normal open)  or
+&#8216;bs&#8217; (force horizontal split open)  or
+&#8216;bv&#8217; (force vertical split open)</div></blockquote>
+<p>Avoiding the Esc keyEdit
+Pressing Ctrl-[ (control plus left square bracket) is equivalent to pressing Esc. On a US keyboard, pressing Ctrl-[ is an easy way to exit from insert mode.</p>
+<p>change highlighting (space to get rid of after search)
+:noremap &lt;silent&gt; &lt;Space&gt; :silent noh&lt;Bar&gt;echo&lt;CR&gt;</p>
+<p>to upper or lower case</p>
+<p>To
+make text lowercase use <a href="#id1"><span class="problematic" id="id2">``</span></a>gu&#8217;&#8217; or <a href="#id3"><span class="problematic" id="id4">``</span></a>gugu&#8217;&#8216;</p>
+<p>:h gu
+:h gugu</p>
+<p>or for uppercase</p>
+<p>:h gU
+:h gUgU</p>
+<p>jumping to matching braces:</p>
+<p>The % key can be used:</p>
+<p>To jump to a matching opening or closing parenthesis, square bracket or a curly brace: ([{}])
+To jump to start or end of a C-style comment: /* <a href="#id5"><span class="problematic" id="id6">*</span></a>/.
+To jump to a matching C/C++ preprocessor conditional: #if, #ifdef, #else, #elif, #endif.
+To jump between appropriate keywords, if supported by the ftplugin file, for example, between begin and end in a Pascal program</p>
+<p>Working with multiple files</p>
+<p>:e filename - Edit a file in a new buffer
+:bnext (or :bn) - go to next buffer
+:bprev (of :bp) - go to previous buffer
+:bd - delete a buffer (close a file)
+:sp filename - Open a file in a new buffer and split window
+ctrl+ws - Split windows
+ctrl+ww - switch between windows
+ctrl+wq - Quit a window
+ctrl+wv - Split windows vertically
+formatting stuff:</p>
+<p>from:Garrett&#8217;s vi page</p>
+<p>:.!fmt  Format the current line only (Unix)
+!}fmt   Format the current paragraph, (e.g., to next whitepspace; UNIX)
+!3}fmt  Format the current and next two paragraphs (or next n-1; UNIX)
+So an easy way to format the a paragraph to 80 characters is, with the cursor anywhere on the paragraph:</p>
+<p>!}fmt -45
+will format to 45 columns.</p>
+<p>!Gfmt -80</p>
+<p>will  format everything from the current location to the end of the file to 80 column.</p>
+<p>yiw     yank inner word (copy word under cursor, say &#8220;first&#8221;).
+...     Move the cursor to another word (say &#8220;second&#8221;).
+viwp    select &#8220;second&#8221;, then replace it with &#8220;first&#8221;.
+...     Move the cursor to another word (say &#8220;third&#8221;).
+viw&#8221;0p  select &#8220;third&#8221;, then replace it with &#8220;first&#8221;.
+Copy a line and paste it over other lines:
+yy      yank current line (say &#8220;first line&#8221;).
+...     Move the cursor to another line (say &#8220;second line&#8221;).
+Vp      select &#8220;second line&#8221;, then replace it with &#8220;first line&#8221;.
+...     Move the cursor to another line (say &#8220;third line&#8221;).
+V&#8221;0p    select &#8220;third line&#8221;, then replace it with &#8220;first line&#8221;.</p>
+<p>Opening and closing foldsEdit
+The command zc will close a fold (if the cursor is in an open fold), and zo will open a fold (if the cursor is in a closed fold). It&#8217;s easier to just use za which will toggle the current fold (close it if it was open, or open it if it was closed).
+The commands zc (close), zo (open), and za (toggle) operate on one level of folding, at the cursor. The commands zC, zO and zA are similar, but operate on all folding levels (for example, the cursor line may be in an open fold, which is inside another open fold; typing zC would close all folds at the cursor).</p>
+<p>The command zr reduces folding by opening one more level of folds throughout the whole buffer (the cursor position is not relevant). Use zR to open all folds.</p>
+<p>The command zm gives more folding by closing one more level of folds throughout the whole buffer. Use zM to close all folds.</p>
+<p>Date and time insert:
+:r !date</p>
+<p>Using MacVim as your SVN or GIT editor.
+In your .bashrc use
+GIT_EDITOR=&#8217;mvim -f&#8217;</p>
+<p>You need to run mvim with the -f flag so that it stays in the foreground. By default, it forks and returns control to the terminal which makes subversion think it is done.</p>
 </div>
 
     
