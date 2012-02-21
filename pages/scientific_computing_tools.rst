@@ -1,11 +1,11 @@
 Scientific computing tools
 ==========================
 
-This will test github math rendering:
+This will test github math rendering.
 
+.. math:: a^2
 
-.. math::
+Does this work :math:`x \rightarrow \int dy`.
+Yes this works.
 
-  \left\langle A \right\rangle  
-
-Does this work :math:`x \rightarrow \int dy`
+But what about math lines
