@@ -76,7 +76,7 @@
             </li>
             
             <li>
-                <a href="macs_and_gpus.html">Macs & GPUs</a>
+                <a href="macs_and_hpc.html">Macs and HPC</a>
             </li>
             
             <li>
@@ -148,15 +148,23 @@
     
     <div class="section" id="git-for-humans">
 <h1>Git for humans</h1>
-<p>Commit splitting in Git <a class="reference external" href="http://plasmasturm.org/log/530/">http://plasmasturm.org/log/530/</a></p>
-<p>Big rules:
-git commit individual files will verbose comments
-remote repos are better off as &#8220;bare&#8221; repos
-these are repos that are created with
-$ git clone &#8211;bare fooRepo.git
-you can/should not manipulate any files in this particular directory.
-dedicated local branches tracking remotes is very useful
-Want to see what will be pushed:</p>
+<p>Commit splitting in Git can be found <a class="reference external" href="http://plasmasturm.org/log/530/">here</a>.</p>
+<div class="section" id="big-rules">
+<h2>Big rules</h2>
+<p>I think these are important ideas to keep in mind while using git:</p>
+<ul class="simple">
+<li>git commit individual files will verbose comments</li>
+<li>remote repos are better off as &#8220;bare&#8221; repos<ul>
+<li>these are repos that are created with
+$ git clone &#8211;bare fooRepo.git</li>
+<li>you can/should not manipulate any files in this particular directory.</li>
+</ul>
+</li>
+<li>dedicated local branches tracking remotes is very useful</li>
+<li></li>
+</ul>
+<div class="section" id="want-to-see-what-will-be-pushed">
+<h3>Want to see what will be pushed</h3>
 <p>git diff &#8211;stat origin/master
 Want see repo at a certain version:
 You could &#8220;reset&#8221; your repository to any commit you want (e.g. 1 month ago).</p>
@@ -231,9 +239,12 @@ $ git config master.merge refs/heads/master</p>
 <p>How to create branches on remotes:</p>
 <p><a class="reference external" href="http://progit.org/book/ch3-5.html">http://progit.org/book/ch3-5.html</a></p>
 <p>Note:  The line &#8220;git checkout -b serverfix origin/serverfix&#8221; really should have a &#8220;-B&#8221;, because that will reset the properties of an existing branch, while &#8220;-b&#8221; only creates new ones with trailing properties.</p>
-<p>Looks like there a new Git tutorial: The Git Guys</p>
+<p>Looks like there a new Git tutorial: The Git Guys <a class="reference external" href="http://www.gitguys.com/topics/">http://www.gitguys.com/topics/</a></p>
+<p>A very nice what of activating post-recieve hook for a git repo via <a class="reference external" href="http://www.icir.org/robin/git-notifier">git notifier.</a>.</p>
 <p>A must for Vim users:</p>
 <p><a class="reference external" href="https://github.com/tpope/vim-fugitive">https://github.com/tpope/vim-fugitive</a>  via. <a class="reference external" href="https://github.com/tpope/vim-pathogen">https://github.com/tpope/vim-pathogen</a></p>
+</div>
+</div>
 </div>
 
     

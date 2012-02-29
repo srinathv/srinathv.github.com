@@ -2,16 +2,30 @@ Git for humans
 ==============
 
 
-Commit splitting in Git http://plasmasturm.org/log/530/
+Commit splitting in Git can be found `here <http://plasmasturm.org/log/530/>`_.
 
-Big rules:
-git commit individual files will verbose comments
-remote repos are better off as "bare" repos 
-these are repos that are created with
-$ git clone --bare fooRepo.git
-you can/should not manipulate any files in this particular directory.
-dedicated local branches tracking remotes is very useful
-Want to see what will be pushed:
+Big rules
+_________
+
+I think these are important ideas to keep in mind while using git:
+
+- git commit individual files will verbose comments
+
+- remote repos are better off as "bare" repos 
+
+  - these are repos that are created with
+    $ git clone --bare fooRepo.git
+
+  - you can/should not manipulate any files in this particular directory.
+
+- dedicated local branches tracking remotes is very useful
+
+- 
+
+
+
+Want to see what will be pushed
+-------------------------------
 
 git diff --stat origin/master
 Want see repo at a certain version:
@@ -127,10 +141,9 @@ Note:  The line "git checkout -b serverfix origin/serverfix" really should have 
 
 
 
-Looks like there a new Git tutorial: The Git Guys
+Looks like there a new Git tutorial: The Git Guys http://www.gitguys.com/topics/
 
-
-
+A very nice what of activating post-recieve hook for a git repo via `git notifier.  <http://www.icir.org/robin/git-notifier>`_.  
 
 
 A must for Vim users:

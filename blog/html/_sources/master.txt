@@ -10,7 +10,7 @@ Sitemap
    2012/02/14/this_should_help_with_logging_simple_ideas_that_i_find_useful_for_coding_
    pages/git_for_humans
    pages/useful_vim_ideas
-   pages/macs_and_gpus
+   pages/macs_and_hpc
    pages/scientific_computing_tools
    pages/about_me
    pages/snow_leopard_links
