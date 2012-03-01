@@ -168,7 +168,6 @@
 </li>
 <li><p class="first">dedicated local branches tracking remotes is very useful</p>
 </li>
-<li></li>
 </ul>
 <div class="section" id="want-to-see-what-will-be-pushed">
 <h3>Want to see what will be pushed</h3>
@@ -183,77 +182,137 @@
 git reset --hard <span class="o">[</span>ENTER HERE THE COMMIT HASH YOU WANT<span class="o">]</span>
 </pre></div>
 </div>
-<p>Undoing a &#8220;git add&#8221;:
-Say you did a git add on a directory and there was a hidden directory that got added:
-$ git add foo/
-$ git status</p>
-<blockquote>
-<div>new file:  foo/.svn/blah blah blah</div></blockquote>
-<p>To get rid of the &#8221;.svn&#8221; directory from being committed:
-$git rm -r &#8211;cached foo/.svn
-The &#8220;-r&#8221; allows for the recursive removal.</p>
-<p>Creating a &#8220;bare&#8221; repo.
-What I have done is take an active git repo an do the following:
-$git clone &#8211;bare &lt;URL/location of source git repo&gt; &lt;name of new bare repo&gt;.git
-I think the .git suffix helps denote that this is a bare repo.  All the repos on GitHub have the .git suffix.</p>
-<p>Tracking a remote repo as branch:
-Say you have 2 repos that you want to work with</p>
-<p>Say one of these is a bare repo.
-You can set it up as a remote as:
-$ git remote add &lt;remote branch Nick name&gt; &lt;URL to bareFoo.git&gt;
-Then you must get git to understand to interact with the remote once before tracking.  This remote may have a slew of branches.
-$git fetch &lt;remote branch Nick Name&gt;
-Once that is done then the following will create a branch that will track this repo/
-$ git branch &#8211;track &lt;local Branch name&gt; &lt;branch Nick Name&gt;</p>
+</div>
+<div class="section" id="undoing-a-git-add">
+<h3>Undoing a &#8220;git add&#8221;</h3>
+<p>Say you did a git add on a directory and there was a hidden directory that got added:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git add foo/
+<span class="nv">$ </span>git status
+new file:  foo/.svn/blah blah blah
+</pre></div>
+</div>
+<p>To get rid of the &#8221;.svn&#8221; directory from being committed:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$git</span> rm -r --cached foo/.svn
+</pre></div>
+</div>
+<p>The &#8220;-r&#8221; allows for the recursive removal.</p>
+</div>
+<div class="section" id="creating-a-bare-repo">
+<h3>Creating a &#8220;bare&#8221; repo</h3>
+<p>What I have done is take an active git repo an do the following:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$git</span> clone --bare &lt;URL/location of <span class="nb">source </span>git repo&gt; &lt;name of new bare repo&gt;.git
+</pre></div>
+</div>
+<p>I think the .git suffix helps denote that this is a bare repo.  All the repos on GitHub have the .git suffix.</p>
+</div>
+<div class="section" id="tracking-a-remote-repo-as-branch">
+<h3>Tracking a remote repo as branch</h3>
+<p>Say you have 2 repos that you want to work with and one of these is a bare repo.
+You can set it up as a remote as:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git remote add &lt;remote branch Nick name&gt; &lt;URL to bareFoo.git&gt;
+</pre></div>
+</div>
+<p>Then you must get git to understand to interact with the remote once before tracking.  This remote may have a slew of branches.:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$git</span> fetch &lt;remote branch Nick Name&gt;
+</pre></div>
+</div>
+<p>Once that is done then the following will create a branch that will track this repo:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git branch --track &lt;<span class="nb">local </span>Branch name&gt; &lt;branch Nick Name&gt;
+</pre></div>
+</div>
 <p>Bam...now you have a branch that will pull from the &lt;bareFoo&gt; git repo.
-To make all pushes automatically go to tracked remote branches do:
-$git config &#8211;global push tracking</p>
-<p>Submodules.
-This is the equivalent to svn:externals.
-Here is a great web link that explains in simple examples how to use use submodules.
-http://chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating/</p>
+To make all pushes automatically go to tracked remote branches do:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$git</span> config --global push tracking
+</pre></div>
+</div>
+</div>
+<div class="section" id="submodules">
+<h3>Submodules</h3>
+<p>This is the equivalent to svn:externals with always updating with the top level updated/
+Here is a great web link that explains in simple examples how to use use submodules.</p>
+<p><a class="reference external" href="http://chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating/_">http://chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating/_</a></p>
 <p>Git – setting up a remote repository and doing an initial ‘push’</p>
-<p><a class="reference external" href="http://thelucid.com/2008/12/02/git-setting-up-a-remote-repository-and-doing-an-initial-push/">http://thelucid.com/2008/12/02/git-setting-up-a-remote-repository-and-doing-an-initial-push/</a></p>
+<p><a class="reference external" href="http://thelucid.com/2008/12/02/git-setting-up-a-remote-repository-and-doing-an-initial-push/_">http://thelucid.com/2008/12/02/git-setting-up-a-remote-repository-and-doing-an-initial-push/_</a></p>
 <p>So, firstly setup the remote repository:</p>
-<p>ssh <a class="reference external" href="mailto:git&#37;&#52;&#48;example&#46;com">git<span>&#64;</span>example<span>&#46;</span>com</a>
+<div class="highlight-bash"><div class="highlight"><pre>ssh git@example.com
 mkdir my_project.git
-cd my_project.git
-git init &#8211;bare
-git-update-server-info # If planning to serve via HTTP
-exit
-On local machine:</p>
-<p>cd my_project
+<span class="nb">cd </span>my_project.git
+git init --bare
+git-update-server-info <span class="c"># If planning to serve via HTTP</span>
+<span class="nb">exit</span>
+</pre></div>
+</div>
+<p>On local machine:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd </span>my_project
 git init
 git add *
-git commit -m &#8220;My initial commit message&#8221;
-git remote add origin <a class="reference external" href="mailto:git&#37;&#52;&#48;example&#46;com">git<span>&#64;</span>example<span>&#46;</span>com</a>:my_project.git
+git commit -m <span class="s2">&quot;My initial commit message&quot;</span>
+git remote add origin git@example.com:my_project.git
 git push origin master
-All things RESET: Knowing this helps your &#8220;get GIT&#8221;.</p>
-<p><a class="reference external" href="http://progit.org/2011/07/11/reset.htmlDone">http://progit.org/2011/07/11/reset.htmlDone</a>!</p>
-<p>Making a shared repo:</p>
-<p>Make sure to do :git repo-config core.sharedRepository true</p>
-<p>Clean up a repo:
-git gc</p>
-<p>Switching remote:
-If you created your repo copy by “clone” operation you will have “origin” remote branch defined. This remote can be used to pull/push changes.</p>
-<p>$ git remote -v
+</pre></div>
+</div>
+<p>All things RESET: Knowing this helps your &#8220;get GIT&#8221;.</p>
+<p><a class="reference external" href="http://progit.org/2011/07/11/">http://progit.org/2011/07/11/</a><a href="#id1"><span class="problematic" id="id2">reset.htmlDone_</span></a>!</p>
+</div>
+<div class="section" id="making-a-shared-repo">
+<h3>Making a shared repo</h3>
+<p>In the bare repo itself do:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$git</span> repo-config core.sharedRepository <span class="nb">true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="clean-up-a-repo">
+<h3>Clean up a repo</h3>
+<p>Recompresses history and states.:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$git</span> gc
+</pre></div>
+</div>
+</div>
+<div class="section" id="switching-remote">
+<h3>Switching remote</h3>
+<p>If you created your repo copy by “clone” operation you will have “origin” remote branch defined. This remote can be used to pull/push changes.:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git remote -v
 origin zeus.aplikacja.info:cust-proj1
-If you decide to change this definition later you can issue the following commands:</p>
-<p>$ git remote rm origin
-$ git remote add origin <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:aplikacjainfo/proj1.git
-$ git config master.remote origin
-$ git config master.merge refs/heads/master</p>
-<p>How to prevent a bad push: from <a class="reference external" href="http://randyfay.com/node/89">http://randyfay.com/node/89</a></p>
-<p>git config &#8211;system receive.denyNonFastForwards true</p>
-<p>Doing the unspeakable: reverting a git push:</p>
-<p>hhttp://stackoverflow.com/questions/3012929/can-i-undo-the-last-git-push</p>
-<p>How to create branches on remotes:</p>
-<p><a class="reference external" href="http://progit.org/book/ch3-5.html">http://progit.org/book/ch3-5.html</a></p>
+</pre></div>
+</div>
+<p>If you decide to change this definition later you can issue the following commands:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git remote rm origin
+<span class="nv">$ </span>git remote add origin git@github.com:aplikacjainfo/proj1.git
+<span class="nv">$ </span>git config master.remote origin
+<span class="nv">$ </span>git config master.merge refs/heads/master
+</pre></div>
+</div>
+<p>How to prevent a bad push</p>
+<p>To not allow a repo to accept a push that would fast forward which will screw up the local history:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$git</span> config --system receive.denyNonFastForwards <span class="nb">true</span>
+</pre></div>
+</div>
+<p>(from <a class="reference external" href="http://randyfay.com/node/">http://randyfay.com/node/</a><a href="#id3"><span class="problematic" id="id4">89_</span></a>)</p>
+</div>
+<div class="section" id="the-unspeakable-reverting-a-git-push">
+<h3>The unspeakable: reverting a git push</h3>
+<blockquote>
+<div><a class="reference external" href="http://stackoverflow.com/questions/3012929/">http://stackoverflow.com/questions/3012929/</a><a href="#id5"><span class="problematic" id="id6">can-i-undo-the-last-git-push_</span></a></div></blockquote>
+</div>
+<div class="section" id="how-to-create-branches-on-remotes">
+<h3>How to create branches on remotes</h3>
+<blockquote>
+<div><a class="reference external" href="http://progit.org/book/">http://progit.org/book/</a><a href="#id7"><span class="problematic" id="id8">ch3-5.html_</span></a></div></blockquote>
 <p>Note:  The line &#8220;git checkout -b serverfix origin/serverfix&#8221; really should have a &#8220;-B&#8221;, because that will reset the properties of an existing branch, while &#8220;-b&#8221; only creates new ones with trailing properties.</p>
-<p>Looks like there a new Git tutorial: The Git Guys <a class="reference external" href="http://www.gitguys.com/topics/">http://www.gitguys.com/topics/</a></p>
-<p>A very nice what of activating post-recieve hook for a git repo via <a class="reference external" href="http://www.icir.org/robin/git-notifier">git notifier.</a>.</p>
-<p>A must for Vim users:</p>
-<p><a class="reference external" href="https://github.com/tpope/vim-fugitive">https://github.com/tpope/vim-fugitive</a>  via. <a class="reference external" href="https://github.com/tpope/vim-pathogen">https://github.com/tpope/vim-pathogen</a></p>
+</div>
+<div class="section" id="another-git-tutorial">
+<h3>Another Git tutorial</h3>
+<blockquote>
+<div>The Git Guys <a class="reference external" href="http://www.gitguys.com/topics/_">http://www.gitguys.com/topics/_</a></div></blockquote>
+</div>
+<div class="section" id="post-recieve-hooks">
+<h3>Post-recieve hooks</h3>
+<p>A very nice way of activating post-recieve hook for a git repo via <a class="reference external" href="http://www.icir.org/robin/git-notifier">git notifier.</a>.</p>
+</div>
+<div class="section" id="a-must-for-vim-users">
+<h3>A must for Vim users</h3>
+<blockquote>
+<div><a class="reference external" href="https://github.com/tpope/">https://github.com/tpope/</a><a href="#id9"><span class="problematic" id="id10">vim-fugitive_</span></a>  via. <a class="reference external" href="https://github.com/tpope/">https://github.com/tpope/</a><a href="#id11"><span class="problematic" id="id12">vim-pathogen_</span></a></div></blockquote>
 </div>
 </div>
 </div>
