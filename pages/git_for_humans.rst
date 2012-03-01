@@ -4,6 +4,7 @@ Git for humans
 
 Commit splitting in Git can be found `here <http://plasmasturm.org/log/530/>`_.
 
+.. highlight:: bash
 Big rules
 _________
 
@@ -13,8 +14,9 @@ I think these are important ideas to keep in mind while using git:
 
 - remote repos are better off as "bare" repos 
 
-  - these are repos that are created with
-    $ git clone --bare fooRepo.git
+  - these are repos that are created with::
+      
+      $ git clone --bare fooRepo.git
 
   - you can/should not manipulate any files in this particular directory.
 
@@ -25,17 +27,21 @@ I think these are important ideas to keep in mind while using git:
 
 
 Want to see what will be pushed
--------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 git diff --stat origin/master
-Want see repo at a certain version:
+
+
+Want see repo at a certain version
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 You could "reset" your repository to any commit you want (e.g. 1 month ago).
 
-Use git-reset for that:
+Use git-reset for that::
 
-git clone [remote_address_here] my_repo
-cd my_repo
-git reset --hard [ENTER HERE THE COMMIT HASH YOU WANT]
+    git clone [remote_address_here] my_repo
+    cd my_repo
+    git reset --hard [ENTER HERE THE COMMIT HASH YOU WANT]
 
 Undoing a "git add":
 Say you did a git add on a directory and there was a hidden directory that got added:

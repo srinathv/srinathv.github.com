@@ -152,26 +152,37 @@
 <div class="section" id="big-rules">
 <h2>Big rules</h2>
 <p>I think these are important ideas to keep in mind while using git:</p>
-<ul class="simple">
-<li>git commit individual files will verbose comments</li>
-<li>remote repos are better off as &#8220;bare&#8221; repos<ul>
-<li>these are repos that are created with
-$ git clone &#8211;bare fooRepo.git</li>
-<li>you can/should not manipulate any files in this particular directory.</li>
+<ul>
+<li><p class="first">git commit individual files will verbose comments</p>
+</li>
+<li><p class="first">remote repos are better off as &#8220;bare&#8221; repos</p>
+<ul>
+<li><p class="first">these are repos that are created with:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git clone --bare fooRepo.git
+</pre></div>
+</div>
+</li>
+<li><p class="first">you can/should not manipulate any files in this particular directory.</p>
+</li>
 </ul>
 </li>
-<li>dedicated local branches tracking remotes is very useful</li>
+<li><p class="first">dedicated local branches tracking remotes is very useful</p>
+</li>
 <li></li>
 </ul>
 <div class="section" id="want-to-see-what-will-be-pushed">
 <h3>Want to see what will be pushed</h3>
-<p>git diff &#8211;stat origin/master
-Want see repo at a certain version:
-You could &#8220;reset&#8221; your repository to any commit you want (e.g. 1 month ago).</p>
+<p>git diff &#8211;stat origin/master</p>
+</div>
+<div class="section" id="want-see-repo-at-a-certain-version">
+<h3>Want see repo at a certain version</h3>
+<p>You could &#8220;reset&#8221; your repository to any commit you want (e.g. 1 month ago).</p>
 <p>Use git-reset for that:</p>
-<p>git clone [remote_address_here] my_repo
-cd my_repo
-git reset &#8211;hard [ENTER HERE THE COMMIT HASH YOU WANT]</p>
+<div class="highlight-bash"><div class="highlight"><pre>git clone <span class="o">[</span>remote_address_here<span class="o">]</span> my_repo
+<span class="nb">cd </span>my_repo
+git reset --hard <span class="o">[</span>ENTER HERE THE COMMIT HASH YOU WANT<span class="o">]</span>
+</pre></div>
+</div>
 <p>Undoing a &#8220;git add&#8221;:
 Say you did a git add on a directory and there was a hidden directory that got added:
 $ git add foo/
