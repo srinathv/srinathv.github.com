@@ -200,6 +200,23 @@ Splitting up commits to make it more understandable
 
 Commit splitting in Git can be found `here <http://plasmasturm.org/log/530/>`_.
 
+Using github.com as webserver
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It is possible now to have github serve your webpages (obvious because you can see this page's URL).
+
+It is important to note that the github webserver uses Jekyll, and to bypass it:
+
+  From: Petros Amiridis (GitHub Staff)
+  Subject: issue with srinathv.github.com
+  
+
+  *We use Jekyll by default when we build you site. Jekyll ignores all directories that start with an underscore.  
+  It is now possible to completely bypass Jekyll processing on GitHub Pages by creating a file named* **.nojekyll** 
+  *in the root of your pages repo and pushing it to GitHub. This should only be necessary if your site uses files 
+  or directories that start with underscores since Jekyll considers these to be special resources and 
+  does not copy them to the final site.*
+
 A must for Vim users
 ~~~~~~~~~~~~~~~~~~~~
 

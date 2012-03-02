@@ -34,3 +34,10 @@ Python stuff:
 I use: ipython qtconsole --pylab inline
 GCC and OpenMP:
 adding -fopenmp will include the correct libraries.
+
+Documentating
+~~~~~~~~~~~~~
+
+Sphinx
+
+Good restructured text reference http://docutils.sourceforge.net/docs/user/rst/quickref.html_

@@ -312,6 +312,20 @@ origin zeus.aplikacja.info:cust-proj1
 <h3>Splitting up commits to make it more understandable</h3>
 <p>Commit splitting in Git can be found <a class="reference external" href="http://plasmasturm.org/log/530/">here</a>.</p>
 </div>
+<div class="section" id="using-github-com-as-webserver">
+<h3>Using github.com as webserver</h3>
+<p>It is possible now to have github serve your webpages (obvious because you can see this page&#8217;s URL).</p>
+<p>It is important to note that the github webserver uses Jekyll, and to bypass it:</p>
+<blockquote>
+<div><p>From: Petros Amiridis (GitHub Staff)
+Subject: issue with srinathv.github.com</p>
+<p><em>We use Jekyll by default when we build you site. Jekyll ignores all directories that start with an underscore.
+It is now possible to completely bypass Jekyll processing on GitHub Pages by creating a file named</em> <strong>.nojekyll</strong>
+<em>in the root of your pages repo and pushing it to GitHub. This should only be necessary if your site uses files
+or directories that start with underscores since Jekyll considers these to be special resources and
+does not copy them to the final site.</em></p>
+</div></blockquote>
+</div>
 <div class="section" id="a-must-for-vim-users">
 <h3>A must for Vim users</h3>
 <blockquote>
