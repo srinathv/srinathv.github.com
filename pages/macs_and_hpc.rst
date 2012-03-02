@@ -15,7 +15,7 @@ Making macports packages defaults
 
 Most macports built packages have the executables namespaced as 
 not clash with the system ones.  It is nice to have the option
-of making a macport built package default by changing the name.::
+of making a macport built package default by changing the name. ::
 
   port select --list
   Error: port select [--list|--set|--show] <group> [<version>]
