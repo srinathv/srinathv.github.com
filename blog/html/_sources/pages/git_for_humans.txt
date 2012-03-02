@@ -1,12 +1,13 @@
 Git for humans
 ==============
 
+.. contents:: Gett'n Git Gone
 
 
 .. highlight:: bash
-Big rules
-_________
 
+Big rules
+~~~~~~~~~
 I think these are important ideas to keep in mind while using git:
 
 - git commit individual files will verbose comments
