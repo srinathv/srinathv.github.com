@@ -2,7 +2,6 @@ Git for humans
 ==============
 
 
-Commit splitting in Git can be found `here <http://plasmasturm.org/log/530/>`_.
 
 .. highlight:: bash
 Big rules
@@ -196,6 +195,10 @@ Post-recieve hooks
 
 A very nice way of activating post-recieve hook for a git repo via `git notifier.  <http://www.icir.org/robin/git-notifier>`_.  
 
+Splitting up commits to make it more understandable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Commit splitting in Git can be found `here <http://plasmasturm.org/log/530/>`_.
 
 A must for Vim users
 ~~~~~~~~~~~~~~~~~~~~

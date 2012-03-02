@@ -148,19 +148,32 @@
     
     <div class="section" id="macs-and-hpc">
 <h1>Macs and HPC</h1>
-<p>port select &#8211;list
-Error: port select [&#8211;list|&#8211;set|&#8211;show] &lt;group&gt; [&lt;version&gt;]</p>
-<p>port select &#8211;list python
-Available versions for python:</p>
-<blockquote>
-<div>none
-python24
-python25
-python25-apple
-python26
-python26-apple
-python27 (active)
-python32</div></blockquote>
+<div class="section" id="macports-does-help">
+<h2>Macports does help</h2>
+<p>I like using macports since it really handles package dependencies well.
+I have had great sucess with macport&#8217;s built GNU compilers.</p>
+<div class="section" id="making-macports-packages-defaults">
+<h3>Making macports packages defaults</h3>
+<p>Most macports built packages have the executables namespaced as
+not clash with the system ones.  It is nice to have the option
+of making a macport built package default by changing the name.:</p>
+<div class="highlight-bash"><div class="highlight"><pre>port <span class="k">select</span> --list
+Error: port <span class="k">select</span> <span class="o">[</span>--list|--set|--show<span class="o">]</span> &lt;group&gt; <span class="o">[</span>&lt;version&gt;<span class="o">]</span>
+
+port <span class="k">select</span> --list python
+Available versions <span class="k">for </span>python:
+        none
+        python24
+        python25
+        python25-apple
+        python26
+        python26-apple
+        python27 <span class="o">(</span>active<span class="o">)</span>
+        python32
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
     
