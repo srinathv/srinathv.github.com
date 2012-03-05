@@ -1,5 +1,6 @@
 Scientific computing tools
 ==========================
+.. contents:: Help me plot, calculate, run many times and document
 
 This will test github math rendering.
 

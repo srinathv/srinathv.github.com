@@ -1,5 +1,7 @@
-Macs and HPC 
-============
+Macs and High Performance Computing 
+===================================
+
+.. contents:: What helps Macs with HPC
 
 .. highlight:: bash
 

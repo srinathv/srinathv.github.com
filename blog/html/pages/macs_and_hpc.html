@@ -12,7 +12,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Macs and HPC &mdash; Psuedoneuromancer&#39;s scientific tool chest.</title>
+    <title>Macs and High Performance Computing &mdash; Psuedoneuromancer&#39;s scientific tool chest.</title>
     
     <link rel="stylesheet" href="../_static/modern.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -76,7 +76,7 @@
             </li>
             
             <li>
-                <a href="#">Macs and HPC</a>
+                <a href="#">Macs and High Performance Computing</a>
             </li>
             
             <li>
@@ -146,16 +146,32 @@
             
     
     
-    <div class="section" id="macs-and-hpc">
-<h1>Macs and HPC</h1>
+    <div class="section" id="macs-and-high-performance-computing">
+<h1><a class="toc-backref" href="#id1">Macs and High Performance Computing</a></h1>
+<div class="contents topic" id="what-helps-macs-with-hpc">
+<p class="topic-title first">What helps Macs with HPC</p>
+<ul class="simple">
+<li><a class="reference internal" href="#macs-and-high-performance-computing" id="id1">Macs and High Performance Computing</a><ul>
+<li><a class="reference internal" href="#macports-does-help" id="id2">Macports does help</a><ul>
+<li><a class="reference internal" href="#lion-and-xcode-4-3" id="id3">Lion and Xcode &gt;=4.3</a><ul>
+<li><a class="reference internal" href="#xcode-on-mac-os-x" id="id4">Xcode on Mac OS-X</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#making-macports-packages-defaults" id="id5">Making macports packages defaults</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="macports-does-help">
-<h2>Macports does help</h2>
+<h2><a class="toc-backref" href="#id2">Macports does help</a></h2>
 <p>I like using macports since it really handles package dependencies well.
 I have had great sucess with macport&#8217;s built GNU compilers.  I need to
 investigate when ports use the LLVM vs. the gcc, but other than that most
 things are clear.  This is what I have <a class="reference download internal" href="../_downloads/sv_mp_installed.txt"><tt class="xref download docutils literal"><span class="pre">installed</span></tt></a>.</p>
 <div class="section" id="lion-and-xcode-4-3">
-<h3>Lion and Xcode &gt;=4.3</h3>
+<h3><a class="toc-backref" href="#id3">Lion and Xcode &gt;=4.3</a></h3>
 <p>It seems that there are some issues with the new Xcodes being placed only
 in the <em>/Applications</em> folder.  After you have installed Xcode and activated the
 &#8220;Command Tools&#8221; from the <em>Downloads</em> selection of Xcode&#8217;s preferences, then run</p>
@@ -166,7 +182,7 @@ in the <em>/Applications</em> folder.  After you have installed Xcode and activa
 <a class="reference external" href="https://distfiles.macports.org/MacPorts/MacPorts-2.0.4-10.7-Lion.dmg">Macports for lion</a>
 will install.</p>
 <div class="section" id="xcode-on-mac-os-x">
-<h4>Xcode on Mac OS-X</h4>
+<h4><a class="toc-backref" href="#id4">Xcode on Mac OS-X</a></h4>
 <p>One of the great things about cmake is that it supports multiple GUI development environments,
 including Xcode on the Mac, Microsoft Visual Studio on Windows, and KDevelop on Linux (and even on Mac!).</p>
 <p>Here&#8217;s how you generate an Xcode project</p>
@@ -183,7 +199,7 @@ cmake -G Xcode ../
 </div>
 </div>
 <div class="section" id="making-macports-packages-defaults">
-<h3>Making macports packages defaults</h3>
+<h3><a class="toc-backref" href="#id5">Making macports packages defaults</a></h3>
 <p>Most macports built packages have the executables namespaced as
 not clash with the system ones.  It is nice to have the option
 of making a macport built package default by changing the name.</p>
