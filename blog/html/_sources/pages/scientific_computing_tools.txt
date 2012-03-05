@@ -36,3 +36,8 @@ Sphinx
 ~~~~~~
 
 Good restructured text reference http://docutils.sourceforge.net/docs/user/rst/quickref.html_
+
+Ecplise
+~~~~~~~
+
+I am very new to Ecplise.  Need more here as I learn things.
