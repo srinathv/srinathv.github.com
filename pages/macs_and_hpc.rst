@@ -7,7 +7,10 @@ Macports does help
 -------------------
 
 I like using macports since it really handles package dependencies well.  
-I have had great sucess with macport's built GNU compilers. 
+I have had great sucess with macport's built GNU compilers.  I need to 
+investigate when ports use the LLVM vs. the gcc, but other than that most 
+things are clear.  This is what I have :download:`installed <./files/sv_mp_installed.txt>`.
+ 
 
 
 Making macports packages defaults
