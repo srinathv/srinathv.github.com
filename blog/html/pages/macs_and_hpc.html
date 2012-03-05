@@ -154,6 +154,18 @@
 I have had great sucess with macport&#8217;s built GNU compilers.  I need to
 investigate when ports use the LLVM vs. the gcc, but other than that most
 things are clear.  This is what I have <a class="reference download internal" href="../_downloads/sv_mp_installed.txt"><tt class="xref download docutils literal"><span class="pre">installed</span></tt></a>.</p>
+<div class="section" id="lion-and-xcode-4-3">
+<h3>Lion and Xcode &gt;=4.3</h3>
+<p>It seems that there are some issues with the new Xcodes being placed only
+in the <em>/Applications</em> folder.  After you have installed Xcode and activated the
+&#8220;Command Tools&#8221; from the <em>Downloads</em> selection of Xcode&#8217;s preferences, then run</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$xcode</span>-select /Aplications/Xcode
+</pre></div>
+</div>
+<p>I believe that sets where <em>xcodebuild</em> thinks Xcode lives, and now
+<a class="reference external" href="https://distfiles.macports.org/MacPorts/MacPorts-2.0.4-10.7-Lion.dmg">Macports for lion</a>
+will install.</p>
+</div>
 <div class="section" id="making-macports-packages-defaults">
 <h3>Making macports packages defaults</h3>
 <p>Most macports built packages have the executables namespaced as
