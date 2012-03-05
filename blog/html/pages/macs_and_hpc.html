@@ -165,6 +165,22 @@ in the <em>/Applications</em> folder.  After you have installed Xcode and activa
 <p>I believe that sets where <em>xcodebuild</em> thinks Xcode lives, and now
 <a class="reference external" href="https://distfiles.macports.org/MacPorts/MacPorts-2.0.4-10.7-Lion.dmg">Macports for lion</a>
 will install.</p>
+<div class="section" id="xcode-on-mac-os-x">
+<h4>Xcode on Mac OS-X</h4>
+<p>One of the great things about cmake is that it supports multiple GUI development environments,
+including Xcode on the Mac, Microsoft Visual Studio on Windows, and KDevelop on Linux (and even on Mac!).</p>
+<p>Here&#8217;s how you generate an Xcode project</p>
+<div class="highlight-bash"><div class="highlight"><pre>mkdir build_xc <span class="c"># or whatever</span>
+<span class="nb">cd </span>build_xc
+cmake -G Xcode ../
+</pre></div>
+</div>
+<p>This creates a directory called &lt;projname&gt;.xcodeproj, which you can directly open in xcode, e.g., in the finder or at the command line</p>
+<div class="highlight-bash"><div class="highlight"><pre>open &lt;projname&gt;.xcodeproj
+</pre></div>
+</div>
+<p>This knows all about running maketa and everything!</p>
+</div>
 </div>
 <div class="section" id="making-macports-packages-defaults">
 <h3>Making macports packages defaults</h3>
