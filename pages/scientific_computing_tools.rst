@@ -11,22 +11,6 @@ Yes this works.
 But what about math lines
 
 
-Xcode on Mac OS-X
-_________________
-
-One of the great things about cmake is that it supports multiple GUI development environments, including Xcode on the Mac, Microsoft Visual Studio on Windows, and KDevelop on Linux (and even on Mac!). Here's how you generate an Xcode project:
-
- mkdir build_xc # or whatever
- cd build_xc
- cmake -G Xcode ../
-This creates a directory called <projname>.xcodeproj, which you can directly open in xcode, e.g., in the finder or at the command line:
-
- open <projname>.xcodeproj
-This knows all about running maketa and everything!
-
-
-
-
 Cron stuff
 __________
 
