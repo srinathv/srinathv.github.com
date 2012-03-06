@@ -131,3 +131,20 @@ In your .bashrc use
 GIT_EDITOR='mvim -f'
 
 You need to run mvim with the -f flag so that it stays in the foreground. By default, it forks and returns control to the terminal which makes subversion think it is done.
+
+vi / vim show line number command
+
+To display line numbers along the left side of a window, type any one of the following:
+:set number
+
+or
+:set nu
+
+
+(Fig.01: Vi / Vim line numbers in action - click to enlarge image)
+To turn off line number again enter the same command:
+:set nu!
+
+If you need number every time you start vi/vim, append following line to your ~/.vimrc file:
+set number
+
