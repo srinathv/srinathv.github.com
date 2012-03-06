@@ -11,7 +11,7 @@ import tinkerer.paths
 project = 'Psuedoneuromancer\'s scientific tool chest.'                   
 
 # Change this to the tagline of your blog
-tagline = 'Things that help me explore science and mathematics.'                  
+tagline = 'Things that help Srinath Vadlamani explore science and mathematics.'                  
 
 # Change this to your name
 author = 'Srinath Vadlamani'
