@@ -12,6 +12,6 @@ Sitemap
    pages/useful_vim_ideas
    pages/macs_and_hpc
    pages/scientific_computing_tools
-   pages/about_me
    pages/snow_leopard_links
+   pages/about_me
 
