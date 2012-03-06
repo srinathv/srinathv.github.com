@@ -32,8 +32,10 @@ disqus_shortname = None
 # Change your favicon (new favicon goes in _static directory)
 html_favicon = 'tinkerer.ico'           
 
+
 # Pick another Tinkerer theme or use your own
 html_theme = "modern"
+#html_theme = "svBlog"
 
 # Theme-specific options, see docs
 html_theme_options = { }                                  
@@ -56,7 +58,7 @@ templates_path = ['_templates']
 html_static_path = ['_static', tinkerer.paths.static]
 
 # Add other theme paths here
-html_theme_path = [tinkerer.paths.themes]                 
+html_theme_path = [".",tinkerer.paths.themes]                 
 
 # Add file patterns to exclude from build
 exclude_patterns = ["drafts/*"]                                     
