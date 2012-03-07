@@ -221,4 +221,20 @@ A must for Vim users
 
   https://github.com/tpope/vim-fugitive  via. https://github.com/tpope/vim-pathogen
 
+Gitting a SVN repo
+~~~~~~~~~~~~~~~~~~
+
+*git-svn* is the intrinsic command that allows one to git clone an existing SVN repo.  
+
+Handling svn:exernals
+*********************
+
+Since git and SVN are fundamentally different, one must devise a way to handle svn:externals.  There are a few exisiting
+collections of scripts that try to address this.
+
+https://github.com/andrep/git-svn-clone-externals
+
+https://github.com/stettberger/metagit/wiki/Git-svn
+
+
 
