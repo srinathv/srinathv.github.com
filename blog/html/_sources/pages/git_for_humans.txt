@@ -22,9 +22,6 @@ I think these are important ideas to keep in mind while using git:
 
 - dedicated local branches tracking remotes is very useful
 
-
-
-
 Want to see what will be pushed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -97,11 +94,11 @@ Submodules
 This is the equivalent to svn:externals with always updating with the top level updated/
 Here is a great web link that explains in simple examples how to use use submodules.
 
-http://chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating/_
+http://chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating/
 
 Git – setting up a remote repository and doing an initial ‘push’
 
-http://thelucid.com/2008/12/02/git-setting-up-a-remote-repository-and-doing-an-initial-push/_
+http://thelucid.com/2008/12/02/git-setting-up-a-remote-repository-and-doing-an-initial-push/
 
 So, firstly setup the remote repository::
 
@@ -123,9 +120,10 @@ On local machine::
 
 
 
-All things RESET: Knowing this helps your "get GIT". 
+All things RESET
+~~~~~~~~~~~~~~~~
 
-http://progit.org/2011/07/11/reset.htmlDone_!
+Knowing this helps your "get GIT". http://progit.org/2011/07/11/reset.html
 
 
 
@@ -165,7 +163,7 @@ To not allow a repo to accept a push that would fast forward which will screw up
 
   $git config --system receive.denyNonFastForwards true
 
-(from http://randyfay.com/node/89_)
+(from http://randyfay.com/node/89)
 
 
 
@@ -173,14 +171,14 @@ To not allow a repo to accept a push that would fast forward which will screw up
 The unspeakable: reverting a git push
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  http://stackoverflow.com/questions/3012929/can-i-undo-the-last-git-push_
+  http://stackoverflow.com/questions/3012929/can-i-undo-the-last-git-push
 
 
 
 How to create branches on remotes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  http://progit.org/book/ch3-5.html_
+  http://progit.org/book/ch3-5.html
 
 Note:  The line "git checkout -b serverfix origin/serverfix" really should have a "-B", because that will reset the properties of an existing branch, while "-b" only creates new ones with trailing properties.
 
@@ -189,17 +187,17 @@ Note:  The line "git checkout -b serverfix origin/serverfix" really should have 
 Another Git tutorial
 ~~~~~~~~~~~~~~~~~~~~
 
-  The Git Guys http://www.gitguys.com/topics/_
+  The Git Guys http://www.gitguys.com/topics/
 
 Post-recieve hooks
 ~~~~~~~~~~~~~~~~~~
 
-A very nice way of activating post-recieve hook for a git repo via `git notifier.  <http://www.icir.org/robin/git-notifier>`_.  
+A very nice way of activating post-recieve hook for a git repo via `git notifier.  <http://www.icir.org/robin/git-notifier>`.  
 
 Splitting up commits to make it more understandable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Commit splitting in Git can be found `here <http://plasmasturm.org/log/530/>`_.
+Commit splitting in Git can be found `here <http://plasmasturm.org/log/530/>`.
 
 Using github.com as webserver
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -221,6 +219,6 @@ It is important to note that the github webserver uses Jekyll, and to bypass it:
 A must for Vim users
 ~~~~~~~~~~~~~~~~~~~~
 
-  https://github.com/tpope/vim-fugitive_  via. https://github.com/tpope/vim-pathogen_
+  https://github.com/tpope/vim-fugitive  via. https://github.com/tpope/vim-pathogen
 
 
