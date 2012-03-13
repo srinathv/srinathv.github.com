@@ -236,5 +236,12 @@ https://github.com/andrep/git-svn-clone-externals
 
 https://github.com/stettberger/metagit/wiki/Git-svn
 
+Want to see what is in a commit
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+A nifty way to sho commit logs and diff output each commit introduces ::
+
+  git whatchanged <SHA>
+
+where <SHA> is for a specific commit.  
 
