@@ -24,8 +24,9 @@ I think these are important ideas to keep in mind while using git:
 
 Want to see what will be pushed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This will allow you to see the difference of branch (ie. the remote) ::
 
-git diff --stat origin/master
+  git diff --stat origin/master
 
 
 Want see repo at a certain version
