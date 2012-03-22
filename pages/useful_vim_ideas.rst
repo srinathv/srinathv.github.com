@@ -148,3 +148,12 @@ To turn off line number again enter the same command:
 If you need number every time you start vi/vim, append following line to your ~/.vimrc file:
 set number
 
+
+MacVim and Ipython
+
+use https://github.com/jkitzes/ipyqtmacvim/
+
+The comands are :
+Command-4: send line to ipython qtconsole
+Command-5: run entire file.
+
