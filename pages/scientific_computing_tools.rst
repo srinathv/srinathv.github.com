@@ -51,3 +51,8 @@ Ecplise
 _______
 
 I am very new to Ecplise.  Need more here as I learn things.
+
+Fortran 2003
+____________
+
+The Object Oriented concepts implemented in fortran are nicely detailed here at http://www.pgroup.com/lit/articles/insider/v3n1a3.htm
