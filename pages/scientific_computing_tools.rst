@@ -56,6 +56,7 @@ Fortran 2003
 ____________
 
 The Object Oriented concepts implemented in fortran are nicely detailed here at http://www.pgroup.com/lit/articles/insider/v3n1a3.htm
+and at http://www.pgroup.com/lit/articles/insider/v3n2a2.htm 
 
 PGI CUDA and more
 ~~~~~~~~~~~~~~~~~
