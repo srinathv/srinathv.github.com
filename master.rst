@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2012/03/23/fortran_2003_is_going_to_make_things_very_interesting___coarrays_will_be_the_game_changer_
    2012/03/07/happy_that_github_was_quick_to_fix_the_hack_with_ssh_keys_auditing___kudos_
    2012/03/07/so_xcode_now_installs_in__applications_to_remove_the_need_for_xcode_installer__which_installed_in__developers_____confusing___use_xcode_select_to_help_things_out_
    2012/02/19/it_takes_some_time_to_organize_thoughts_on_the_interweb___tinkerer_is_very_helpful_
