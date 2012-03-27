@@ -40,6 +40,15 @@ Use git-reset for that::
     cd my_repo
     git reset --hard [ENTER HERE THE COMMIT HASH YOU WANT]
 
+Pushing to another non-bare repo using ssh
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+First, the *remote* repo must not be checked out to the branch you will push to.  You can be in the branch you will
+push. ::
+  $git checkout foo-branch
+  $git push ssh://<username>@<machine.here.com>/<path to remote repo> <remote-branch name>
+
+
 Undoing a "git add"
 ~~~~~~~~~~~~~~~~~~~
 
