@@ -14,6 +14,18 @@ Yes this works.
 
 But what about math lines
 
+Parallel debugging with GDB
+___________________________
+
+This method latches an instance of *gdb* to each process.::
+  
+  $mpirun -np <NP> xterm -e gdb ./program 
+
+which launches a *xterm* for each process.  You will have to::
+
+  $run <arg1> <arg2> ... <argN>
+
+in each *xterm* window before the program executes.
 
 Cron stuff
 __________
