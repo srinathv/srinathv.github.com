@@ -255,3 +255,42 @@ A nifty way to sho commit logs and diff output each commit introduces ::
 
 where <SHA> is for a specific commit.  
 
+Using Dropbox as a Git repository
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Yup ... to cool to be true.::
+
+  $cd ~/Dropbox
+  $mkdir -p myrepos/foo.git
+  $cd myrepos/foo.git
+  $git init --bare
+
+Now you have the bare repo in you Dropbox space.  Fairly secure place for personal stuff.  Maybe even worth paying for
+som emore space.  You can now clone from the repo (which is empty) or
+
+Pushing to Dropbox repo
+-----------------------  
+push to it from an existing repo *foo*.::
+
+  $cd ~/myWork/foo 
+  $git remote add dropbox file://$HOME/Dropbox/myrepos/foo.git
+  $git push dropbox master
+
+And you have just pushed your local *master* to the *dropbox* remote.
+
+Pulling from Dropbox repo on a different computer
+-------------------------------------------------
+
+Say you jumped on a computer that is logged into your Dropbox account, but have not cloned your *foo* repo yet.  You want to::
+  
+  $mkdir ~/myWork
+  $cd ~/myWork
+  $git clone -o dropbox file://$HOME/Dropbox/myrepos/foo.git
+
+which will make the local repo *foo* with the correct remote called *dropbox* that will merge with *master*.
+
+
+
+
+
+

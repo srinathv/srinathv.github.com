@@ -185,6 +185,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#want-to-see-what-is-in-a-commit" id="id23">Want to see what is in a commit</a></li>
+<li><a class="reference internal" href="#using-dropbox-as-a-git-repository" id="id24">Using Dropbox as a Git repository</a></li>
 </ul>
 </li>
 </ul>
@@ -405,6 +406,32 @@ collections of scripts that try to address this.</p>
 </pre></div>
 </div>
 <p>where &lt;SHA&gt; is for a specific commit.</p>
+</div>
+<div class="section" id="using-dropbox-as-a-git-repository">
+<h2><a class="toc-backref" href="#id24">Using Dropbox as a Git repository</a></h2>
+<p>Yup ... to cool to be true.:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$cd</span> ~/Dropbox
+<span class="nv">$mkdir</span> -p myrepos/foo.git
+<span class="nv">$cd</span> myrepos/foo.git
+<span class="nv">$git</span> init --bare
+</pre></div>
+</div>
+<p>Now you have the bare repo in you Dropbox space.  Fairly secure place for personal stuff.  Maybe even worth paying for
+som emore space.  You can now clone from the repo (which is empty) or</p>
+<p>push to it from an existing repo <em>foo</em>.:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$cd</span> ~/myWork/foo
+<span class="nv">$git</span> remote add dropbox file://<span class="nv">$HOME</span>/Dropbox/myrepos/foo.git
+<span class="nv">$git</span> push dropbox master
+</pre></div>
+</div>
+<p>And you have just pushed your local <em>master</em> to the <em>dropbox</em> remote.</p>
+<p>Say you jumped on a computer that is logged into your Dropbox account, but have not cloned your <em>foo</em> repo yet.  You want to:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$mkdir</span> ~/myWork
+<span class="nv">$cd</span> ~/myWork
+<span class="nv">$git</span> clone -o dropbox file://<span class="nv">$HOME</span>/Dropbox/myrepos/foo.git
+</pre></div>
+</div>
+<p>which will make the local repo <em>foo</em> with the correct remote called <em>dropbox</em> that will merge with <em>master</em>.</p>
 </div>
 </div>
 
