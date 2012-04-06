@@ -163,29 +163,30 @@
 <li><a class="reference internal" href="#git-for-humans" id="id1">Git for humans</a><ul>
 <li><a class="reference internal" href="#big-rules" id="id2">Big rules</a></li>
 <li><a class="reference internal" href="#want-to-see-what-will-be-pushed" id="id3">Want to see what will be pushed</a></li>
-<li><a class="reference internal" href="#want-see-repo-at-a-certain-version" id="id4">Want see repo at a certain version</a></li>
-<li><a class="reference internal" href="#pushing-to-another-non-bare-repo-using-ssh" id="id5">Pushing to another non-bare repo using ssh</a></li>
-<li><a class="reference internal" href="#undoing-a-git-add" id="id6">Undoing a &#8220;git add&#8221;</a></li>
-<li><a class="reference internal" href="#creating-a-bare-repo" id="id7">Creating a &#8220;bare&#8221; repo</a></li>
-<li><a class="reference internal" href="#tracking-a-remote-repo-as-branch" id="id8">Tracking a remote repo as branch</a></li>
-<li><a class="reference internal" href="#submodules" id="id9">Submodules</a></li>
-<li><a class="reference internal" href="#all-things-reset" id="id10">All things RESET</a></li>
-<li><a class="reference internal" href="#making-a-shared-repo" id="id11">Making a shared repo</a></li>
-<li><a class="reference internal" href="#clean-up-a-repo" id="id12">Clean up a repo</a></li>
-<li><a class="reference internal" href="#switching-remote" id="id13">Switching remote</a></li>
-<li><a class="reference internal" href="#the-unspeakable-reverting-a-git-push" id="id14">The unspeakable: reverting a git push</a></li>
-<li><a class="reference internal" href="#how-to-create-branches-on-remotes" id="id15">How to create branches on remotes</a></li>
-<li><a class="reference internal" href="#another-git-tutorial" id="id16">Another Git tutorial</a></li>
-<li><a class="reference internal" href="#post-recieve-hooks" id="id17">Post-recieve hooks</a></li>
-<li><a class="reference internal" href="#splitting-up-commits-to-make-it-more-understandable" id="id18">Splitting up commits to make it more understandable</a></li>
-<li><a class="reference internal" href="#using-github-com-as-webserver" id="id19">Using github.com as webserver</a></li>
-<li><a class="reference internal" href="#a-must-for-vim-users" id="id20">A must for Vim users</a></li>
-<li><a class="reference internal" href="#gitting-a-svn-repo" id="id21">Gitting a SVN repo</a><ul>
-<li><a class="reference internal" href="#handling-svn-exernals" id="id22">Handling svn:exernals</a></li>
+<li><a class="reference internal" href="#want-to-see-url-of-remote" id="id4">Want to see URL of remote</a></li>
+<li><a class="reference internal" href="#want-see-repo-at-a-certain-version" id="id5">Want see repo at a certain version</a></li>
+<li><a class="reference internal" href="#pushing-to-another-non-bare-repo-using-ssh" id="id6">Pushing to another non-bare repo using ssh</a></li>
+<li><a class="reference internal" href="#undoing-a-git-add" id="id7">Undoing a &#8220;git add&#8221;</a></li>
+<li><a class="reference internal" href="#creating-a-bare-repo" id="id8">Creating a &#8220;bare&#8221; repo</a></li>
+<li><a class="reference internal" href="#tracking-a-remote-repo-as-branch" id="id9">Tracking a remote repo as branch</a></li>
+<li><a class="reference internal" href="#submodules" id="id10">Submodules</a></li>
+<li><a class="reference internal" href="#all-things-reset" id="id11">All things RESET</a></li>
+<li><a class="reference internal" href="#making-a-shared-repo" id="id12">Making a shared repo</a></li>
+<li><a class="reference internal" href="#clean-up-a-repo" id="id13">Clean up a repo</a></li>
+<li><a class="reference internal" href="#switching-remote" id="id14">Switching remote</a></li>
+<li><a class="reference internal" href="#the-unspeakable-reverting-a-git-push" id="id15">The unspeakable: reverting a git push</a></li>
+<li><a class="reference internal" href="#how-to-create-branches-on-remotes" id="id16">How to create branches on remotes</a></li>
+<li><a class="reference internal" href="#another-git-tutorial" id="id17">Another Git tutorial</a></li>
+<li><a class="reference internal" href="#post-recieve-hooks" id="id18">Post-recieve hooks</a></li>
+<li><a class="reference internal" href="#splitting-up-commits-to-make-it-more-understandable" id="id19">Splitting up commits to make it more understandable</a></li>
+<li><a class="reference internal" href="#using-github-com-as-webserver" id="id20">Using github.com as webserver</a></li>
+<li><a class="reference internal" href="#a-must-for-vim-users" id="id21">A must for Vim users</a></li>
+<li><a class="reference internal" href="#gitting-a-svn-repo" id="id22">Gitting a SVN repo</a><ul>
+<li><a class="reference internal" href="#handling-svn-exernals" id="id23">Handling svn:exernals</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#want-to-see-what-is-in-a-commit" id="id23">Want to see what is in a commit</a></li>
-<li><a class="reference internal" href="#using-dropbox-as-a-git-repository" id="id24">Using Dropbox as a Git repository</a></li>
+<li><a class="reference internal" href="#want-to-see-what-is-in-a-commit" id="id24">Want to see what is in a commit</a></li>
+<li><a class="reference internal" href="#using-dropbox-as-a-git-repository" id="id25">Using Dropbox as a Git repository</a></li>
 </ul>
 </li>
 </ul>
@@ -218,8 +219,16 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="want-to-see-url-of-remote">
+<h2><a class="toc-backref" href="#id4">Want to see URL of remote</a></h2>
+<p>To see what is the URL of a remote and branches on the remote:</p>
+<div class="highlight-bash"><div class="highlight"><pre>git remote show origin
+</pre></div>
+</div>
+<p>or &#8220;origin&#8221; should be the nickname of the remote.</p>
+</div>
 <div class="section" id="want-see-repo-at-a-certain-version">
-<h2><a class="toc-backref" href="#id4">Want see repo at a certain version</a></h2>
+<h2><a class="toc-backref" href="#id5">Want see repo at a certain version</a></h2>
 <p>You could &#8220;reset&#8221; your repository to any commit you want (e.g. 1 month ago).</p>
 <p>Use git-reset for that:</p>
 <div class="highlight-bash"><div class="highlight"><pre>git clone <span class="o">[</span>remote_address_here<span class="o">]</span> my_repo
@@ -229,7 +238,7 @@ git reset --hard <span class="o">[</span>ENTER HERE THE COMMIT HASH YOU WANT<spa
 </div>
 </div>
 <div class="section" id="pushing-to-another-non-bare-repo-using-ssh">
-<h2><a class="toc-backref" href="#id5">Pushing to another non-bare repo using ssh</a></h2>
+<h2><a class="toc-backref" href="#id6">Pushing to another non-bare repo using ssh</a></h2>
 <p>First, the <em>remote</em> repo must not be checked out to the branch you will push to.  You can be in the branch you will
 push.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$git</span> checkout foo-branch
@@ -238,7 +247,7 @@ push.</p>
 </div>
 </div>
 <div class="section" id="undoing-a-git-add">
-<h2><a class="toc-backref" href="#id6">Undoing a &#8220;git add&#8221;</a></h2>
+<h2><a class="toc-backref" href="#id7">Undoing a &#8220;git add&#8221;</a></h2>
 <p>Say you did a git add on a directory and there was a hidden directory that got added:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git add foo/
 <span class="nv">$ </span>git status
@@ -252,7 +261,7 @@ new file:  foo/.svn/blah blah blah
 <p>The &#8220;-r&#8221; allows for the recursive removal.</p>
 </div>
 <div class="section" id="creating-a-bare-repo">
-<h2><a class="toc-backref" href="#id7">Creating a &#8220;bare&#8221; repo</a></h2>
+<h2><a class="toc-backref" href="#id8">Creating a &#8220;bare&#8221; repo</a></h2>
 <p>What I have done is take an active git repo an do the following:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$git</span> clone --bare &lt;URL/location of <span class="nb">source </span>git repo&gt; &lt;name of new bare repo&gt;.git
 </pre></div>
@@ -260,7 +269,7 @@ new file:  foo/.svn/blah blah blah
 <p>I think the .git suffix helps denote that this is a bare repo.  All the repos on GitHub have the .git suffix.</p>
 </div>
 <div class="section" id="tracking-a-remote-repo-as-branch">
-<h2><a class="toc-backref" href="#id8">Tracking a remote repo as branch</a></h2>
+<h2><a class="toc-backref" href="#id9">Tracking a remote repo as branch</a></h2>
 <p>Say you have 2 repos that you want to work with and one of these is a bare repo.
 You can set it up as a remote as:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git remote add &lt;remote branch Nick name&gt; &lt;URL to bareFoo.git&gt;
@@ -281,7 +290,7 @@ To make all pushes automatically go to tracked remote branches do:</p>
 </div>
 </div>
 <div class="section" id="submodules">
-<h2><a class="toc-backref" href="#id9">Submodules</a></h2>
+<h2><a class="toc-backref" href="#id10">Submodules</a></h2>
 <p>This is the equivalent to svn:externals with always updating with the top level updated/
 Here is a great web link that explains in simple examples how to use use submodules.</p>
 <p><a class="reference external" href="http://chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating/">http://chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating/</a></p>
@@ -307,25 +316,25 @@ git push origin master
 </div>
 </div>
 <div class="section" id="all-things-reset">
-<h2><a class="toc-backref" href="#id10">All things RESET</a></h2>
+<h2><a class="toc-backref" href="#id11">All things RESET</a></h2>
 <p>Knowing this helps your &#8220;get GIT&#8221;. <a class="reference external" href="http://progit.org/2011/07/11/reset.html">http://progit.org/2011/07/11/reset.html</a></p>
 </div>
 <div class="section" id="making-a-shared-repo">
-<h2><a class="toc-backref" href="#id11">Making a shared repo</a></h2>
+<h2><a class="toc-backref" href="#id12">Making a shared repo</a></h2>
 <p>In the bare repo itself do:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$git</span> repo-config core.sharedRepository <span class="nb">true</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="clean-up-a-repo">
-<h2><a class="toc-backref" href="#id12">Clean up a repo</a></h2>
+<h2><a class="toc-backref" href="#id13">Clean up a repo</a></h2>
 <p>Recompresses history and states.:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$git</span> gc
 </pre></div>
 </div>
 </div>
 <div class="section" id="switching-remote">
-<h2><a class="toc-backref" href="#id13">Switching remote</a></h2>
+<h2><a class="toc-backref" href="#id14">Switching remote</a></h2>
 <p>If you created your repo copy by “clone” operation you will have “origin” remote branch defined. This remote can be used to pull/push changes.:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git remote -v
 origin zeus.aplikacja.info:cust-proj1
@@ -346,31 +355,31 @@ origin zeus.aplikacja.info:cust-proj1
 <p>(from <a class="reference external" href="http://randyfay.com/node/89">http://randyfay.com/node/89</a>)</p>
 </div>
 <div class="section" id="the-unspeakable-reverting-a-git-push">
-<h2><a class="toc-backref" href="#id14">The unspeakable: reverting a git push</a></h2>
+<h2><a class="toc-backref" href="#id15">The unspeakable: reverting a git push</a></h2>
 <blockquote>
 <div><a class="reference external" href="http://stackoverflow.com/questions/3012929/can-i-undo-the-last-git-push">http://stackoverflow.com/questions/3012929/can-i-undo-the-last-git-push</a></div></blockquote>
 </div>
 <div class="section" id="how-to-create-branches-on-remotes">
-<h2><a class="toc-backref" href="#id15">How to create branches on remotes</a></h2>
+<h2><a class="toc-backref" href="#id16">How to create branches on remotes</a></h2>
 <blockquote>
 <div><a class="reference external" href="http://progit.org/book/ch3-5.html">http://progit.org/book/ch3-5.html</a></div></blockquote>
 <p>Note:  The line &#8220;git checkout -b serverfix origin/serverfix&#8221; really should have a &#8220;-B&#8221;, because that will reset the properties of an existing branch, while &#8220;-b&#8221; only creates new ones with trailing properties.</p>
 </div>
 <div class="section" id="another-git-tutorial">
-<h2><a class="toc-backref" href="#id16">Another Git tutorial</a></h2>
+<h2><a class="toc-backref" href="#id17">Another Git tutorial</a></h2>
 <blockquote>
 <div>The Git Guys <a class="reference external" href="http://www.gitguys.com/topics/">http://www.gitguys.com/topics/</a></div></blockquote>
 </div>
 <div class="section" id="post-recieve-hooks">
-<h2><a class="toc-backref" href="#id17">Post-recieve hooks</a></h2>
+<h2><a class="toc-backref" href="#id18">Post-recieve hooks</a></h2>
 <p>A very nice way of activating post-recieve hook for a git repo via <cite>git notifier.  &lt;http://www.icir.org/robin/git-notifier&gt;</cite>.</p>
 </div>
 <div class="section" id="splitting-up-commits-to-make-it-more-understandable">
-<h2><a class="toc-backref" href="#id18">Splitting up commits to make it more understandable</a></h2>
+<h2><a class="toc-backref" href="#id19">Splitting up commits to make it more understandable</a></h2>
 <p>Commit splitting in Git can be found <cite>here &lt;http://plasmasturm.org/log/530/&gt;</cite>.</p>
 </div>
 <div class="section" id="using-github-com-as-webserver">
-<h2><a class="toc-backref" href="#id19">Using github.com as webserver</a></h2>
+<h2><a class="toc-backref" href="#id20">Using github.com as webserver</a></h2>
 <p>It is possible now to have github serve your webpages (obvious because you can see this page&#8217;s URL).</p>
 <p>It is important to note that the github webserver uses Jekyll, and to bypass it:</p>
 <blockquote>
@@ -384,15 +393,15 @@ does not copy them to the final site.</em></p>
 </div></blockquote>
 </div>
 <div class="section" id="a-must-for-vim-users">
-<h2><a class="toc-backref" href="#id20">A must for Vim users</a></h2>
+<h2><a class="toc-backref" href="#id21">A must for Vim users</a></h2>
 <blockquote>
 <div><a class="reference external" href="https://github.com/tpope/vim-fugitive">https://github.com/tpope/vim-fugitive</a>  via. <a class="reference external" href="https://github.com/tpope/vim-pathogen">https://github.com/tpope/vim-pathogen</a></div></blockquote>
 </div>
 <div class="section" id="gitting-a-svn-repo">
-<h2><a class="toc-backref" href="#id21">Gitting a SVN repo</a></h2>
+<h2><a class="toc-backref" href="#id22">Gitting a SVN repo</a></h2>
 <p><em>git-svn</em> is the intrinsic command that allows one to git clone an existing SVN repo.</p>
 <div class="section" id="handling-svn-exernals">
-<h3><a class="toc-backref" href="#id22">Handling svn:exernals</a></h3>
+<h3><a class="toc-backref" href="#id23">Handling svn:exernals</a></h3>
 <p>Since git and SVN are fundamentally different, one must devise a way to handle svn:externals.  There are a few exisiting
 collections of scripts that try to address this.</p>
 <p><a class="reference external" href="https://github.com/andrep/git-svn-clone-externals">https://github.com/andrep/git-svn-clone-externals</a></p>
@@ -400,7 +409,7 @@ collections of scripts that try to address this.</p>
 </div>
 </div>
 <div class="section" id="want-to-see-what-is-in-a-commit">
-<h2><a class="toc-backref" href="#id23">Want to see what is in a commit</a></h2>
+<h2><a class="toc-backref" href="#id24">Want to see what is in a commit</a></h2>
 <p>A nifty way to sho commit logs and diff output each commit introduces</p>
 <div class="highlight-bash"><div class="highlight"><pre>git whatchanged &lt;SHA&gt;
 </pre></div>
@@ -408,7 +417,7 @@ collections of scripts that try to address this.</p>
 <p>where &lt;SHA&gt; is for a specific commit.</p>
 </div>
 <div class="section" id="using-dropbox-as-a-git-repository">
-<h2><a class="toc-backref" href="#id24">Using Dropbox as a Git repository</a></h2>
+<h2><a class="toc-backref" href="#id25">Using Dropbox as a Git repository</a></h2>
 <p>Yup ... to cool to be true.:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$cd</span> ~/Dropbox
 <span class="nv">$mkdir</span> -p myrepos/foo.git

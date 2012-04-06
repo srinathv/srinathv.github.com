@@ -28,6 +28,15 @@ This will allow you to see the difference of branch (ie. the remote) ::
 
   git diff --stat origin/master
 
+Want to see URL of remote
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To see what is the URL of a remote and branches on the remote::
+
+  git remote show origin
+
+or "origin" should be the nickname of the remote.
+
 
 Want see repo at a certain version
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
