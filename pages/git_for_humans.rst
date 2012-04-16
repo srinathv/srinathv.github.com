@@ -307,8 +307,20 @@ Say you want to compare two files that live in different branches ::
 
 It is necessary to have *difftool* set in your *.gitconfig* global file.
 
+Want to create your local branch on remote
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Suppose you branched locally to do some great development.  Now, you want to have this work also available on a remote
+(possibly at github), then you first::
 
+  $less .git/config
+
+to get the nickname of the remote you want this new branch to also reside. Then::
+
+  $git push -u <remote-name> <local-branch-name>
+
+As easy as that.  The *"-u"* will make sure your local branch now *tracks (makes the upstream)* the *new*-branch on the
+remote.  
 
 
 
