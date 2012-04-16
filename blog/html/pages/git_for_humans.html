@@ -187,6 +187,7 @@
 </li>
 <li><a class="reference internal" href="#want-to-see-what-is-in-a-commit" id="id24">Want to see what is in a commit</a></li>
 <li><a class="reference internal" href="#using-dropbox-as-a-git-repository" id="id25">Using Dropbox as a Git repository</a></li>
+<li><a class="reference internal" href="#want-to-diff-two-files-in-different-branches" id="id26">Want to diff two files in different branches</a></li>
 </ul>
 </li>
 </ul>
@@ -441,6 +442,14 @@ som emore space.  You can now clone from the repo (which is empty) or</p>
 </pre></div>
 </div>
 <p>which will make the local repo <em>foo</em> with the correct remote called <em>dropbox</em> that will merge with <em>master</em>.</p>
+</div>
+<div class="section" id="want-to-diff-two-files-in-different-branches">
+<h2><a class="toc-backref" href="#id26">Want to diff two files in different branches</a></h2>
+<p>Say you want to compare two files that live in different branches</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$git</span> difftool branch1:File1 branch2:File2
+</pre></div>
+</div>
+<p>It is necessary to have <em>difftool</em> set in your <em>.gitconfig</em> global file.</p>
 </div>
 </div>
 

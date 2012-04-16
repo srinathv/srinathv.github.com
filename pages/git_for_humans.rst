@@ -298,6 +298,17 @@ Say you jumped on a computer that is logged into your Dropbox account, but have 
 
 which will make the local repo *foo* with the correct remote called *dropbox* that will merge with *master*.
 
+Want to diff two files in different branches
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Say you want to compare two files that live in different branches ::
+
+  $git difftool branch1:File1 branch2:File2
+
+It is necessary to have *difftool* set in your *.gitconfig* global file.
+
+
+
 
 
 
