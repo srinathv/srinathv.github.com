@@ -320,7 +320,7 @@ to get the nickname of the remote you want this new branch to also reside. Then:
   $git push -u <remote-name> <local-branch-name>
 
 As easy as that.  The *"-u"* will make sure your local branch now *tracks (makes the upstream)* the *new*-branch on the
-remote.  
+remote. Merge managment is now a must. 
 
 
 
