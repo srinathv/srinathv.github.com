@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2012/04/16/openacc_may_help_with_accelerated_hardware___i_hope_the_emphasis_is_still_on_simulation_results_
    2012/03/23/fortran_2003_is_going_to_make_things_very_interesting___coarrays_will_be_the_game_changer_
    2012/03/07/happy_that_github_was_quick_to_fix_the_hack_with_ssh_keys_auditing___kudos_
    2012/03/07/so_xcode_now_installs_in__applications_to_remove_the_need_for_xcode_installer__which_installed_in__developers_____confusing___use_xcode_select_to_help_things_out_
