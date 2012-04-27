@@ -69,7 +69,7 @@ of making a macport built package default by changing the name. ::
 	  python32
 
 Mac SSD needing some help
-_________________________
+-------------------------
 
 Sometimes it seems that the SSD on my mac has issues.  I noticed that Utilities > Disk repair noted the disc needed
 repairs.  To do this I used SuperDuper to clone the drive, then I boot from the clone and ran disk repair.  That did the
