@@ -61,6 +61,13 @@ Good restructured text reference http://docutils.sourceforge.net/docs/user/rst/q
 
 Another primer for reStructuredText http://sphinx.pocoo.org/rest.html
 
+Pandoc
+~~~~~~
+
+This a pretty good text file converter http://johnmacfarlane.net/pandoc/.
+I used this to conver Latex to rst. Worked quite well.
+
+
 Ecplise
 _______
 
