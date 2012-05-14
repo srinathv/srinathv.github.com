@@ -74,3 +74,47 @@ Mac SSD needing some help
 Sometimes it seems that the SSD on my mac has issues.  I noticed that Utilities > Disk repair noted the disc needed
 repairs.  To do this I used SuperDuper to clone the drive, then I boot from the clone and ran disk repair.  That did the
 trick.  But, I also saw the need may arise to recondition the drive.  This website has useful information on this: http://macperformanceguide.com/Storage-SSD-Reconditioning.html
+
+System profiling from command line
+----------------------------------
+
+If you want to know what makes up your machine (from the command line), then *system_profile* is what to use.::
+
+  $system_profile | more
+
+should give all the specs of your machine.
+
+
+GPUs and the Macs
+-----------------
+
+GP-GPU programming is gaining massive momentum and lots of developers use Macs for the computing power and ease in a
+nice, not too heavy case.  Nvidia makes the CUDA toolkit available for free, which will allow for CUDA-C programming on
+your mac, as long as it has an NVIDIA GPU graphics card.
+
+
+OPENCL
+~~~~~~
+
+Need something here
+
+
+
+OPENACC
+~~~~~~~
+
+Need something here
+
+
+Portland Group Compilers
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Cool commands ::
+
+  $pgcpuid
+
+and ::
+
+  $pgaccelinfo
+
+
