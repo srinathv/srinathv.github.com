@@ -59,6 +59,8 @@ Sphinx
 
 Good restructured text reference http://docutils.sourceforge.net/docs/user/rst/quickref.html
 
+Another primer for reStructuredText http://sphinx.pocoo.org/rest.html
+
 Ecplise
 _______
 
