@@ -71,6 +71,89 @@ The Object Oriented concepts implemented in fortran are nicely detailed here at 
 and at http://www.pgroup.com/lit/articles/insider/v3n2a2.htm 
 
 PGI CUDA and more
-~~~~~~~~~~~~~~~~~
+_________________
 
 http://www.pgroup.com/resources/articles.htm#articles is a great resource for current fortran and other PGI activity.
+
+SSH keygen"ing"
+_______________
+
+Many remote systems require ssh for interaction.  Normally you would have to enter your login and password for that
+particular remote machine to gain access.  Instead, you can generate a ssh key-pair, of which you place the public part
+of the key on every remote machine you access.  This way, you only need to remember one password (which is the password
+you use on your local machine).
+
+Github uses the sshkey for access and has a great link at http://help.github.com/linux-set-up-git/.  The following is
+taken directly from the github page, but placed here for convinience.
+
+1.Check for SSH keys. Have an existing key pair? You can skip to Step 4.
+First, we need to check for existing ssh keys on your computer::
+
+  $ cd ~/.sshChecks to see if there is a directory named ".ssh" in your user directory
+
+If it says “No such file or directory“ skip to step 3. Otherwise continue to step 2.
+
+2.Backup and remove existing SSH keys.
+Since there is already an SSH directory you’ll want to back the old one up and remove it::
+
+  $ ls
+  config	id_rsa	id_rsa.pub	known_hosts
+  $ mkdir key_backup  
+  $ cp id_rsad
+  $ rm id_rsa
+
+3. Generate a new SSH key.
+To generate a new SSH key, enter the code below. We want the default settings so when asked to enter a file in which to save the key, just press enter.::
+
+  $ ssh-keygen -t rsa -C "your_email@youremail.com"
+  Generating public/private rsa key pair.
+  Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):<press enter>
+
+Now you need to enter a passphrase.  You must do this to insure security. ::
+
+  Enter passphrase (empty for no passphrase):<enter a passphrase>
+  Enter same passphrase again:<enter passphrase again>
+
+Which should give you something like this::
+
+  Your identification has been saved in /Users/your_user_directory/.ssh/id_rsa.
+  Your public key has been saved in /Users/your_user_directory/.ssh/id_rsa.pub.
+  The key fingerprint is:
+  01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db user_name@username.com
+  The key's randomart image is:
+  +--[ RSA 2048]----+
+  |     .+   +      |
+  |       = o O .   |
+  |        = * *    |
+  |       o = +     |
+  |      o S .      |
+  |     o o =       |
+  |      o . E      |
+  |                 |
+  |                 |
+  +-----------------+
+
+Now there is a file called *.ssh/id_rsa.pub* on your local machine.  This is the public key that will be placed on the
+remote computers.
+
+You enable key-based authentication by distributing your public key to the remote machines you wish to access. 
+This can be done with the following::
+
+ $scp ~/.ssh/id_rsa.pub username@volt:
+
+Next, ssh to the remote machine (you will still have to enter your password)and append the public key to the ~/.ssh/authorized_keys file::
+
+  $cat id_rsa.pub >> ~/.ssh/authorized_keys
+  $chmod 700 .ssh
+  $chmod 600 .ssh/authorized_keys
+  $rm id_rsa.pub
+  $exit
+
+You should install the public key in this manner on every remote machine you want to access using key-based authentication. To test your keys, try to ssh into the remote machine::
+
+  $ssh <user@<remotemachine>
+  Enter passphrase for key '/home/username/.ssh/id_rsa'
+
+Hopefully that helps reduce the number of passwords you must remember.
+
+
