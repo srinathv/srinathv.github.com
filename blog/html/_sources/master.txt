@@ -17,5 +17,6 @@ Sitemap
    pages/macs_and_hpc
    pages/scientific_computing_tools
    pages/snow_leopard_links
+   pages/compiler_fun
    pages/about_me
 
