@@ -16,6 +16,7 @@ Sitemap
    pages/useful_vim_ideas
    pages/macs_and_hpc
    pages/scientific_computing_tools
+   pages/working_with_lcfs
    pages/snow_leopard_links
    pages/compiler_fun
    pages/about_me
