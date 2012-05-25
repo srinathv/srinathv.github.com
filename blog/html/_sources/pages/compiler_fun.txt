@@ -46,6 +46,25 @@ I needed to::
   
   $export LD_LIBRARY_PATH=/scr_0/srinath/gmp/lib:/scr_0/srinath/mpc/lib:/scr_0/srinath/mpfr/lib:$LD_LIBRARY_PATH
 
-to get the correct paths set for the dynamic loader.  This trick got me past the above hurdle.
+to get the correct paths set for the dynamic loader.  This trick got me past the above hurdle. But this still did not
+allow for a complete compile.
+
+The next step was to allow for gcc to build all prerequisites in its own source file system.  Located in the initial
+tar-ball is a *contrib* directory::
+  
+  $ls contrib/download_prerequisites 
+  contrib/download_prerequisites
+  $cat contrib/download_prerequisites
+  #! /bin/sh
+
+  # Download some prerequisites needed by gcc.
+  # Run this from the top level of the gcc source tree and the gcc
+  # build will do the right thing. 
+
+This worked! So, there you have it, the best command for building gcc is this *contrib/download_prerequisites* command.
+
+
+
+
 
 

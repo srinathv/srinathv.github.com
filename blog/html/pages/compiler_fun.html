@@ -220,7 +220,21 @@ I needed to:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/scr_0/srinath/gmp/lib:/scr_0/srinath/mpc/lib:/scr_0/srinath/mpfr/lib:<span class="nv">$LD_LIBRARY_PATH</span>
 </pre></div>
 </div>
-<p>to get the correct paths set for the dynamic loader.  This trick got me past the above hurdle.</p>
+<p>to get the correct paths set for the dynamic loader.  This trick got me past the above hurdle. But this still did not
+allow for a complete compile.</p>
+<p>The next step was to allow for gcc to build all prerequisites in its own source file system.  Located in the initial
+tar-ball is a <em>contrib</em> directory:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ls</span> contrib/download_prerequisites
+contrib/download_prerequisites
+<span class="nv">$cat</span> contrib/download_prerequisites
+<span class="c">#! /bin/sh</span>
+
+<span class="c"># Download some prerequisites needed by gcc.</span>
+<span class="c"># Run this from the top level of the gcc source tree and the gcc</span>
+<span class="c"># build will do the right thing.</span>
+</pre></div>
+</div>
+<p>This worked! So, there you have it, the best command for building gcc is this <em>contrib/download_prerequisites</em> command.</p>
 </div>
 </div>
 </div>
