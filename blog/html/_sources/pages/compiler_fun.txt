@@ -64,6 +64,13 @@ tar-ball is a *contrib* directory::
 This worked! So, there you have it, the best command for building gcc is this *contrib/download_prerequisites* command.
 
 
+Cray Fortran
+____________
+
+I do work on the OLFC Jaguarpf/Titan machine and had trouble finding the manual for the new Cray fortran compiler.  So I
+manned it and made a pdf, `here <./files/crayFtnMan.pdf>` it is.
+
+
 
 
 
