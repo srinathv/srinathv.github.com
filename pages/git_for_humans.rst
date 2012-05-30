@@ -54,6 +54,7 @@ Pushing to another non-bare repo using ssh
 
 First, the *remote* repo must not be checked out to the branch you will push to.  You can be in the branch you will
 push. ::
+  
   $git checkout foo-branch
   $git push ssh://<username>@<machine.here.com>/<path to remote repo> <remote-branch name>
 
@@ -277,8 +278,10 @@ Yup ... to cool to be true.::
 Now you have the bare repo in you Dropbox space.  Fairly secure place for personal stuff.  Maybe even worth paying for
 som emore space.  You can now clone from the repo (which is empty) or
 
+
 Pushing to Dropbox repo
 -----------------------  
+
 push to it from an existing repo *foo*.::
 
   $cd ~/myWork/foo 

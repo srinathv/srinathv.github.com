@@ -21,3 +21,9 @@ http://www.olcf.ornl.gov/titan/development-tools/accelerator-compiler-directives
 Interactive Que
 ~~~~~~~~~~~~~~~
 http://www.olcf.ornl.gov/support/user-guides-policies/jaguar-xk6-user-guide/#6237
+
+User Manual
+~~~~~~~~~~~
+
+http://www.olcf.ornl.gov/support/user-guides-policies/jaguar-xk6-user-guide/
+
