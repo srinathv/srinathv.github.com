@@ -33,6 +33,6 @@ ___________________________________________
 How big must you specify *size* to PBS so you can run what you want how you want to: specifiying number of cores,
 threads, considering the numa connection, and GPU use?
 
-I have made a text file for the :download: `man of aprun <./files/aprun.txt>`.
+I have made a text file for the :download:`man of aprun <./files/aprun.txt>`.
 
 We will make examples for different combinations is a bit.
