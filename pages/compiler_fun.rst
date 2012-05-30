@@ -70,6 +70,11 @@ ____________
 I do work on the OLFC Jaguarpf/Titan machine and had trouble finding the manual for the new Cray fortran compiler.  So I
 "manned" it and made a pdf, :download:`here it is<./files/crayFtnMan.pdf>`.
 
+OLCF: Jaguar
+~~~~~~~~~~~~
+
+The website for the Jaguar User Guide: http://www.olcf.ornl.gov/support/user-guides-policies/jaguar-xk6-user-guide/
+
 
 
 
