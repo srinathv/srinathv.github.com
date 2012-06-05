@@ -52,7 +52,7 @@ Making macports packages defaults
 
 Most macports built packages have the executables namespaced as 
 not clash with the system ones.  It is nice to have the option
-of making a macport built package default by changing the name. ::
+of making a macports built package default by changing the name. ::
 
   port select --list
   Error: port select [--list|--set|--show] <group> [<version>]
@@ -67,6 +67,38 @@ of making a macport built package default by changing the name. ::
 	  python26-apple
 	  python27 (active)
 	  python32
+
+Macports OpenMPI and Totalview
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Macports namespaces its OpenMPI commands ::
+
+  openmpic++   openmpicxx   openmpif77   openmpirun   
+  openmpicc    openmpiexec  openmpif90
+
+so as to not conflict with other mpi implementations.
+This can affect your normal use of *totalview*.  To 
+use the namespaced mpi commands, you can add a
+*.tvdrc* to your home directory with the following content ::
+  dset TV::parallel_configs {
+     #Macport Open MPI
+     name:           Macport Open MPI;
+     description:    Macport Open MPI;
+     starter:        openmpirun  %s %p %a;
+     style:          bootstrap;
+     tasks_option:   -np;
+     nodes_option:   ;
+     env_option:     -x;
+     env_style:      assign;
+     env:            ;
+     comm_world:     (void *) &ompi_mpi_comm_world;
+  #    pretest:        ompi_info -c;
+  }
+
+The Parallel tab will now have a *Macports Open MPI* option.
+
+
+
 
 Mac SSD needing some help
 -------------------------
