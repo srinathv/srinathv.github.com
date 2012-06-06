@@ -57,6 +57,8 @@ _____________
 Sphinx
 ~~~~~~
 
+The best place to get started is http://sphinx.pocoo.org/tutorial.html
+
 Good restructured text reference http://docutils.sourceforge.net/docs/user/rst/quickref.html
 
 Another primer for reStructuredText http://sphinx.pocoo.org/rest.html
