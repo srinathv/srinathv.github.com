@@ -193,6 +193,22 @@ The unspeakable: reverting a git push
 
   http://stackoverflow.com/questions/3012929/can-i-undo-the-last-git-push
 
+Reverting a specific commit
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The big advantage of a DVCS is that the user can and *SHOULD* commit small and often.  Self contained changes should be
+committed.  This way if there is an issue in the future, you can use *git revert* to revert the commit as a patch, that
+is then applied at the top of the *HEAD*.  Simply, ::
+
+  $git log | less
+
+find the commit to revert, then ::
+
+  $git revert <SHA>
+
+You will then have to finish the commit, which is a patch reverting the selected commit.  
+
+
 
 
 How to create branches on remotes
