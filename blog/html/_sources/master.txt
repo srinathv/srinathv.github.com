@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2012/06/07/when_using_git__commit_often___the_smaller_the_commit_the_better___because_then_git_revert_will_save_your_day__one_day_
    2012/05/23/fortran_2003_8_standards_presented_by_dan_nagle_are_blowing_me_away___pointer_bounds_and_rank_remapping_will_have_to_be_implemented_in_any_new_codes_i_work_on_
    2012/04/16/openacc_may_help_with_accelerated_hardware___i_hope_the_emphasis_is_still_on_simulation_results_
    2012/03/23/fortran_2003_is_going_to_make_things_very_interesting___coarrays_will_be_the_game_changer_
