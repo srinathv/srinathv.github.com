@@ -106,6 +106,10 @@ To make all pushes automatically go to tracked remote branches do::
 
   $git config --global push tracking
 
+Link to using http with LDAP on a repo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+http://smecsia.me/blog/61/Git+repository+over+http+with+LDAP+auth%3A+the+easy+approach
 
 
 Submodules
