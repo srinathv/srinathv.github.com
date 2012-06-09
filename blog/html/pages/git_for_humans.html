@@ -296,15 +296,15 @@ new file:  foo/.svn/blah blah blah
 <h2><a class="toc-backref" href="#id9">Tracking a remote repo as branch</a></h2>
 <p>Say you have 2 repos that you want to work with and one of these is a bare repo.
 You can set it up as a remote as:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git remote add &lt;remote branch Nick name&gt; &lt;URL to bareFoo.git&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git remote add &lt;remote Nick name&gt; &lt;URL to bareFoo.git&gt;
 </pre></div>
 </div>
-<p>Then you must get git to understand to interact with the remote once before tracking.  This remote may have a slew of branches.:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$git</span> fetch &lt;remote branch Nick Name&gt;
+<p>Then you must get git to understand how to interact with the remote once before tracking.  This remote may have a slew of branches.:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$git</span> fetch &lt;remote Nick Name&gt;
 </pre></div>
 </div>
 <p>Once that is done then the following will create a branch that will track this repo:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git branch --track &lt;<span class="nb">local </span>Branch name&gt; &lt;branch Nick Name&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git branch --track &lt;<span class="nb">local </span>Branch name&gt; &lt;remote Nick Name&gt;/&lt;desired branch name&gt;
 </pre></div>
 </div>
 <p>Bam...now you have a branch that will pull from the &lt;bareFoo&gt; git repo.

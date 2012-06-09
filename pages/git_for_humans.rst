@@ -91,15 +91,15 @@ Tracking a remote repo as branch
 Say you have 2 repos that you want to work with and one of these is a bare repo.
 You can set it up as a remote as::
 
-  $ git remote add <remote branch Nick name> <URL to bareFoo.git>
+  $ git remote add <remote Nick name> <URL to bareFoo.git>
 
-Then you must get git to understand to interact with the remote once before tracking.  This remote may have a slew of branches.::
+Then you must get git to understand how to interact with the remote once before tracking.  This remote may have a slew of branches.::
 
-  $git fetch <remote branch Nick Name>
+  $git fetch <remote Nick Name>
 
 Once that is done then the following will create a branch that will track this repo::
 
-  $ git branch --track <local Branch name> <branch Nick Name>
+  $ git branch --track <local Branch name> <remote Nick Name>/<desired branch name>
 
 Bam...now you have a branch that will pull from the <bareFoo> git repo. 
 To make all pushes automatically go to tracked remote branches do::
