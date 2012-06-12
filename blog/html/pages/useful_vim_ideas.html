@@ -183,22 +183,23 @@
 <ul class="simple">
 <li><a class="reference internal" href="#vim-ideas" id="id1">Vim ideas</a><ul>
 <li><a class="reference internal" href="#macvim-background-transparancy" id="id2">MacVim Background Transparancy</a></li>
-<li><a class="reference internal" href="#delete-lines-with-a-pattern" id="id3">Delete lines with a pattern</a></li>
-<li><a class="reference internal" href="#etags" id="id4">Etags</a></li>
-<li><a class="reference internal" href="#for-fortran-free-highlighting" id="id5">For Fortran free highlighting</a></li>
-<li><a class="reference internal" href="#bufexplorer" id="id6">Bufexplorer</a></li>
-<li><a class="reference internal" href="#avoiding-the-esc-keyedit" id="id7">Avoiding the Esc keyEdit</a></li>
-<li><a class="reference internal" href="#to-clear-highlighting" id="id8">To clear highlighting</a></li>
-<li><a class="reference internal" href="#upper-and-lower-casing" id="id9">Upper and lower casing</a></li>
-<li><a class="reference internal" href="#matching-braces-and-more-with-use-if" id="id10">Matching braces and more with use if &#8220;%&#8221;</a></li>
-<li><a class="reference internal" href="#working-with-multiple-files" id="id11">Working with multiple files</a></li>
-<li><a class="reference internal" href="#formatting-text" id="id12">Formatting text</a></li>
-<li><a class="reference internal" href="#replacing-example" id="id13">Replacing example</a></li>
-<li><a class="reference internal" href="#opening-and-closing-folds" id="id14">Opening and closing folds</a></li>
-<li><a class="reference internal" href="#date-and-time-insert" id="id15">Date and time insert</a></li>
-<li><a class="reference internal" href="#using-macvim-as-your-svn-or-git-editor" id="id16">Using MacVim as your SVN or GIT editor</a></li>
-<li><a class="reference internal" href="#display-line-numbers-in-left-column" id="id17">Display line numbers in left column</a></li>
-<li><a class="reference internal" href="#macvim-and-ipython" id="id18">MacVim and Ipython</a></li>
+<li><a class="reference internal" href="#making-macvim-case-sensitive-to-file-names" id="id3">Making MacVim case sensitive to file names</a></li>
+<li><a class="reference internal" href="#delete-lines-with-a-pattern" id="id4">Delete lines with a pattern</a></li>
+<li><a class="reference internal" href="#etags" id="id5">Etags</a></li>
+<li><a class="reference internal" href="#for-fortran-free-highlighting" id="id6">For Fortran free highlighting</a></li>
+<li><a class="reference internal" href="#bufexplorer" id="id7">Bufexplorer</a></li>
+<li><a class="reference internal" href="#avoiding-the-esc-keyedit" id="id8">Avoiding the Esc keyEdit</a></li>
+<li><a class="reference internal" href="#to-clear-highlighting" id="id9">To clear highlighting</a></li>
+<li><a class="reference internal" href="#upper-and-lower-casing" id="id10">Upper and lower casing</a></li>
+<li><a class="reference internal" href="#matching-braces-and-more-with-use-if" id="id11">Matching braces and more with use if &#8220;%&#8221;</a></li>
+<li><a class="reference internal" href="#working-with-multiple-files" id="id12">Working with multiple files</a></li>
+<li><a class="reference internal" href="#formatting-text" id="id13">Formatting text</a></li>
+<li><a class="reference internal" href="#replacing-example" id="id14">Replacing example</a></li>
+<li><a class="reference internal" href="#opening-and-closing-folds" id="id15">Opening and closing folds</a></li>
+<li><a class="reference internal" href="#date-and-time-insert" id="id16">Date and time insert</a></li>
+<li><a class="reference internal" href="#using-macvim-as-your-svn-or-git-editor" id="id17">Using MacVim as your SVN or GIT editor</a></li>
+<li><a class="reference internal" href="#display-line-numbers-in-left-column" id="id18">Display line numbers in left column</a></li>
+<li><a class="reference internal" href="#macvim-and-ipython" id="id19">MacVim and Ipython</a></li>
 </ul>
 </li>
 </ul>
@@ -212,18 +213,35 @@ Then you can:</p>
 </div>
 <p>in your .gvimrc</p>
 </div>
+<div class="section" id="making-macvim-case-sensitive-to-file-names">
+<h2><a class="toc-backref" href="#id3">Making MacVim case sensitive to file names</a></h2>
+<p>Clone from github: <a class="reference external" href="https://github.com/b4winckler/macvim">https://github.com/b4winckler/macvim</a></p>
+<p>Build instruction here: <a class="reference external" href="https://github.com/b4winckler/macvim/wiki/Building">https://github.com/b4winckler/macvim/wiki/Building</a></p>
+<p>Uncomment the following 2 in os_mac.h:</p>
+<div class="highlight-vim"><div class="highlight"><pre>#<span class="nb">define</span> CASE_INSENSITIVE_FILENAME   <span class="sr">/* ignore case when comparing file names */</span>
+#<span class="nb">define</span> USE_FNAME_CASE                /* <span class="k">make</span> <span class="s2">&quot;:e os_Mac.c&quot;</span> open <span class="k">the</span> <span class="k">file</span> <span class="k">in</span> its
+                                 original case<span class="p">,</span> <span class="k">as</span> <span class="c">&quot;os_mac.c&quot; */</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>I did by adding at the end of the file::</dt>
+<dd>#undef CASE_INSENSITIVE_FILENAME
+#undef USE_FNAME_CASE</dd>
+</dl>
+<p>And follow the direction for build and install.</p>
+</div>
 <div class="section" id="delete-lines-with-a-pattern">
-<h2><a class="toc-backref" href="#id3">Delete lines with a pattern</a></h2>
+<h2><a class="toc-backref" href="#id4">Delete lines with a pattern</a></h2>
 <p><a class="reference external" href="http://vim.wikia.com/wiki/Best_Vim_Tips">http://vim.wikia.com/wiki/Best_Vim_Tips</a></p>
 <p>delete all lines containing a pattern</p>
 </div>
 <div class="section" id="etags">
-<h2><a class="toc-backref" href="#id4">Etags</a></h2>
+<h2><a class="toc-backref" href="#id5">Etags</a></h2>
 <p>Using etags: Ctrl-] and Ctrl-T (returns)</p>
 <p>Using cscope: Ctrl-s and Ctrl(space)s</p>
 </div>
 <div class="section" id="for-fortran-free-highlighting">
-<h2><a class="toc-backref" href="#id5">For Fortran free highlighting</a></h2>
+<h2><a class="toc-backref" href="#id6">For Fortran free highlighting</a></h2>
 <p>In your .vimrc</p>
 <div class="highlight-vim"><div class="highlight"><pre><span class="k">filetype</span> plugin indent <span class="k">on</span>
 
@@ -241,7 +259,7 @@ Then you can:</p>
 </div>
 </div>
 <div class="section" id="bufexplorer">
-<h2><a class="toc-backref" href="#id6">Bufexplorer</a></h2>
+<h2><a class="toc-backref" href="#id7">Bufexplorer</a></h2>
 <p>With bufexplorer, you can quickly and easily switch between buffers by using the one of the default public interfaces:</p>
 <blockquote>
 <div><p>&#8216;be&#8217; (normal open)  or</p>
@@ -250,7 +268,7 @@ Then you can:</p>
 </div></blockquote>
 </div>
 <div class="section" id="avoiding-the-esc-keyedit">
-<h2><a class="toc-backref" href="#id7">Avoiding the Esc keyEdit</a></h2>
+<h2><a class="toc-backref" href="#id8">Avoiding the Esc keyEdit</a></h2>
 <p>Pressing</p>
 <div class="highlight-vim"><div class="highlight"><pre>Ctrl<span class="p">-</span>[ <span class="p">(</span>control plus <span class="k">left</span> square bracket<span class="p">)</span>
 </pre></div>
@@ -258,14 +276,14 @@ Then you can:</p>
 <p>is equivalent to pressing Esc. On a US keyboard, pressing Ctrl-[ is an easy way to exit from insert mode.</p>
 </div>
 <div class="section" id="to-clear-highlighting">
-<h2><a class="toc-backref" href="#id8">To clear highlighting</a></h2>
+<h2><a class="toc-backref" href="#id9">To clear highlighting</a></h2>
 <p>In order to use &#8220;space&#8221; to get rid of highlighting after a search, add the following to your .vimrc</p>
 <div class="highlight-vim"><div class="highlight"><pre><span class="p">:</span><span class="nb">noremap</span> <span class="p">&lt;</span><span class="k">silent</span><span class="p">&gt;</span> <span class="p">&lt;</span>Space<span class="p">&gt;</span> :<span class="k">silent</span> <span class="k">noh</span><span class="p">&lt;</span>Bar<span class="p">&gt;</span>echo<span class="p">&lt;</span>CR<span class="p">&gt;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="upper-and-lower-casing">
-<h2><a class="toc-backref" href="#id9">Upper and lower casing</a></h2>
+<h2><a class="toc-backref" href="#id10">Upper and lower casing</a></h2>
 <p>To make text lowercase use</p>
 <div class="highlight-vim"><div class="highlight"><pre><span class="p">:</span>gu
 </pre></div>
@@ -284,13 +302,13 @@ Then you can:</p>
 </div>
 </div>
 <div class="section" id="matching-braces-and-more-with-use-if">
-<h2><a class="toc-backref" href="#id10">Matching braces and more with use if &#8220;%&#8221;</a></h2>
+<h2><a class="toc-backref" href="#id11">Matching braces and more with use if &#8220;%&#8221;</a></h2>
 <p>To jump to the matching parenthesis, square bracket or a curly brace, place the cursor the first, the press &#8220;%&#8221;
 and you will jump to the match.  This works with C-style comments, preprocessor conditionals, and keywords
 stated in support ftplugin files.</p>
 </div>
 <div class="section" id="working-with-multiple-files">
-<h2><a class="toc-backref" href="#id11">Working with multiple files</a></h2>
+<h2><a class="toc-backref" href="#id12">Working with multiple files</a></h2>
 <p>:e filename - Edit a file in a new buffer</p>
 <p>:bnext (or :bn) - go to next buffer</p>
 <p>:bprev (of :bp) - go to previous buffer</p>
@@ -302,7 +320,7 @@ stated in support ftplugin files.</p>
 <p>ctrl+wv - Split windows vertically</p>
 </div>
 <div class="section" id="formatting-text">
-<h2><a class="toc-backref" href="#id12">Formatting text</a></h2>
+<h2><a class="toc-backref" href="#id13">Formatting text</a></h2>
 <p>:.!fmt  Format the current line only (Unix)</p>
 <p>!}fmt   Format the current paragraph, (e.g., to next whitepspace; UNIX)</p>
 <p>!3}fmt  Format the current and next two paragraphs (or next n-1; UNIX)</p>
@@ -317,7 +335,7 @@ stated in support ftplugin files.</p>
 <p>will  format everything from the current location to the end of the file to 80 column.</p>
 </div>
 <div class="section" id="replacing-example">
-<h2><a class="toc-backref" href="#id13">Replacing example</a></h2>
+<h2><a class="toc-backref" href="#id14">Replacing example</a></h2>
 <p>yiw     yank inner word (copy word under cursor, say &#8220;first&#8221;).
 ...     Move the cursor to another word (say &#8220;second&#8221;).
 viwp    select &#8220;second&#8221;, then replace it with &#8220;first&#8221;.
@@ -331,21 +349,21 @@ Vp      select &#8220;second line&#8221;, then replace it with &#8220;first line
 V&#8221;0p    select &#8220;third line&#8221;, then replace it with &#8220;first line&#8221;.</p>
 </div>
 <div class="section" id="opening-and-closing-folds">
-<h2><a class="toc-backref" href="#id14">Opening and closing folds</a></h2>
+<h2><a class="toc-backref" href="#id15">Opening and closing folds</a></h2>
 <p>The command zc will close a fold (if the cursor is in an open fold), and zo will open a fold (if the cursor is in a closed fold). It&#8217;s easier to just use za which will toggle the current fold (close it if it was open, or open it if it was closed).
 The commands zc (close), zo (open), and za (toggle) operate on one level of folding, at the cursor. The commands zC, zO and zA are similar, but operate on all folding levels (for example, the cursor line may be in an open fold, which is inside another open fold; typing zC would close all folds at the cursor).</p>
 <p>The command zr reduces folding by opening one more level of folds throughout the whole buffer (the cursor position is not relevant). Use zR to open all folds.</p>
 <p>The command zm gives more folding by closing one more level of folds throughout the whole buffer. Use zM to close all folds.</p>
 </div>
 <div class="section" id="date-and-time-insert">
-<h2><a class="toc-backref" href="#id15">Date and time insert</a></h2>
+<h2><a class="toc-backref" href="#id16">Date and time insert</a></h2>
 <p>To insert date</p>
 <div class="highlight-vim"><div class="highlight"><pre><span class="p">:</span><span class="k">r</span> <span class="p">!</span>date
 </pre></div>
 </div>
 </div>
 <div class="section" id="using-macvim-as-your-svn-or-git-editor">
-<h2><a class="toc-backref" href="#id16">Using MacVim as your SVN or GIT editor</a></h2>
+<h2><a class="toc-backref" href="#id17">Using MacVim as your SVN or GIT editor</a></h2>
 <p>In your .bashrc use:</p>
 <div class="highlight-vim"><div class="highlight"><pre>GIT_EDITOR<span class="p">=</span><span class="s1">&#39;mvim -f&#39;</span>
 </pre></div>
@@ -353,7 +371,7 @@ The commands zc (close), zo (open), and za (toggle) operate on one level of fold
 <p>You need to run mvim with the -f flag so that it stays in the foreground. By default, it forks and returns control to the terminal which makes subversion think it is done.</p>
 </div>
 <div class="section" id="display-line-numbers-in-left-column">
-<h2><a class="toc-backref" href="#id17">Display line numbers in left column</a></h2>
+<h2><a class="toc-backref" href="#id18">Display line numbers in left column</a></h2>
 <dl class="docutils">
 <dt>To display line numbers along the left side of a window, type any one of the following::</dt>
 <dd>:set number</dd>
@@ -370,7 +388,7 @@ The commands zc (close), zo (open), and za (toggle) operate on one level of fold
 </div>
 </div>
 <div class="section" id="macvim-and-ipython">
-<h2><a class="toc-backref" href="#id18">MacVim and Ipython</a></h2>
+<h2><a class="toc-backref" href="#id19">MacVim and Ipython</a></h2>
 <p>use <a class="reference external" href="https://github.com/jkitzes/ipyqtmacvim/">https://github.com/jkitzes/ipyqtmacvim/</a></p>
 <p>The comands are :
 Command-4: send line to ipython qtconsole

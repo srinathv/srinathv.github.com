@@ -14,6 +14,26 @@ Then you can::
  
 in your .gvimrc
 
+Making MacVim case sensitive to file names
+__________________________________________
+
+Clone from github: https://github.com/b4winckler/macvim
+
+Build instruction here: https://github.com/b4winckler/macvim/wiki/Building
+
+Uncomment the following 2 in os_mac.h::
+
+  #define CASE_INSENSITIVE_FILENAME   /* ignore case when comparing file names */
+  #define USE_FNAME_CASE                /* make ":e os_Mac.c" open the file in its
+                                   original case, as "os_mac.c" */
+I did by adding at the end of the file::
+  #undef CASE_INSENSITIVE_FILENAME 
+  #undef USE_FNAME_CASE 
+
+And follow the direction for build and install.
+
+
+
 
 Delete lines with a pattern
 ___________________________
