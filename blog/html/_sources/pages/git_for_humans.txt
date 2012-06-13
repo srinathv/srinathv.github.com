@@ -121,6 +121,7 @@ Here is a great web link that explains in simple examples how to use use submodu
 http://chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating/
 
 Git – setting up a remote repository and doing an initial ‘push’
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 http://thelucid.com/2008/12/02/git-setting-up-a-remote-repository-and-doing-an-initial-push/
 
