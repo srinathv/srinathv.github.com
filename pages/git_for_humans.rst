@@ -346,6 +346,11 @@ to get the nickname of the remote you want this new branch to also reside. Then:
 As easy as that.  The *"-u"* will make sure your local branch now *tracks (makes the upstream)* the *new*-branch on the
 remote. Merge managment is now a must. 
 
+Aliases
+~~~~~~~
+
+This wiki page explains how to configure git to recognize aliases.  https://git.wiki.kernel.org/index.php/Aliases#Aliases
+
 
 
 
