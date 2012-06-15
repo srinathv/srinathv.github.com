@@ -78,6 +78,11 @@ Cray Fortran
 I do work on the OLFC Jaguarpf/Titan machine and had trouble finding the manual for the new Cray fortran compiler.  So I
 "manned" it and made a pdf, :download:`here it is<./files/crayFtnMan.pdf>`.
 
+profiling
+~~~~~~~~~
+
+A man of intro_craypat is :download:`here <./files/introCrayPat.txt>`.
+
 
 
 
