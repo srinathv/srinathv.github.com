@@ -22,6 +22,14 @@ Interactive Que
 ~~~~~~~~~~~~~~~
 http://www.olcf.ornl.gov/support/user-guides-policies/jaguar-xk6-user-guide/#6237
 
+CrayPat: Cray profiler
+~~~~~~~~~~~~~~~~~~~~~~
+
+http://www.olcf.ornl.gov/kb_articles/software-jaguar-craypat/
+
+There is system variable that lets you change the location of .craypat, which seems to hold all the object files that have
+interted hooks for profiling.  Search for *.craypat* in this webpage.
+
 User Manual
 ~~~~~~~~~~~
 

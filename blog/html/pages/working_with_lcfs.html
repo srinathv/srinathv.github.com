@@ -185,10 +185,11 @@
 <li><a class="reference internal" href="#links-for-jaguar-titan" id="id2">Links for Jaguar/Titan</a><ul>
 <li><a class="reference internal" href="#pgi-accelerator" id="id3">PGI Accelerator</a></li>
 <li><a class="reference internal" href="#interactive-que" id="id4">Interactive Que</a></li>
-<li><a class="reference internal" href="#user-manual" id="id5">User Manual</a></li>
+<li><a class="reference internal" href="#craypat-cray-profiler" id="id5">CrayPat: Cray profiler</a></li>
+<li><a class="reference internal" href="#user-manual" id="id6">User Manual</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#how-to-figure-out-size-and-flags-to-aprun" id="id6">How to figure out &#8220;size&#8221; and flags to aprun</a></li>
+<li><a class="reference internal" href="#how-to-figure-out-size-and-flags-to-aprun" id="id7">How to figure out &#8220;size&#8221; and flags to aprun</a></li>
 </ul>
 </li>
 </ul>
@@ -204,13 +205,19 @@
 <h3><a class="toc-backref" href="#id4">Interactive Que</a></h3>
 <p><a class="reference external" href="http://www.olcf.ornl.gov/support/user-guides-policies/jaguar-xk6-user-guide/#6237">http://www.olcf.ornl.gov/support/user-guides-policies/jaguar-xk6-user-guide/#6237</a></p>
 </div>
+<div class="section" id="craypat-cray-profiler">
+<h3><a class="toc-backref" href="#id5">CrayPat: Cray profiler</a></h3>
+<p><a class="reference external" href="http://www.olcf.ornl.gov/kb_articles/software-jaguar-craypat/">http://www.olcf.ornl.gov/kb_articles/software-jaguar-craypat/</a></p>
+<p>There is system variable that lets you change the location of .craypat, which seems to hold all the object files that have
+interted hooks for profiling.  Search for <em>.craypat</em> in this webpage.</p>
+</div>
 <div class="section" id="user-manual">
-<h3><a class="toc-backref" href="#id5">User Manual</a></h3>
+<h3><a class="toc-backref" href="#id6">User Manual</a></h3>
 <p><a class="reference external" href="http://www.olcf.ornl.gov/support/user-guides-policies/jaguar-xk6-user-guide/">http://www.olcf.ornl.gov/support/user-guides-policies/jaguar-xk6-user-guide/</a></p>
 </div>
 </div>
 <div class="section" id="how-to-figure-out-size-and-flags-to-aprun">
-<h2><a class="toc-backref" href="#id6">How to figure out &#8220;size&#8221; and flags to aprun</a></h2>
+<h2><a class="toc-backref" href="#id7">How to figure out &#8220;size&#8221; and flags to aprun</a></h2>
 <p>How big must you specify <em>size</em> to PBS so you can run what you want how you want to: specifiying number of cores,
 threads, considering the numa connection, and GPU use?</p>
 <p>I have made a text file for the <a class="reference download internal" href="../_downloads/aprun.txt"><tt class="xref download docutils literal"><span class="pre">man</span> <span class="pre">of</span> <span class="pre">aprun</span></tt></a>.</p>
