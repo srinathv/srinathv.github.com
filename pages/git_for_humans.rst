@@ -22,6 +22,14 @@ I think these are important ideas to keep in mind while using git:
 
 - dedicated local branches tracking remotes is very useful
 
+Best depiction of git
+~~~~~~~~~~~~~~~~~~~~~
+
+This website gives a diagram represenation of git. **A MUST SEE**
+
+http://ndpsoftware.com/git-cheatsheet.html
+
+
 Want to see what will be pushed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 This will allow you to see the difference of branch (ie. the remote) ::
