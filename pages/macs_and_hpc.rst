@@ -25,6 +25,16 @@ in the */Applications* folder.  After you have installed Xcode and activated the
 I believe that sets where *xcodebuild* thinks Xcode lives, and now
 `Macports for lion <https://distfiles.macports.org/MacPorts/MacPorts-2.0.4-10.7-Lion.dmg>`_
 will install.
+
+Mountain Lion
+~~~~~~~~~~~~~
+
+It seems there are lots of issues with Mountain Lion and Macports.  One possible thing to do from the terminal ::
+
+  $sudo xcodebuild -license
+
+may help fix some issues.  Also the above code select may help.
+
    
 Xcode on Mac OS-X
 +++++++++++++++++
