@@ -354,6 +354,19 @@ to get the nickname of the remote you want this new branch to also reside. Then:
 As easy as that.  The *"-u"* will make sure your local branch now *tracks (makes the upstream)* the *new*-branch on the
 remote. Merge managment is now a must. 
 
+Want to delete branch on remote
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To delete a branch on a remote repo you must::
+  
+  $git push <remote nickname> :<branch name on remote>
+
+Do note the ":" before the branch name.  And you must also::
+  
+  $git branch -D <local branch name>
+
+to remove the local branch.
+
 Aliases
 ~~~~~~~
 

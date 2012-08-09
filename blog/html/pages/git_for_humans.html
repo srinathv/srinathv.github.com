@@ -214,7 +214,8 @@
 <li><a class="reference internal" href="#using-dropbox-as-a-git-repository" id="id29">Using Dropbox as a Git repository</a></li>
 <li><a class="reference internal" href="#want-to-diff-two-files-in-different-branches" id="id30">Want to diff two files in different branches</a></li>
 <li><a class="reference internal" href="#want-to-create-your-local-branch-on-remote" id="id31">Want to create your local branch on remote</a></li>
-<li><a class="reference internal" href="#aliases" id="id32">Aliases</a></li>
+<li><a class="reference internal" href="#want-to-delete-branch-on-remote" id="id32">Want to delete branch on remote</a></li>
+<li><a class="reference internal" href="#aliases" id="id33">Aliases</a></li>
 </ul>
 </li>
 </ul>
@@ -517,8 +518,20 @@ som emore space.  You can now clone from the repo (which is empty) or</p>
 <p>As easy as that.  The <em>&#8220;-u&#8221;</em> will make sure your local branch now <em>tracks (makes the upstream)</em> the <em>new</em>-branch on the
 remote. Merge managment is now a must.</p>
 </div>
+<div class="section" id="want-to-delete-branch-on-remote">
+<h2><a class="toc-backref" href="#id32">Want to delete branch on remote</a></h2>
+<p>To delete a branch on a remote repo you must:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$git</span> push &lt;remote nickname&gt; :&lt;branch name on remote&gt;
+</pre></div>
+</div>
+<p>Do note the &#8221;:&#8221; before the branch name.  And you must also:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$git</span> branch -D &lt;<span class="nb">local </span>branch name&gt;
+</pre></div>
+</div>
+<p>to remove the local branch.</p>
+</div>
 <div class="section" id="aliases">
-<h2><a class="toc-backref" href="#id32">Aliases</a></h2>
+<h2><a class="toc-backref" href="#id33">Aliases</a></h2>
 <p>This wiki page explains how to configure git to recognize aliases.  <a class="reference external" href="https://git.wiki.kernel.org/index.php/Aliases#Aliases">https://git.wiki.kernel.org/index.php/Aliases#Aliases</a></p>
 </div>
 </div>
