@@ -1,0 +1,1614 @@
+intro_craypat()                                    Last changed: 03-01-2012
+
+
+NAME
+     intro_craypat - Introduces CrayPat, the Cray Performance Analysis Tool
+
+IMPLEMENTATION
+     Cray Linux Environment (CLE)
+
+DESCRIPTION
+     CrayPat is an optional performance analysis tool used to evaluate
+     program behavior on Cray supercomputer systems. CrayPat consists of
+     the following major components.
+
+     ·  pat_build — instruments the program to be analyzed.
+
+     ·  pat_report — generates text reports from the performance data
+        captured during program execution and exports data for use in other
+        programs.
+
+     ·  pat_help — online help system, which contains extensive usage
+        information and examples. This help system can be accessed by
+        entering pat_help at the command line.
+
+     ·  Cray Apprentice2 — a graphical analysis tool that can be used to
+        visualize and explore the performance data captured during program
+        execution
+
+     The individual components of CrayPat are documented in the
+     pat_build(1), pat_report(1), pat_help(1), and app2(1) man pages. In
+     addition, more information about hardware performance counters is
+     found in the hwpc(5) man page, more information about Gemini network
+     performance counters is found in the nwpc(5) man page, and more
+     information about the Performance API (PAPI) is found in the
+     papi_counters(5) man page.
+
+   BASIC USAGE
+     CrayPat is a highly flexible tool with many options. Basic usage,
+     however, consists of the same general steps.
+
+     1. Start with a debugged and executable program. CrayPat is a
+        performance analysis tool, not a debugging tool. The program must
+        be capable of running to planned completion or intentional
+        termination before CrayPat can be useful.
+
+     2. Load the programming environment module. This ensures that the
+        correct links and libraries are in place for your choice of
+        compiler. Even if you do not need to recompile or remake your
+        program, this step is necessary.
+
+        % module load PrgEnv-compiler
+
+
+     3. Load the accelerator module. [OPTIONAL: Cray XK systems only] This
+        ensures that the correct links and libraries are in place for your
+        choice of accelerator.
+
+        % module load xtpe-accel-GPU
+
+
+     4. Load the CrayPat module. This ensures that the correct links and
+        libraries are in place for instrumenting your program.
+
+        % module load perftools
+
+
+     5. If necessary, recompile and relink your program. CrayPat requires
+        access to the object (and archive, if any) files created during
+        compilation. If you did not use your compiler's option (typically,
+        -c) to preserve all .o files (and .a files, if any) created during
+        compilation, or if you are using the CrayPat API to insert specific
+        instructions into your source code, you must recompile or remake
+        your program after loading the CrayPat module. At a minimum, you
+        should relink your program to ensure that it has access to the
+        CrayPat libraries.
+
+     6. Instrument your program. Use the pat_build(1) command to insert
+        analytical instructions at key points in the program. The
+        instrumented copy is saved under a new name with the extension
+        +pat; the original program remains unchanged.
+
+        For example, to instrument a program so that it traces MPI function
+        calls, enter this command.
+
+        % pat_build -g mpi -u myprogram
+
+
+        This produces the instrumented executable, myprogram+pat.
+
+               Note:  It may be necessary to rename your program. Special
+               characters in an executable file name, such as the colon (:)
+               character, may in some cases prevent a valid experiment data
+               file from being written.
+
+        The pat_build command is a powerful tool that supports a wide
+        variety of options and arguments. For more information about using
+        pat_build, see the pat_build(1) man page.
+
+     7. Set runtime environment variables. If desired, set environment
+        variables to control the behavior of the instrumented program
+        during execution. For example, if you use the C shell and want to
+        collect data in detail rather than in aggregate, enter this
+        command:
+
+        % setenv PAT_RT_SUMMARY 0
+
+
+        The CrayPat runtime environment variables are described in greater
+        detail elsewhere in this man page.
+
+     8. Execute the program. During execution, the specified performance
+        analysis data is collected in real-time and written to one or more
+        data files.
+
+        By default, data files are written to the execution directory. This
+        directory must reside on a file system that supports record
+        locking, such as the Lustre file system or a similar high-
+        performance file system. If necessary, set the PAT_RT_EXPFILE_DIR
+        environment variable to point to an existing directory that resides
+        on a high-performance file system.
+
+        The behavior of CrayPat when writing data files is described in
+        more detail in the PAT_RT_EXPFILE_MAX environment variable
+        description.
+
+        To execute a program in interactive mode, enter this command.
+
+        % aprun myprogram+pat
+
+
+        On systems using the PBS Pro batch environment or a similar batch
+        management system, jobs are generally submitted using the qsub(1B)
+        command or its equivalent.
+
+     9. Report the results. After program execution completes or
+        terminates, use the pat_report(1) command to view and interpret the
+        resulting data.
+
+        % pat_report myprogram+pat[-app#]+PID-nodes|t.xf
+        Output redirected to: myprogram+pat[-app#]+PID-nodes|t.ap2
+
+        % pat_report myprogram+pat[-app#]+PID-nodes|t.ap2
+
+
+        Alternatively, use the optional Cray Apprentice2 utility (app2(1))
+        to view the .ap2 file and manipulate the report data using GUI
+        tools.
+
+               Note:  The pat_report command can produce a text report
+               directly from an .xf file or a directory containing .xf
+               files, provided the instrumented executable (myprogram+pat)
+               is available to provide the mapping from addresses to
+               function names and source line numbers. In contrast, the
+               .ap2 file incorporates this mapping and is self-contained,
+               and is therefore the recommended format in which to preserve
+               data for future reference.By default, pat_report generates
+               an .ap2 file automatically whenever an .xf file or a
+               directory containing .xf files is specified. This default
+               can be disabled by using the pat_report -s ap2=no option.
+               For more information, see the pat_report(1) man page.
+
+   RUNTIME ENVIRONMENT VARIABLES
+     The runtime environment variables communicate directly with an
+     executing instrumented program and affect how the data is collected
+     and saved. Detailed descriptions of each environment variable are
+     provided following the summary.
+
+   Runtime Environment Variables Summary
+     In the case of all toggles, a nonzero value (such as 1) is on
+     (enabled) and 0 is off (disabled).
+
+  -------------------------------------------------------------------------
+  Variable Name                   Short Description         Default
+  -------------------------------------------------------------------------
+  PAT_RT_ACC_STATS                Specifies how the CUPTI   kern
+                                  API is enabled.
+  PAT_RT_ACCPC                    Specifies the accelerator unset
+                                  performance counter
+                                  events to monitor.
+  PAT_RT_ACCPC_FILE               Specify file(s)           unset
+                                  containing accelerator
+                                  performance counter event
+                                  specifications.
+  PAT_RT_ACCPC_FILE_GROUP         Specify file(s)           unset
+                                  containing accelerator
+                                  performance counter group
+                                  definitions.
+  PAT_RT_BUILD_ENV                Toggle: use runtime       1
+                                  environment variables
+                                  embedded using the
+                                  pat_build rtenv
+                                  directive.
+  PAT_RT_CALLSTACK                Specify the depth to      100
+                                  which to trace call
+                                  stacks.
+  PAT_RT_CALLSTACK_BUFFER_SIZE    Specify the size in bytes 4MB
+                                  of the runtime summary
+                                  buffer used to collect
+                                  function call stacks.
+  PAT_RT_CHECKPOINT               Toggle: enable            32
+                                  checkpoint/restart and if
+                                  enabled set the maximum
+                                  number of checkpoint
+                                  states collected.
+  PAT_RT_COMMENT                  Specify string to insert  unset
+                                  into experiment data
+                                  files.
+  PAT_RT_CONFIG_FILE              Specify configuration     unset
+                                  file(s) containing
+                                  runtime environment
+                                  variables.
+  PAT_RT_EXIT_AFTER_INIT          Toggle: terminate         0
+                                  execution after
+                                  initialization of the
+                                  CrayPat runtime library.
+  PAT_RT_EXPERIMENT               Specify the performance   samp_pc_time if
+                                  analysis experiment to    instrumented
+                                  perform.                  asynchronously,
+                                                            otherwise trace
+  PAT_RT_EXPFILE_APPEND           Toggle: append experiment 0
+                                  data records to existing
+                                  experiment data file.
+  PAT_RT_EXPFILE_DIR              Specify the directory in  current
+                                  which to write the        execution
+                                  experiment data file.     directory
+  PAT_RT_EXPFILE_FIFO             Toggle: create data file  0
+                                  as named FIFO pipe
+                                  instead of a regular
+                                  file.
+  PAT_RT_EXPFILE_FSLOCK           Override the system-      unset
+                                  determined record-locking
+                                  attribute.
+  PAT_RT_EXPFILE_MAX              Specify the maximum       256
+                                  number of data files
+                                  created.
+  PAT_RT_EXPFILE_NAME             Replaces the name portion the base file
+                                  of the experiment data    name
+                                  file that was appended to
+                                  the directory.
+  PAT_RT_EXPFILE_PES              Specify the individual    all PEs
+                                  PEs from which to collect
+                                  and record data.
+  PAT_RT_EXPFILE_REPLACE          Toggle: enable            0
+                                  overwriting of existing
+                                  experiment data file(s).
+  PAT_RT_EXPFILE_SUFFIX           Specify the default       .xf
+                                  experiment data filename
+                                  suffix.
+  PAT_RT_EXPFILE_THREADS          Specify the individual    all threads
+                                  threads to collect data
+                                  from. Replaces
+                                  PAT_RT_RECORD_THREAD,
+                                  which is no longer
+                                  supported.
+  PAT_RT_HEAP_BUFFER_SIZE         Specify the size in bytes 2MB
+                                  of the buffer used to
+                                  collect dynamic heap
+                                  information.
+  PAT_RT_HWPC                     Specify the processor     unset
+                                  performance counter
+                                  groups to be counted.
+  PAT_RT_HWPC_DOMAIN              Specify the domain (1, 2, Ox1
+                                  4) in which hardware
+                                  performance counters are
+                                  active.
+  PAT_RT_HWPC_FILE                Specify file(s)           unset
+                                  containing hardware
+                                  performance counter event
+                                  specifications.
+  PAT_RT_HWPC_FILE_GROUP          Specify file(s)           unset
+                                  containing hardware
+                                  performance counter group
+                                  definitions.
+  PAT_RT_HWPC_MPX                 Toggle: enable            0
+                                  multiplexing of hardware
+                                  performance counter
+                                  events.
+  PAT_RT_HWPC_OVERFLOW            Specify hardware          unset
+                                  performance counter
+                                  overflow frequency and
+                                  interrupt values.
+  PAT_RT_INTERVAL                 Specify the sampling      10000
+                                  interval in microseconds.
+  PAT_RT_INTERVAL_TIMER           Specify the type of       2
+                                  interval timer (0-2) used
+                                  for sampling-by-time
+                                  experiments.
+  PAT_RT_MPI_SYNC                 Toggle: measure MPI load  1 for tracing
+                                  imbalance by measuring    experiments, 0
+                                  the time spent in barrier for sampling
+                                  and sync calls before     experiments
+                                  entering the collective.
+  PAT_RT_NWPC                     Specifies individual      unset
+                                  Gemini performance
+                                  counter event names.
+  PAT_RT_NWPC_CONTROL             Specifies parameters that local,filter:0xf
+                                  control various aspects
+                                  of the Gemini networking
+                                  performance counters.
+  PAT_RT_NWPC_FILE                Specifies a file or list  unset
+                                  of files containing
+                                  individual Gemini
+                                  performance counter event
+                                  names.
+  PAT_RT_NWPC_FILE_GROUP          Specifies a file or list  unset
+                                  of files containing
+                                  specifications of Gemini
+                                  performance counter
+                                  groups.
+  PAT_RT_NWPC_FILE_TILE           Specifies a file or list  unset
+                                  of files containing
+                                  specifications of Gemini
+                                  performance counters that
+                                  use the filtering
+                                  counters to define new
+                                  events.
+  PAT_RT_NWPC_TILE_DISPLAY        If set to nonzero value,  0
+                                  writes the filtered tile
+                                  NWPC event specifications
+                                  to stdout.
+  PAT_RT_OFFSET                   Specify the offset in     0
+                                  bytes of the starting
+                                  virtual address in the
+                                  text segment to begin
+                                  sampling.
+  PAT_RT_PARALLEL_MAX             Specifies the maximum     1024
+                                  number of unique call
+                                  site entries to collect
+                                  for OpenMP trace points.
+  PAT_RT_REGION_CALLSTACK         Specify the maximum stack 128
+                                  depth for CrayPat API
+                                  functions
+                                  PAT_region_begin and
+                                  PAT_region_end.
+  PAT_RT_REGION_MAX               Specify the largest       100
+                                  numerical ID that may be
+                                  used as an argument to
+                                  CrayPat API functions
+                                  PAT_region_begin and
+                                  PAT_region_end.
+  PAT_RT_SAMPLING_MODE            Specify the mode (0, 1,   0
+                                  or 3) in which trace-
+                                  enhanced sampling
+                                  operates.
+  PAT_RT_SAMPLING_SIGNAL          Specify the signal issued 29 (SIGPROF)
+                                  when an interval timer
+                                  expires or a hardware
+                                  counter overflows.
+  PAT_RT_SETUP_SIGNAL_HANDLERS    Toggle: ignore received   1
+                                  signals in order to
+                                  produce a more accurate
+                                  traceback.
+  PAT_RT_SIZE                     Specify the number of     all bytes in
+                                  contiguous bytes in the   segment
+                                  text segment to sample.
+  PAT_RT_SUMMARY                  Toggle: enable runtime    1
+                                  summarization and data
+                                  aggregation.
+  PAT_RT_THREAD_MAX               Specify the maximum       1,000,000
+                                  number of threads that
+                                  can be created and
+                                  recorded.
+  PAT_RT_TRACE_API                Toggle: enable recording  1
+                                  of data generated by
+                                  CrayPat API functions.
+                                  Replaces
+                                  PAT_RT_RECORD_API, which
+                                  is no longer supported.
+  PAT_RT_TRACE_DEPTH              Specify the maximum depth 512
+                                  of the runtime callstack.
+  PAT_RT_TRACE_FUNCTION_ARGS      Specify the maximum       256
+                                  number of function
+                                  argument values recorded
+                                  each time the function is
+                                  called.
+  PAT_RT_TRACE_FUNCTION_DISPLAY   Toggle: write the         0
+                                  function names that have
+                                  been instrumented to
+                                  stdout.
+  PAT_RT_TRACE_FUNCTION_LIMITS    Specify instrumented      unset
+                                  functions to be ignored
+                                  when tracing. This
+                                  environment variable is
+                                  deprecated and may be
+                                  removed from future
+                                  releases.
+  PAT_RT_TRACE_FUNCTION_MAX       Set maximum number of     unlimited
+                                  traces generated for a
+                                  single process.
+  PAT_RT_TRACE_FUNCTION_NAME      Specify by name which     unset
+                                  instrumented functions to
+                                  trace in a program
+                                  instrumented for tracing.
+  PAT_RT_TRACE_FUNCTION_SIZE      Specify the size of the   unset
+                                  intrumented funtion to
+                                  trace in a program
+                                  instrumented for tracing.
+  PAT_RT_TRACE_HEAP               Toggle: collect dynamic   1
+                                  heap information.
+  PAT_RT_TRACE_HOOKS              Toggle: enable/disable    depends on
+                                  recording trace data for  PAT_RT_SUMMARY
+                                  specified types of
+                                  compiler-generated hooks.
+  PAT_RT_TRACE_OVERHEAD           Specify the number of     100
+                                  times calling overhead is
+                                  sampled during program
+                                  initialization and
+                                  termination.
+  PAT_RT_TRACE_THRESHOLD_PCT      Set relative time         unset
+                                  threshold below which
+                                  function trace records
+                                  are not kept.
+  PAT_RT_TRACE_THRESHOLD_TIME     Set absolute time         unset
+                                  threshold below which
+                                  function trace records
+                                  are not kept.
+  PAT_RT_VALIDATE_SYSCALLS        Toggle: prevent program   1
+                                  from executing function
+                                  calls that interfere with
+                                  data collection.
+  PAT_RT_VERBOSE                  If set, specify the PEs   unset
+                                  from which to accept and
+                                  record info-level
+                                  messages.
+  PAT_RT_WRITE_BUFFER_SIZE        Size of single thread     8MB
+                                  data collection buffer in
+                                  bytes.
+  -------------------------------------------------------------------------
+
+   Runtime Environment Variables Detail
+     PAT_RT_ACC_STATS
+               Specifies how the CUPTI API is enabled for collecting
+               accelerator performance and kernel-level statistics. The
+               valid values are:
+
+               off       Disables CUPTI.
+
+               kern      Enables collection of kernel-level statistics for
+                         OpenACC regions compiled with CCE.
+
+               all       Enables collection of performance and kernel-level
+                         statistics for CUDA codes and PGI accelerator
+                         options. This setting has the side-effect of
+                         disabling OpenACC tracepoints but uses CUPTI for
+                         gathering performance statistics.
+
+               The valid values are not case-sensitive.
+
+               Default: kern
+
+     PAT_RT_ACCPC
+               Specifies the accelerator performance counter events to be
+               monitored during execution of a program instrumented for
+               tracing experiment. Use the papi_avail and papi_native_avail
+               commands to see the names of the available counter events.
+               Cray XK systems support monitoring a maximum of four counter
+               events concurrently.
+
+               Note:  This environment variable is used with tracing
+               experiments only. It is not useful for sampling experiments.
+
+               Alternatively, an acgrp value can be used in place of the
+               list of event names, to specify a predefined performance
+               counter accelerator group. The valid acgrp values are listed
+               in the accpc(5) man page.
+
+               Note:  HWPC refers to CPU performance counters, NWPC refers
+               to Gemini network performance counters, and ACCPC refers to
+               the accelerator performance counters.
+
+               If the acgrp value specified is invalid or not defined, the
+               acgrp value is treated as a counter event name. This can
+               cause instrumented code to generate "invalid ACC performance
+               counter event name" error messages and even abort during
+               execution. Always verify that the acgrp values you specify
+               are supported on the type of compute node accelerators that
+               you are using.
+
+               Default: unset; no accelerator performance counter events
+               are monitored during program execution
+
+     PAT_RT_ACCPC_FILE
+               Specifies, in a comma-separated list, the names of one or
+               more files that contain accelerator performance counter
+               specifications. Within the files, lines beginning with the #
+               character are interpreted as comments and ignored. See
+               PAT_RT_ACCPC for a description of an event specification.
+
+               Default: unset
+
+     PAT_RT_ACCPC_FILE_GROUP
+               Specifies, in a comma-separate list, the names of one or
+               more files that contain accelerator performance counter
+               group definitions. An accelerator performance counter group
+               consists of at least one valid accelerator performance
+               counter event. Use the papi_avail and papi_native_avail
+               commands to determine the names of valid events.
+
+               The format of the file is: group-name=event1,...
+
+               The definition of the group is terminated with a newline
+               character. There may be multiple unique group names defined
+               in a single file. Lines that do not match this syntax are
+               ignored.
+
+               If the first file name in the list is the character 0
+               (zero), the default accelerator performance counter groups
+               are not loaded and therefore are not available for selection
+               using PAT_RT_ACCPC.
+
+               The file containing the group definitions for the default
+               groups is in $CRAYPAT_ROOT/share/.
+
+               Default: unset
+
+     PAT_RT_BUILD_ENV
+               Indicates if any runtime environment variables embedded in
+               the instrumented program using the pat_build rtenv directive
+               are ignored. If set to 0, all embedded environment variables
+               in the instrumented program are ignored. If set to 1, all
+               embedded environment variables are used.
+
+               Default: 1
+
+               A comma-separated list of environment variable names may
+               follow 0 or 1. This is an exception list. If a list appears
+               after 0, all embedded environment variables are ignored
+               (unset) except the ones listed. Conversely, if a list
+               appears after 1, all embedded environment variable are used
+               except the ones listed.
+
+               If an environment variable that is embedded in the
+               instrumented program is also set in the execution
+               environment, the value set in the execution environment
+               takes precedence and the value embedded in the instrumented
+               program is ignored.
+
+               For more information about the rtenv directive, see the
+               pat_build man page.
+
+     PAT_RT_CALLSTACK
+               Specifies the depth to which to trace the call stack for a
+               given entry point when sampling or tracing. For example, if
+               set to 1, only the caller of the entry point is recorded.
+
+               Default: 100 or to the main entry point, whichever is less
+
+     PAT_RT_CALLSTACK_BUFFER_SIZE
+               Specifies the size in bytes per thread of the runtime
+               summary buffer used to collect function call stacks. Size is
+               not case-sensitive and can be specified in kilobytes (KB),
+               megabytes (MB), or gigabytes (GB).
+
+               Default: 4MB
+
+     PAT_RT_CHECKPOINT
+               Enable/disable checkpoint/restart on the executing
+               instrumented program, for those systems that support
+               Berkeley Lab Checkpoint Restart (BLCR). If set to 0, the
+               executing instrumented program ignores the cr_checkpoint(1)
+               and cr_restart(1) commands. A value greater than zero
+               indicates the maximum number of checkpoint states collected.
+               Checkpoints received by the instrumented program after this
+               number is reached are ignored.
+
+               The instrumented program supports checkpoint/restart only if
+               the original program supported checkpoint/restart.
+
+               Default: 32 (checkpoint/restart enabled, a maximum of 32
+               checkpoint states collected).
+
+     PAT_RT_COMMENT
+               Specifies an arbitrary string that is inserted into the
+               experiment data file. The string is included in the report
+               analysis done by pat_report(1).
+
+               Default: unset
+
+     PAT_RT_CONFIG_FILE
+               Specifies one or more configuration files that contain
+               environment variables. Multiple file names are separated
+               with the comma (,) character. Lines in the file that begin
+               with the # character are interpreted as comments and
+               ignored.
+
+               Environment variables are of the form defined by sh(1) and
+               ksh(1): name=value
+
+               The environment variables appear in the file(s) one per
+               line. Each subsequent environment variable name replaces the
+               value of the previous one with the same name. Before any
+               specified files are processed, the configuration file (*
+               craypat.config) is processed, if it exists in the current
+               execution directory.
+
+               Default: unset
+
+     PAT_RT_EXIT_AFTER_INIT
+               If nonzero, terminate execution after the initialization of
+               the CrayPat runtime library is complete.
+
+               Default: 0
+
+     PAT_RT_EXPERIMENT
+               Identifies the experiment to perform.
+
+               Default: if any functions are instrumented for tracing using
+               the pat_build -g, -u, -t, -T, -O, or -w options, perform a
+               trace experiment. Otherwise, perform the samp_pc_time
+               experiment.
+
+               If a program is instrumented for tracing and you then use
+               PAT_RT_EXPERIMENT to specify a sampling experiment, trace-
+               enhanced sampling is performed, subject to the rules
+               established by the PAT_RT_SAMPLING_MODE environment variable
+               setting.
+
+               Note:  Samples generated from sampling by time experiments
+               apply to the process as a whole, and not to individual
+               threads. Samples generated by sampling hardware performance
+               counter overflow apply to individual threads; that is, each
+               thread is sampled individually.
+
+               The valid experiments are:
+
+               samp_pc_time
+                         Samples the program counter at a given time
+                         interval. This returns the total program time and
+                         the absolute and relative times each program
+                         counter was recorded. The default interval is
+                         10,000 microseconds. Optionally, this experiment
+                         activates and records the values of the hardware
+                         performance counters specified in the comma-
+                         separated list in the runtime variable
+                         PAT_RT_HWPC.
+
+                         The default interval timer used measures user CPU
+                         and system CPU time. This is changed using the
+                         PAT_RT_INTERVAL_TIMER runtime environment
+                         variable.
+
+               samp_pc_ovfl
+                         Samples the program counter at a given overflow of
+                         a hardware performance counter. The hardware
+                         counter and its overflow value are separated by a
+                         colon and specified in a comma-separated list in
+                         the runtime variable PAT_RT_HWPC_OVERFLOW.
+                         Optionally, this experiment activates and records
+                         the values of the hardware performance counters
+                         specified in the comma-separated list in the
+                         runtime variable PAT_RT_HWPC. The default overflow
+                         counter is cycles and the default overflow
+                         frequency equates to an interval of 1,000
+                         microseconds.
+
+               samp_cs_time
+                         Samples the call stack at a given time interval.
+                         This returns the total program time and the
+                         absolute and relative times each call stack
+                         counter was recorded, and is otherwise identical
+                         to the samp_pc_time experiment. The PAT_RT_HWPC
+                         environment variable is not useful for this
+                         experiment.
+
+               samp_cs_ovfl
+                         Samples the call stack at a given overflow of a
+                         hardware performance counter. This experiment is
+                         otherwise identical to the samp_pc_ovfl
+                         experiment. The PAT_RT_HWPC environment variable
+                         is not useful for this experiment.
+
+               samp_ru_time
+                         (Deferred implementation) Samples system resources
+                         at a given time interval. This experiment is
+                         otherwise identical to the samp_pc_time
+                         experiment. The PAT_RT_HWPC environment variable
+                         is not useful for this experiment.
+
+               samp_ru_ovfl
+                         (Deferred implementation) Samples system resources
+                         at a given overflow of a hardware performance
+                         counter. This experiment is otherwise identical to
+                         the samp_pc_ovfl experiment. The PAT_RT_HWPC
+                         environment variable is not useful for this
+                         experiment.
+
+               samp_heap_time
+                         (Deferred implementation) Samples dynamic heap
+                         memory management statistics at a given time
+                         interval. This experiment is otherwise identical
+                         to the samp_pc_time experiment. The PAT_RT_HWPC
+                         environment variable is not useful for this
+                         experiment.
+
+               samp_heap_ovfl
+                         (Deferred implementation) Samples dynamic heap
+                         memory management statistics at a given overflow
+                         of a hardware performance counter. This experiment
+                         is otherwise identical to the samp_pc_ovfl
+                         experiment. The PAT_RT_HWPC environment variable
+                         is not useful for this experiment.
+
+               trace     When tracing experiments are done, selected
+                         functions are traced and produce a data record in
+                         the runtime experiment data file, if the function
+                         is executed.
+
+                         The functions to be traced are defined by the
+                         pat_build -g, -u, -t, -T, or -w options specified
+                         when instrumenting the program. For more
+                         information about instrumenting programs for
+                         tracing experiments, see the pat_build(1) man
+                         page.
+
+
+
+                         Note:  Only true function calls can be traced.
+                         Function calls that are inlined by the compiler or
+                         that have local scope in a compilation unit cannot
+                         be traced.
+
+                         Tracing experiments are also affected by the
+                         settings of other environment variables, all of
+                         which have names beginning with PAT_RT_TRACE_.
+                         These environment variables are described
+                         elsewhere in this man page.
+
+     PAT_RT_EXPFILE_APPEND
+               If nonzero, append the experiment data records to an
+               existing experiment data file. If the experiment data file
+               does not already exist, it is created.
+
+               If both PAT_RT_EXPFILE_APPEND and PAT_RT_EXPFILE_REPLACE are
+               set, PAT_RT_EXPFILE_APPEND is ignored and the existing data
+               file is replaced.
+
+               Default: 0
+
+     PAT_RT_EXPFILE_DIR
+               Identifies the path name of the directory in which to write
+               the experiment file. If the name of the directory begins
+               with the @character, checks for ensuring that the directory
+               resides on a record-locking filesystem, such as Lustre, are
+               not performed.
+
+
+
+               Note:  For a distributed memory application, the directory
+               must reside on a file system that supports record locking,
+               such as Lustre. Alternatively, set PAT_RT_EXPFILE_MAX to the
+               number of PEs used for program execution. This restriction
+               does not apply to single-process applications.
+
+               Default: the current execution directory
+
+     PAT_RT_EXPFILE_FIFO
+               If nonzero, the experiment data file is created as named
+               FIFO pipe instead of a regular file. The instrumented
+               program will block until the user executes another program
+               that opens the pipe for reading. For more information, see
+               the mkfifo(2) man page.
+
+               Default: 0
+
+     PAT_RT_EXPFILE_FSLOCK
+               Specifies the file record-locking attribute that overrides
+               what CrayPat determines from evaluating the /etc/mtab file.
+               This attribute indicates the type of file system locking
+               supported. The valid values are:
+
+               0 or none No file record-locking is supported.
+
+               1 or all  File record -locking is supported across all
+                         compute nodes and within the node iteself.
+
+               local     File record-locking is supported only within the
+                         node.
+
+     PAT_RT_EXPFILE_MAX
+               The maximum number of experiment data files created.
+                           *
+               Default: 256
+               *
+                 If the number of PEs used to execute the instrumented
+               program is less than 256, a single data file per PE (up to
+               256 files) is created. If 256 or more PEs are used, the
+               number of data files created is the square root of the
+               number of PEs used for program execution, rounded up to the
+               next integer value. If the value of PAT_RT_EXPFILE_MAX is
+               greater than or equal to the number of PEs used for program
+               execution, one data file per PE is created.
+
+               If PAT_RT_EXPFILE_MAX= 0, all PEs executing on a compute
+               node write to the same data file. In this case the number of
+               data files created depends on how the PEs are scheduled on
+               the compute nodes and the directory need not reside on a
+               file system that supports record locking.
+
+     PAT_RT_EXPFILE_NAME
+               Replaces the name portion of the experiment data file that
+               was appended to the directory. The suffix, and other
+               information, is appended to this name. If the value given to
+               PAT_RT_EXPFILE_NAME ends with / or /+ any preceding name is
+               interpreted as the name of a directory into which the
+               experiment data files are written. If the name of the file
+               begins with the @ character, the file is not removed if the
+               instrumented program terminates during the initialization
+               phase of CrayPat.
+
+               Default: if the name ends with the plus sign (+), the
+               process ID and various qualifiers are added to the base
+               name, which is the experiment data file name.
+
+     PAT_RT_EXPFILE_PES
+               Records data and writes the recorded data to its respective
+               data file only for the specified PEs. If set to *, values
+               from every PE are recorded.
+
+               Default: * (all PEs)
+
+               If not using the default, the PEs to be recorded are
+               specified in a comma-delimited list, with each specification
+               represented as one of the following:
+
+               n         Value n.
+
+               n-m       Values n through m, inclusive.
+                                th
+               n%p       Every p   value from 0 through n.
+                                th
+               n-m%p     Every p   value from n through m.
+
+               For example, the following values are all valid
+               specifications.
+
+               0,4,5,10  Record PEs 0, 4, 5, and 10
+
+               15%4      Record PEs 0, 4, 8, and 12
+
+               4-31%8    Record PEs 4, 12, 20, and 28
+
+     PAT_RT_EXPFILE_REPLACE
+               If nonzero, replace an existing experiment data file with
+               the new experiment data file. All data in the previous file
+               is lost. If both PAT_RT_EXPFILE_APPEND and
+               PAT_RT_EXPFILE_REPLACE are set, PAT_RT_EXPFILE_APPEND is
+               ignored and the existing data file is replaced.
+
+               Default: 0
+
+     PAT_RT_EXPFILE_SUFFIX
+               The suffix component of the experiment data file name.
+
+               Default: .xf
+
+     PAT_RT_EXPFILE_THREADS
+               Record data for the specified thread only. If set to *,
+               values from every thread are recorded.
+
+               Note:  This environment variable supersedes
+               PAT_RT_RECORD_THREAD.
+
+               Default: * (all threads)
+
+               If not using the default, the threads to be recorded are
+               specified in a comma-delimited list, with each specification
+               represented as one of the following:
+
+               n         Value n.
+
+               n-m       Values n through m, inclusive.
+                                th
+               n%p       Every p   value from 0 through n.
+                                th
+               n-m%p     Every p   value from n through m.
+
+               For example, the following values are all valid
+               specifications.
+
+               0,2       Record threads 0 and 2.
+
+               7%2       Record threads 0, 2, 4, and 6.
+
+     PAT_RT_HEAP_BUFFER_SIZE
+               Specifies the size in bytes of the runtime summary buffer
+               used to collect dynamic heap information. This environment
+               variable affects tracing experiments only.
+
+               Default: 2MB
+
+     PAT_RT_HWPC
+               Specifies the CPU performance counter events monitored for a
+               program counter tracing experiment. Use the papi_avail(1)
+               and papi_native_avail(1) commands to list the names of the
+               available counter events.
+
+               The counter event names must be fully qualified. If
+               attributes are defined for an event name, at least one
+               attribute must be added to the base event name, and each
+               attribute added must be preceded by the : character. For
+               example, PAT_RT_HWPC=L3_CACHE_MISSES is not valid because it
+               lacks at least one attribute, but
+               PAT_RT_HWPC=L3_CACHE_MISSES:ALL_CORES is valid as it
+               includes a unit mask.
+
+               Multiple counter events are separated by a comma. If
+               multiplexing is not enabled, Cray XT and Cray XE systems
+               support a maximum of four events.
+
+               Default: unset; no hardware performance counter events are
+               monitored during tracing experiments
+
+               Alternatively, a hwcgrp number can be used in place of the
+               list of event names to specify a predefined hardware
+               performance counter group. The valid hwcgrp numbers are
+               listed in the hwpc(5) man page.
+
+               Note:  HWPC refers to CPU performance counters and NWPC
+               refers to Gemini network performance counters. To request
+               network performance counters, use the PAT_RT_NWPC
+               environment variable.
+
+               Note:  If the hwcgrp value specified is invalid or not
+               defined, the hwcgrp value is treated as a counter event
+               name. This can cause instrumented code to generate "invalid
+               HW performance counter event name" error messages and even
+               cause code to abort during execution. Always verify that the
+               hwcgrp values you specify are supported on the compute node
+               CPU types you are using.
+
+               Both PAPI counter events and predefined hwcgrp groups can be
+               specified at the same time, with later definitions
+               supplementing previous definitions. Detailed information is
+               available at the PAPI web site
+               http://icl.cs.utk.edu/projects/papi/.
+
+               Note:  The PAT_RT_HWPC environment variable is not useful
+               for sampling experiments other than samp_pc_time.
+
+     PAT_RT_HWPC_DOMAIN
+               Specifies the domain in which the hardware performance
+               counters are active. The value is a combined mask of 0x1
+               (user's domain), 0x2 (exception domain), and 0x4 (OS
+               domain).
+
+               Default: 0x1
+
+     PAT_RT_HWPC_FILE
+               Specifies names of one or more filenames that contain
+               hardware performance counter specifications. A list of file
+               names is separated with a comma. A line in the file that
+               begins with a # character is interpreted as a comment and
+               ignored. See PAT_RT_HWPC for a description of an event
+               specification.
+
+               Default: unset
+
+     PAT_RT_HWPC_FILE_GROUP
+               A comma-separated list of one or more file names containing
+               hardware performance counter group definitions. A hardware
+               performance counter group consists of at least one valid
+               hardware performance counter event. Use the papi_avail and
+               papi_native_avail commands to determine the names of events.
+               The format of the file is:
+
+               group-name=event1,...
+
+
+               The definition of the group is terminated with a <newline>
+               character. There may be multiple unique group names defined
+               in a single file. Lines that do not match this syntax are
+               ignored.
+
+               If the first file name in the list is the character 0
+               (zero), the default hardware performance counter groups are
+               not loaded and therefore are not available for selection
+               using PAT_RT_HWPC.
+
+               The file containing the group definitions for the default
+               groups is in $CRAYPAT_ROOT/share/.
+
+               Default: unset
+
+     PAT_RT_HWPC_MPX
+               Specifies if multiplexing of events is enabled for hardware
+               performance counters. Set to a nonzero value to enable
+               multiplexing.
+
+               Because of limited hardware resources, multiple events may
+               share a physical hardware counter for a given time slice. In
+               this case, multiplexing allows shared counting to take
+               place. Because events share a time slice, this affects the
+               accuracy of the final events counts. The time slice is ten
+               milliseconds.
+
+               Default: 0
+
+     PAT_RT_HWPC_OVERFLOW
+               Specifies hardware performance counter overflow frequency
+               and the values at which an interrupt is generated for an
+               instrumented program. The format is event_name:overflow.
+
+               Default: for any overflow experiment, set up the cycles
+               event to approximate an interrupt interval of 1,000
+               microseconds.
+
+               The hardware performance counter overflow frequency cannot
+               be used when the domain in which the counters are active
+               includes the exception or kernel domain. See
+               PAT_RT_HWPC_DOMAIN for more information.
+
+               If the cycles event is used for overflow and overflow ends
+               with an 's' character, the overflow value is in units of
+               microseconds and CrayPat converts the value into the proper
+               units of cycles.
+
+               Note:  Use caution when specifying an overflow value. If an
+               overflow value is too small, the program may never finish,
+               as it will spend most of its time handling the overflow
+               exceptions.
+
+               This environment variable affects sampling experiments only.
+
+     PAT_RT_INTERVAL
+               Specifies the interval, in microseconds, at which the
+               instrumented program is sampled.
+
+               To specify a random interval, use the following format:
+
+               lower-bound,upper-bound[,seed]
+
+
+               After a sample is captured, the interval used for the next
+               sampling interval is generated using rand(3c) and will be
+               between lower-bound and upper-bound. The initial seed (seed)
+               for the sequence of random numbers is optional. See
+               srand(3c) for more information.
+
+               This environment variable affects sampling experiments. It
+               can also be used to control trace-enhanced sampling
+               experiments, provided the program is instrumented for
+               tracing but the PAT_RT_EXPERIMENT environment variable is
+               used to specify a sampling-type experiment, and subject to
+               the PAT_RT_SAMPLING_MODE environment variable setting.
+
+               Default: 10000 (microseconds)
+
+     PAT_RT_INTERVAL_TIMER
+               Specifies the value for the type of interval timer used for
+               sampling-by-time experiments. The following values are
+               valid:
+
+               0  wall-clock (real) time intervals
+
+               1  user CPU time intervals
+
+               2  user and system CPU time intervals
+
+               This environment variable affects sampling experiments. It
+               can also be used to control trace-enhanced sampling
+               experiments, provided the program is instrumented for
+               tracing but the PAT_RT_EXPERIMENT environment variable is
+               used to specify a sampling-type experiment, and subject to
+               the PAT_RT_SAMPLING_MODE environment variable setting.
+
+               Default: 2
+
+     PAT_RT_MPI_SYNC
+               Measure load imbalance in programs instrumented to trace MPI
+               functions. If set to 1, this causes the trace wrapper for
+               each collective subroutine to measure the time for a barrier
+               call prior to entering the collective. This time is reported
+               by pat_report(1) in the function group MPI_SYNC, which is
+               separate from the MPI function group.
+
+               If PAT_RT_MPI_SYNC is set, the time spent waiting at a
+               barrier and synchronizing processes is reported under
+               MPI_SYNC, while the time spent executing after the barrier
+               is reported under MPI.
+
+               To disable measuring MPI barrier and sync times, set this
+               environment variable to 0. This environment variable affects
+               tracing experiments only.
+
+               Default: 1 (enabled)
+
+     PAT_RT_NWPC
+               Specifies a comma-separated list of the Gemini performance
+               events to be monitored for a program counter tracing
+               experiment. For more information on using Gemini hardware
+               counters to monitor performance, read the technical note
+               Using the Cray Gemini Hardware Counters at
+               http://docs.cray.com/kbase (link to URL
+               http://docs.cray.com/kbase) , which describes all of the
+               Gemini events available to the user.
+
+               This environment variable is not useful for sampling
+               experiments other than samp_pc_time.
+
+               Note:  HWPC refers to CPU performance counters and NWPC
+               refers to network performance counters. To request CPU
+               performance counters, use the PAT_RT_HWPC environment
+               variable.
+
+               Default: unset; no hardware performance counter events are
+               monitored during tracing experiments
+
+     PAT_RT_NWPC_CONTROL
+               Specifies one or more parameters that control various
+               aspects of the Gemini networking performance counters.
+               Separate multiple arguments with a comma. Later arguments in
+               the list take precedence over earlier ones.
+
+               Valid arguments are local, global, and filters:mask, where
+               mask is a bitmask that indicates the tile filter result
+               performance counters. The four low-order bits represent the
+               counter numbers. For example 0xf indicates all counters,
+               while 0x9 represents counters 0and 3.
+
+               For more information, see Using the Cray Gemini Hardware
+               Counters.
+
+               Default: local,filters:0xf
+
+     PAT_RT_NWPC_FILE
+               Specifies a comma-separated list of file names where each
+               file contains individual Gemini event names. See PAT_RT_NWPC
+               for a description of an event. A line in the file that
+               begins with a # character is interpreted as a comment and
+               ignored.
+
+               For more information, see Using the Cray Gemini Hardware
+               Counters.
+
+               Default: unset
+
+     PAT_RT_NWPC_FILE_GROUP
+               Specifies a comma-separated list of file names where each
+               file contains specifications of Gemini performance counter
+               groups. This allows a user to extend the scope of the Gemini
+               performance counters. The format of the file is:
+
+               group-name=event1,event2...
+
+
+               The definition of the group is terminated with a <newline>
+               character. There may be multiple unique group names defined
+               in a single file. Lines that do not match this syntax are
+               ignored.
+
+               For more information, see Using the Cray Gemini Hardware
+               Counters.
+
+               Default: unset
+
+     PAT_RT_NWPC_FILE_TILE
+               Specifies a comma-separated list of file names where each
+               file contains specifications of Gemini performance counters
+               that use the filtering counters to define new events. The
+               syntax is:
+
+               event-name=vc-mask,col-mask,row-mask,filter0...filter3
+
+
+               For more information, see Using the Cray Gemini Hardware
+               Counters.
+
+               Default: unset
+
+     PAT_RT_NWPC_TILE_DISPLAY
+               If set to nonzero value, write the filtered tile NWPC event
+               specifications to stdout.
+
+               For more information, see Using the Cray Gemini Hardware
+               Counters.
+
+               Default: 0
+
+     PAT_RT_OFFSET
+               Specifies the offset, in bytes, to the starting virtual
+               address in the text segment of the instrumented program to
+               begin sampling. This environment variable affects sampling
+               experiments only.
+
+               Default: 0
+
+     PAT_RT_PARALLEL_MAX
+               Specifies the maximum number of unique call site entries to
+               collect for any OpenMP trace points generated by the CCE or
+               PGI compilers when the OpenMP programming model is used. A
+               call site is the text address at which the respective OpenMP
+               trace point is called.
+
+               See the pat_build(1) man page for more information about
+               compiler-generated trace points.
+
+               Default: 1024
+
+     PAT_RT_RECORD_THREAD
+               Obsolete; no longer supported. Use PAT_RT_EXPFILE_THREADS
+               instead.
+
+     PAT_RT_REGION_CALLSTACK
+               Specifies the depth of the stack for which the CrayPat API
+               functions PAT_region_begin and PAT_region_end are
+               maintained. In other words, it is the maximum number of
+               consecutive PAT_region_begin references that can be made
+               without an intervening PAT_region_end. Setting this
+               environment variable to zero (0) disables data collection
+               for all regions. This environment variable affects tracing
+               experiments only.
+
+               Default: 128
+
+     PAT_RT_REGION_MAX
+               Specifies the largest numerical ID that may be used as an
+               argument to the CrayPat API functions PAT_region_begin and
+               PAT_region_end. Values greater than this cause the API
+               function to be ignored. Setting this environment variable to
+               zero (0) disables data collection for all regions. This
+               environment variable affects tracing experiments only.
+
+               Default: 100
+
+     PAT_RT_SAMPLING_MODE
+               Specifies the mode in which trace-enhanced sampling
+               operates. Trace-enhanced sampling allows a sampling
+               experiment to be executed on a program instrumented for
+               tracing. It affects both user-defined functions and pre-
+               defined function groups. The value may be one of the
+               following.
+
+
+
+               0         Ignore trace-enhanced sampling. The normal tracing
+                         experiment is performed.
+
+               1         Enable raw sampling. Any traced entry points
+                         present in the instrumented program are ignored.
+
+               3         Enable bubble sampling. Traced entry points and
+                         any functions they call return a sample PC address
+                         mapped to the traced entry point.
+
+               When set to a non-zero value, all sampling experiments and
+               parameters that control sampling apply to the executing
+               instrumented program. Tracing records are not produced.
+
+               Default: 0
+
+     PAT_RT_SAMPLING_SIGNAL
+               Specifies the signal that is issued when an interval timer
+               expires or a hardware performance counter overflows.
+
+               This environment variable affects sampling experiments. It
+               can also be used to control trace-enhanced sampling
+               experiments, provided the program is instrumented for
+               tracing but the PAT_RT_EXPERIMENT environment variable is
+               used to specify a sampling-type experiment, and subject to
+               the PAT_RT_SAMPLING_MODE environment variable setting.
+
+               Default: 29 (SIGPROF)
+
+     PAT_RT_SETUP_SIGNAL_HANDLERS
+               If zero, the CrayPat runtime library does not catch signals
+               that the program receives; this results in an incomplete
+               experiment file but a more accurate traceback for an aborted
+               program with a core dump.
+
+               Default: 1
+
+     PAT_RT_SIZE
+               Specifies the number of contiguous bytes in the text segment
+               of the instrumented program available for sampling.
+
+               This environment variable affects sampling experiments. It
+               can also be used to control trace-enhanced sampling
+               experiments, provided the program is instrumented for
+               tracing but the PAT_RT_EXPERIMENT environment variable is
+               used to specify a sampling-type experiment, and subject to
+               the PAT_RT_SAMPLING_MODE environment variable setting.
+
+               Default: sample the entire text segment
+
+     PAT_RT_SUMMARY
+               If set to a nonzero value, runtime summarization is enabled
+               and the data collected is aggregated. This greatly reduces
+               the size of the resulting experiment data files but at the
+               cost of fine-grain detail, as formal parameter values,
+               function return values, and call stack information are not
+               recorded.
+
+               If set to 0, runtime summarization is disabled and
+               performance data is captured in detail.
+
+               Disabling runtime summarization can be valuable,
+               particularly if you plan to use Cray Apprentice2 to study
+               your data. However, be advised that setting this environment
+               variable to 0 can produce enormous experiment data files,
+               unless you also use the CrayPat API to limit data collection
+               to a specified region of your program.
+
+               Default: 1 (enabled)
+
+     PAT_RT_THREAD_MAX
+               Specifies the maximum number of threads that can be created
+               and for which data is recorded. See PAT_RT_EXPFILE_THREADS
+               to manage the recording of data for individual threads.
+
+               Default: 1,000,000
+
+     PAT_RT_TRACE_API
+               If 0, suppress the events and any data records produced by
+               all embedded CrayPat API functions in the instrumented
+               program. For more information about the CrayPat API, see the
+               pat_build(1) man page.
+
+               Default: 1 (enabled)
+
+     PAT_RT_TRACE_DEPTH
+               Specifies the maximum depth of the runtime call stack for
+               traced functions during runtime summarization.
+
+               Default: 512
+
+     PAT_RT_TRACE_FUNCTION_ARGS
+               Specifies the maximum number of function argument values
+               recorded each time a function is called during a tracing
+               experiment. This environment variable applies to tracing
+               experiments only and is ignored in trace summary mode.
+
+               Default: all argument values to a function are recorded in
+               full trace mode
+
+     PAT_RT_TRACE_FUNCTION_DISPLAY
+               If set to a nonzero value (enabled), write the function
+               names which have been instrumented in the program to stdout.
+               This environment variable affects tracing experiments only.
+
+               Default: 0 (disabled)
+
+     PAT_RT_TRACE_FUNCTION_MAX
+               The maximum number of traces generated for all instrumented
+               functions for a single thread. This environment variable
+               affects tracing experiments only.
+
+               Default: the maximum number of traces is unlimited
+
+     PAT_RT_TRACE_FUNCTION_NAME
+               Specify by name the instrumented functions to trace. This
+               environment variable replaces PAT_RT_FUNCTION_LIMITS. The
+               value is a comma-separated list of one of two forms:
+
+               function-name1,
+               ...,
+               function-namen
+               or
+               function-name,
+               function-name:last
+
+               In the first form tracing records are produced every time
+               the instrumented function function-name is executed. In the
+               second form tracing records are produced only for the
+               instrumented function function-name until function-name is
+               executed last number of times.
+
+               If the function name is *, any value specified applies to
+               all instrumented functions. For example
+
+               *:0
+
+               prevents all instrumented functions from recording trace
+               data, whereas
+
+               *:0,function-name
+
+               specifies that only the instrumented function function-name
+               will record trace data. This environment variable affects
+               tracing experiments only.
+
+               Default: unset
+
+     PAT_RT_TRACE_FUNCTION_SIZE
+               Specify the size in bytes of the instrumented function to
+               trace in a program instrumented for tracing. The size is
+               given as min, max, where min is the lower limit and max is
+               the upper limit, specified in bytes. A trace record is
+               produced only when the size of the instrumented function
+               lies between min and min, max. This environment variable
+               affects tracing experiments only.
+
+               Default: unset
+
+     PAT_RT_TRACE_HEAP
+               If set to 0, disable the collection of dynamic heap
+               information. This environment variable affects tracing
+               experiments only.
+
+               Default: 1 (enabled), if malloc is present
+
+     PAT_RT_TRACE_HOOKS
+               Enable/disable instrumentation inserted as a result of
+               tracing options specified when compiling the program. (See
+               pat_build(1).) The syntax is a comma-separated list of
+               compiler instrumentation types and toggles in the form
+               name:a,name:a..., where name represents the nature of the
+               compiler instrumentation and a is either zero to disable the
+               specified event or nonzero to enable it. If no name is
+               specified and PAT_RT_TRACE_HOOKS is set to zero, all
+               compiler-instrumented tracing is disabled.
+
+               Note:  PAT_RT_TRACE_HOOKS interacts with PAT_RT_SUMMARY. For
+               more information, see Default, below.
+
+               The valid values for name are:
+
+               acc       GPU accelerator events
+
+               chapel    Chapel events
+
+               func      function entry and return events
+
+               loops     loop timing events
+
+               omp       OpenMP events
+
+               Default: 1 (collect data for all compiler-inserted trace
+               points) if PAT_RT_SUMMARY is unset or set to a non-zero
+               value (that is, if run time summarization is enabled); 0
+               (ignore all compiler-inserted trace points) if
+               PAT_RT_SUMMARY is set to 0 (that is, if run time
+               summarization is disabled).
+
+     PAT_RT_TRACE_OVERHEAD
+               Specify the number of times the functions used to calculate
+               the calling overhead are called upon runtime initialization
+               and termination. To suppress overhead calculations, set this
+               to 0. The larger the value, the more accurate the overhead
+               calculation.
+
+               Default: 100
+
+     PAT_RT_TRACE_THRESHOLD_PCT
+               Specify a threshold to enforce when executing in full trace
+               mode. The format is ncalls,pct where pct is between 1 and
+               100. If a function's total time relative to its executing
+               thread's total time falls below the percentage pct, trace
+               records for the function are no longer produced. The
+               function must be called at least ncalls time(s) in order to
+               activate the threshold.
+
+               For example, if PAT_RT_TRACE_THRESHOLD_PCT is set to
+               1000,15, and a function's total time relative to the
+               executing thread's time falls below 15 percent after being
+               called at least 1,000 times, trace records for the function
+               are no longer written to the experiment data file.
+
+               This environment variable affects tracing experiments only.
+
+               Default: unset
+
+     PAT_RT_TRACE_THRESHOLD_TIME
+               Specify a threshold to enforce when executing in full trace
+               mode. The format is ncalls,microsecs. If a function's
+               average time per call falls below the time specified by
+               microsecs, trace records for the function are no longer
+               produced. The function must be called at least ncalls
+               time(s) in order to activate the threshold.
+
+               For example, if PAT_RT_TRACE_THRESHOLD_TIME is set to
+               2500,500, and a function's average time per call falls below
+               500 microseconds after being called at least 2,500 times,
+               trace records for the function are no longer written to the
+               experiment data file.
+
+               This environment variable affects tracing experiments only.
+
+               Default: unset
+
+     PAT_RT_VALIDATE_SYSCALLS
+               If set to 0, prevent the instrumented program from executing
+               selected function calls that can interfere with the
+               instrumented program's runtime data collection. The selected
+               function calls include ioctl(2), setitimer(2), sigaction(2),
+               signal(3), sprofil(2), profil(2), and timer_create(2).
+
+               Note:  Using this option to block function calls may cause
+               unexpected behavior and interfere with runtime data
+               collection.
+
+               Default: 1 (function calls enabled)
+
+     PAT_RT_VERBOSE
+               If set, specify the PEs from which to accept and record
+               info-level messages. If set to *, messages from every PE are
+               accepted.
+
+               Default: unset
+
+               Alternatively, the PEs to be recorded can be specified in a
+               comma-delimited list, with each specification represented as
+               one of the following:
+
+               n         PE n.
+
+               n-m       PEs n through m, inclusive.
+                                th
+               n%p       Every p   PE from 0 through n.
+                                th
+               n-m%p     Every p   PE from n through m.
+
+     PAT_RT_WRITE_BUFFER_SIZE
+               Specify the size, in bytes, of a buffer that collects
+               measurement data for a single thread.
+
+               Default: 8MB
+
+   CONTROLLING THE SIZE OF EXPERIMENT DATA FILES
+     Depending on the nature of your experiment, the data file created by
+     CrayPat can be quite large. To keep data files down to reasonable
+     sizes, use the runtime environment variables. The particular runtime
+     environment variables you can use will vary depending on the type of
+     experiment being conducted.
+
+     When running a sampling-type experiment, use the following runtime
+     environment variables to reduce the amount of sampling data collected:
+
+               PAT_RT_CALLSTACK
+
+               PAT_RT_EXPFILE_PES
+
+               PAT_RT_HWPC
+
+               PAT_RT_HWPC_OVERFLOW
+
+               PAT_RT_INTERVAL
+
+               PAT_RT_SUMMARY
+
+               PAT_RT_SIZE
+
+     When running a tracing-type experiment, use the following runtime
+     environment variables to reduce the amount of tracing data collected:
+
+               PAT_RT_CALLSTACK
+
+               PAT_RT_EXPFILE_PES
+
+               PAT_RT_HWPC
+
+               PAT_RT_SUMMARY
+
+               PAT_RT_TRACE_FUNCTION_ARGS
+
+               PAT_RT_TRACE_FUNCTION_MAX
+
+               PAT_RT_TRACE_FUNCTION_NAME
+
+               PAT_RT_TRACE_FUNCTION_SIZE
+
+               PAT_RT_TRACE_THRESHOLD_PCT
+
+               PAT_RT_TRACE_THRESHOLD_TIME
+
+     Use the limit built-in command for ksh(1) or csh(1) to control how
+     much disk space the experiment data file can consume.
+
+WARNINGS
+     The perftools module must be loaded before compiling and linking the
+     original program.
+
+     Assembly language functions, static functions, and functions that are
+     inlined cannot be traced. To trace a function that has been inlined,
+     you must first recompile using the appropriate compiler options to
+     disable inlining. See the compiler man pages and pat_build(1) for more
+     information.
+
+     In the event of an asynchronous program halt, such as occurs when an
+     instrumented UPC application calls the function upc_global_exit(), the
+     resulting experiment data file may not be fully formed.
+
+FILES
+     a.out+pat[-app#]+PID-nodes|t.xf
+               Depending on the nature of the program and the environmental
+               conditions in effect at the time of program execution, when
+               executed, the instrumented executable generates one or more
+               data files with the suffix .xf, where:
+
+               a.out     is the name of the original program
+
+               [app#]    is the application number of an MPMD job, if
+                         Multiple Program Multiple Data mode was initiated
+                         by aprun
+
+               PID       is the process ID assigned to the instrumented
+                         program at run time
+
+               node      is the physical node ID upon which the rank zero
+                         process was executed
+
+               s|t       is a one-letter code indicating the type of
+                         experiment performed, either s for sampling or t
+                         for tracing
+
+               Use the pat_report command to view or dump the .xf file or
+               export it to another file format for use with other
+               applications.
+
+SEE ALSO
+     pat_build(1), pat_report(1), pat_help(1), app2(1)
+
+     hwpc(5), nwpc(5), accpc(5), papi_counters(5)
+
+      (link to URL http://icl.cs.utk.edu/projects/papi/)
