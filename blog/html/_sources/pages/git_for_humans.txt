@@ -263,7 +263,7 @@ It is important to note that the github webserver uses Jekyll, and to bypass it:
   It is now possible to completely bypass Jekyll processing on GitHub Pages by creating a file named* **.nojekyll** 
   *in the root of your pages repo and pushing it to GitHub. This should only be necessary if your site uses files 
   or directories that start with underscores since Jekyll considers these to be special resources and 
-  does not copy them to the final site.*
+  does not copy them to the final site.
 
 A must for Vim users
 ~~~~~~~~~~~~~~~~~~~~
@@ -288,7 +288,7 @@ https://github.com/stettberger/metagit/wiki/Git-svn
 Want to see what is in a commit
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A nifty way to sho commit logs and diff output each commit introduces ::
+A nifty way to show commit logs and diff output each commit introduces ::
 
   git whatchanged <SHA>
 
@@ -373,6 +373,12 @@ Aliases
 This wiki page explains how to configure git to recognize aliases.  https://git.wiki.kernel.org/index.php/Aliases#Aliases
 
 
+SSH Keys and Github
+~~~~~~~~~~~~~~~~~~~
 
+I was having difficulty working with my github repos because of the ssh-keys and my remote URL address.  To set up ssh-keys for github correclty follow https://help.github.com/articles/generating-ssh-keys and https://help.github.com/categories/56/articles .  I still had to keep entering my username and password after correclty loading up the keys both on my machine and on github.  So I had to change the URL of my remote in *.git/config* :: 
 
+  #url = https://github.com/<USERNAME>/project1.git
+  url = git@github.com:/<USERNAME>/project1.git
 
+And that did the trick.  
