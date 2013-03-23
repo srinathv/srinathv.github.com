@@ -95,7 +95,7 @@ of the key on every remote machine you access.  This way, you only need to remem
 you use on your local machine).
 
 Github uses the sshkey for access and has a great link at http://help.github.com/linux-set-up-git/.  The following is
-taken directly from the github page, but placed here for convinience.
+taken directly from the github page, but placed here for convenience.
 
 1.Check for SSH keys. Have an existing key pair? You can skip to Step 4.
 First, we need to check for existing ssh keys on your computer::
@@ -170,7 +170,7 @@ Hopefully that helps reduce the number of passwords you must remember.
 GNU SCREEN
 __________
 
-Launching GNU screen on a remote machine is probably the first thing you should do.  Consider it as a text-based window system that keeps running in the background, even if you "detatch" because of any type of severed connection, even unintential.  A great website is https://wiki.archlinux.org/index.php/GNU_Screen .  I launch screen when I first log into a machine:: 
+Launching GNU screen on a remote machine is probably the first thing you should do.  Consider it as a text-based window system that keeps running in the background, even if you "detach" because of any type of severed connection, even unintentional.  A great website is https://wiki.archlinux.org/index.php/GNU_Screen .  I launch screen when I first log into a machine:: 
 
   $screen 
 
