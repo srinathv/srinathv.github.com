@@ -194,10 +194,12 @@
 </li>
 <li><a class="reference internal" href="#mac-ssd-needing-some-help" id="id8">Mac SSD needing some help</a></li>
 <li><a class="reference internal" href="#system-profiling-from-command-line" id="id9">System profiling from command line</a></li>
-<li><a class="reference internal" href="#gpus-and-the-macs" id="id10">GPUs and the Macs</a><ul>
-<li><a class="reference internal" href="#opencl" id="id11">OPENCL</a></li>
-<li><a class="reference internal" href="#openacc" id="id12">OPENACC</a></li>
-<li><a class="reference internal" href="#portland-group-compilers" id="id13">Portland Group Compilers</a></li>
+<li><a class="reference internal" href="#gpus-and-the-macs" id="id10">GPUs and the Macs</a></li>
+<li><a class="reference internal" href="#remote-connections" id="id11">Remote Connections</a></li>
+<li><a class="reference internal" href="#local-memory-release" id="id12">Local Memory release</a><ul>
+<li><a class="reference internal" href="#opencl" id="id13">OPENCL</a></li>
+<li><a class="reference internal" href="#openacc" id="id14">OPENACC</a></li>
+<li><a class="reference internal" href="#portland-group-compilers" id="id15">Portland Group Compilers</a></li>
 </ul>
 </li>
 </ul>
@@ -316,16 +318,40 @@ trick.  But, I also saw the need may arise to recondition the drive.  This websi
 <p>GP-GPU programming is gaining massive momentum and lots of developers use Macs for the computing power and ease in a
 nice, not too heavy case.  Nvidia makes the CUDA toolkit available for free, which will allow for CUDA-C programming on
 your mac, as long as it has an NVIDIA GPU graphics card.</p>
+</div>
+<div class="section" id="remote-connections">
+<h2><a class="toc-backref" href="#id11">Remote Connections</a></h2>
+<p>I use the native Mac OS X VPN with lots of success.  Sometimes you need to close your lid but want to retain your VPN connection.  A nice built in command is caffeinate:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$caffeinate</span> -u -t 3600
+</pre></div>
+</div>
+<p>Its really nice (man):</p>
+<div class="highlight-bash"><div class="highlight"><pre>caffeinate -- prevent the system from sleeping on behalf of a utility
+</pre></div>
+</div>
+<p>This helps.</p>
+</div>
+<div class="section" id="local-memory-release">
+<h2><a class="toc-backref" href="#id12">Local Memory release</a></h2>
+<p>To help swipe inactive memory on our mac, try:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$purge</span>
+</pre></div>
+</div>
+<p>where man purge:</p>
+<dl class="docutils">
+<dt>NAME</dt>
+<dd>purge &#8211; force disk cache to be purged (flushed and emptied)</dd>
+</dl>
 <div class="section" id="opencl">
-<h3><a class="toc-backref" href="#id11">OPENCL</a></h3>
+<h3><a class="toc-backref" href="#id13">OPENCL</a></h3>
 <p>Need something here</p>
 </div>
 <div class="section" id="openacc">
-<h3><a class="toc-backref" href="#id12">OPENACC</a></h3>
+<h3><a class="toc-backref" href="#id14">OPENACC</a></h3>
 <p>Need something here</p>
 </div>
 <div class="section" id="portland-group-compilers">
-<h3><a class="toc-backref" href="#id13">Portland Group Compilers</a></h3>
+<h3><a class="toc-backref" href="#id15">Portland Group Compilers</a></h3>
 <p>Cool commands</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$pgcpuid</span>
 </pre></div>

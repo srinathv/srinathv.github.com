@@ -135,6 +135,36 @@ nice, not too heavy case.  Nvidia makes the CUDA toolkit available for free, whi
 your mac, as long as it has an NVIDIA GPU graphics card.
 
 
+Remote Connections
+------------------
+
+I use the native Mac OS X VPN with lots of success.  Sometimes you need to close your lid but want to retain your VPN connection.  A nice built in command is caffeinate::
+
+  $caffeinate -u -t 3600
+
+Its really nice (man)::
+
+  caffeinate -- prevent the system from sleeping on behalf of a utility
+
+This helps.
+
+Local Memory release
+--------------------
+
+To help swipe inactive memory on our mac, try::
+
+  $purge
+
+where man purge::
+
+NAME
+     purge -- force disk cache to be purged (flushed and emptied)
+  
+
+
+  
+
+
 OPENCL
 ~~~~~~
 
