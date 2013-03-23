@@ -12,7 +12,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Working with LCFs &mdash; Psuedoneuromancer&#39;s scientific tool chest.</title>
+    <title>Useful Linux commands &mdash; Psuedoneuromancer&#39;s scientific tool chest.</title>
     
     <link rel="stylesheet" href="../_static/modern.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -84,7 +84,7 @@
             </li>
             
             <li>
-                <a href="useful_linux.html">Useful Linux commands</a>
+                <a href="#">Useful Linux commands</a>
             </li>
             
             <li>
@@ -92,7 +92,7 @@
             </li>
             
             <li>
-                <a href="#">Working with LCFs</a>
+                <a href="working_with_lcfs.html">Working with LCFs</a>
             </li>
             
             <li>
@@ -184,52 +184,33 @@
             
     
     
-    <div class="section" id="working-with-lcfs">
-<h1><a class="toc-backref" href="#id1">Working with LCFs</a></h1>
-<div class="contents topic" id="gett-n-git-gone">
-<p class="topic-title first">Gett&#8217;n Git Gone</p>
+    <div class="section" id="useful-linux-commands">
+<h1><a class="toc-backref" href="#id2">Useful Linux commands</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">Useful Linux commands</p>
 <ul class="simple">
-<li><a class="reference internal" href="#working-with-lcfs" id="id1">Working with LCFs</a><ul>
-<li><a class="reference internal" href="#links-for-jaguar-titan" id="id2">Links for Jaguar/Titan</a><ul>
-<li><a class="reference internal" href="#pgi-accelerator" id="id3">PGI Accelerator</a></li>
-<li><a class="reference internal" href="#interactive-que" id="id4">Interactive Que</a></li>
-<li><a class="reference internal" href="#craypat-cray-profiler" id="id5">CrayPat: Cray profiler</a></li>
-<li><a class="reference internal" href="#user-manual" id="id6">User Manual</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#how-to-figure-out-size-and-flags-to-aprun" id="id7">How to figure out &#8220;size&#8221; and flags to aprun</a></li>
+<li><a class="reference internal" href="#useful-linux-commands" id="id2">Useful Linux commands</a><ul>
+<li><a class="reference internal" href="#print-path-with-file-name" id="id3">Print path with file name</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="section" id="links-for-jaguar-titan">
-<h2><a class="toc-backref" href="#id2">Links for Jaguar/Titan</a></h2>
-<p>It is easier to go to one place and find useful links:</p>
-<div class="section" id="pgi-accelerator">
-<h3><a class="toc-backref" href="#id3">PGI Accelerator</a></h3>
-<p><a class="reference external" href="http://www.olcf.ornl.gov/titan/development-tools/accelerator-compiler-directives/#PGI_Accelerator">http://www.olcf.ornl.gov/titan/development-tools/accelerator-compiler-directives/#PGI_Accelerator</a></p>
+<div class="section" id="print-path-with-file-name">
+<h2><a class="toc-backref" href="#id3">Print path with file name</a></h2>
+<p>When I grep source code to find an instance of a word or the like, I need to see what is the actual file, so a full path
+helps. So at the top level of the source code you are searching, try</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$find</span> . -type f -print | grep -i timer
+./libs/utils/timer.c
+./physics/crcp/timers/README
+./physics/crcp/timers/makefile
+./physics/crcp/timers/timebase32.s
+./physics/crcp/timers/timebase64.s
+./physics/crcp/timers/timers.c
+./src/share/timer.h
+./utils/csm_share/shr_timer_mod.F90
+</pre></div>
 </div>
-<div class="section" id="interactive-que">
-<h3><a class="toc-backref" href="#id4">Interactive Que</a></h3>
-<p><a class="reference external" href="http://www.olcf.ornl.gov/support/user-guides-policies/jaguar-xk6-user-guide/#6237">http://www.olcf.ornl.gov/support/user-guides-policies/jaguar-xk6-user-guide/#6237</a></p>
-</div>
-<div class="section" id="craypat-cray-profiler">
-<h3><a class="toc-backref" href="#id5">CrayPat: Cray profiler</a></h3>
-<p><a class="reference external" href="http://www.olcf.ornl.gov/kb_articles/software-jaguar-craypat/">http://www.olcf.ornl.gov/kb_articles/software-jaguar-craypat/</a></p>
-<p>There is system variable that lets you change the location of .craypat, which seems to hold all the object files that have
-interted hooks for profiling.  Search for <em>.craypat</em> in this webpage.</p>
-</div>
-<div class="section" id="user-manual">
-<h3><a class="toc-backref" href="#id6">User Manual</a></h3>
-<p><a class="reference external" href="http://www.olcf.ornl.gov/support/user-guides-policies/jaguar-xk6-user-guide/">http://www.olcf.ornl.gov/support/user-guides-policies/jaguar-xk6-user-guide/</a></p>
-</div>
-</div>
-<div class="section" id="how-to-figure-out-size-and-flags-to-aprun">
-<h2><a class="toc-backref" href="#id7">How to figure out &#8220;size&#8221; and flags to aprun</a></h2>
-<p>How big must you specify <em>size</em> to PBS so you can run what you want how you want to: specifiying number of cores,
-threads, considering the numa connection, and GPU use?</p>
-<p>I have made a text file for the <a class="reference download internal" href="../_downloads/aprun.txt"><span class="xref download docutils literal"><span class="pre">man</span> <span class="pre">of</span> <span class="pre">aprun</span></span></a>.</p>
-<p>We will make examples for different combinations is a bit.</p>
+<p>The file wanted was <em>timer.h</em>, so now I know where to look.</p>
 </div>
 </div>
 

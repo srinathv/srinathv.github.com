@@ -18,6 +18,7 @@ Sitemap
    pages/accelerators_and_more
    pages/scientific_computing_tools
    pages/compiler_fun
+   pages/useful_linux
    pages/macs_and_hpc
    pages/working_with_lcfs
    pages/snow_leopard_links
