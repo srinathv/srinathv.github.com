@@ -167,4 +167,19 @@ You should install the public key in this manner on every remote machine you wan
 
 Hopefully that helps reduce the number of passwords you must remember.
 
+GNU SCREEN
+----------
 
+Launching GNU screen on a remote machine is probably the first thing you should do.  Consider it as a text-based window system that keeps running in the background, even if you "detatch" because of any type of severed connection, even unintential.  A great website is https://wiki.archlinux.org/index.php/GNU_Screen .  I launch screen when I first log into a machine:: 
+
+  $screen 
+
+And when I relog into a system I look for active screens::
+
+  $screen -ls
+
+To reattach to a single active screen::
+
+  $screen -r
+
+This will only improve how you work with a remote machine.

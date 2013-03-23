@@ -96,6 +96,10 @@
             </li>
             
             <li>
+                <a href="mt_lion.html">Mac OS X Mt. Lion tips</a>
+            </li>
+            
+            <li>
                 <a href="useful_vim_ideas.html">Vim ideas</a>
             </li>
             
@@ -339,6 +343,19 @@ Enter passphrase <span class="k">for </span>key <span class="s1">&#39;/home/user
 </pre></div>
 </div>
 <p>Hopefully that helps reduce the number of passwords you must remember.</p>
+<p>Launching GNU screen on a remote machine is probably the first thing you should do.  Consider it as a text-based window system that keeps running in the background, even if you &#8220;detatch&#8221; because of any type of severed connection, even unintential.  A great website is <a class="reference external" href="https://wiki.archlinux.org/index.php/GNU_Screen">https://wiki.archlinux.org/index.php/GNU_Screen</a> .  I launch screen when I first log into a machine:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$screen</span>
+</pre></div>
+</div>
+<p>And when I relog into a system I look for active screens:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$screen</span> -ls
+</pre></div>
+</div>
+<p>To reattach to a single active screen:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$screen</span> -r
+</pre></div>
+</div>
+<p>This will only improve how you work with a remote machine.</p>
 </div>
 </div>
 

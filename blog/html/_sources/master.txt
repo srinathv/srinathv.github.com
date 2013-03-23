@@ -21,6 +21,7 @@ Sitemap
    pages/macs_and_hpc
    pages/working_with_lcfs
    pages/snow_leopard_links
+   pages/mt_lion
    pages/useful_vim_ideas
    pages/about_me
 
