@@ -24,3 +24,31 @@ helps. So at the top level of the source code you are searching, try ::
   ./utils/csm_share/shr_timer_mod.F90
   
 The file wanted was *timer.h*, so now I know where to look.
+
+
+What shell am I?
+~~~~~~~~~~~~~~~~
+
+Sometimes you can not tell what shell you are using when you have logged into a machine.  Try running::
+
+  $ ps -p $$
+
+So what is $ argument passed to -p option? Remember $ returns the PID (process identification number) of the current process, and the current process is your shell. So running a ps on that number displays a process status listing of your shell. In that listing you will find the name of your shell (look for CMD column) .
+
+So you want to dissassemble...
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Some people say know what a computer program does.  But to really know, you have to look at the assembly code used by
+the machine.  Try::
+
+  $objdump -d <executable> 
+
+Now, this GNU binutils utility may not be available on your machine.  Or it may be namespaced with a "g"::
+  
+  $gobjdump -d <executable>
+
+which is how things are namespaced on a Mac if using Macports to load things::
+
+  $port install binutils
+
+
