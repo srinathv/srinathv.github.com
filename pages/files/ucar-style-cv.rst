@@ -16,7 +16,7 @@ High performance scientific computing spanning personal to massively
 parallel architectures.
 
     **Work Experience**
--  Software Engineer, NCAR (2012-Present)::
+-  Software Engineer, NCAR (2012-Present):
    
    - Current work includes parallel evaluation of HOMME, particularly on the Xeon-Phi Co-processor.
 
