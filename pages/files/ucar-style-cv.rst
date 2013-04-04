@@ -16,10 +16,13 @@ High performance scientific computing spanning personal to massively
 parallel architectures.
 
     **Work Experience**
+-  Software Engineer, NCAR (2012-Present)::
+   
+   - Current work includes parallel evaluation of HOMME, particularly on the Xeon-Phi Co-processor.
 
 -  Research Scientist, Tech-X Corp. (2006-Present):
 
-   -  Current work responsibilities include implementing validation and
+   -  Responsibilities included implementing validation and
       verification tools via Fortran90, Hdf5 and Python, to the
       gyrokinetic parallel fusion codes GYRO (General Atomics) and GEM
       (CU-Boulder)

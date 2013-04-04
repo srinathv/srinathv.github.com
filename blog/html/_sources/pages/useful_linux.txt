@@ -35,7 +35,7 @@ Sometimes you can not tell what shell you are using when you have logged into a 
 
 So what is $ argument passed to -p option? Remember $ returns the PID (process identification number) of the current process, and the current process is your shell. So running a ps on that number displays a process status listing of your shell. In that listing you will find the name of your shell (look for CMD column) .
 
-So you want to dissassemble...
+So you want to disassemble...
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Some people say know what a computer program does.  But to really know, you have to look at the assembly code used by
