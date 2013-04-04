@@ -1,230 +1,167 @@
-
-
-
-
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Fortran 2003 is going to make things very interesting. Coarrays will be the game changer. &mdash; Psuedoneuromancer&#39;s scientific tool chest.</title>
-    
-    <link rel="stylesheet" href="../../../_static/modern.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="My blog">
+        <meta name="viewport" content="width=device-width">
+        <title>Fortran 2003 is going to make things very interesting. Coarrays will be the game changer. &mdash; Psuedoneuromancer&#39;s scientific tool chest.</title>
+            <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/modern5.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../../../_static/webfont.css" type="text/css">
+        <link rel="shortcut icon" href="../../../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../../../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../../../_static/plugins.js"></script>
+        <script src="../../../_static/main.js"></script>
+        <link rel="next" title="Happy that github was quick to fix the hack with ssh-keys auditing. Kudos." href="../07/happy_that_github_was_quick_to_fix_the_hack_with_ssh_keys_auditing___kudos_.html" /><link rel="prev" title="OpenACC may help with accelerated hardware. I hope the emphasis is still on simulation results." href="../../04/16/openacc_may_help_with_accelerated_hardware___i_hope_the_emphasis_is_still_on_simulation_results_.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '1.0.2',
+        VERSION:     '1.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
-    </script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="shortcut icon" href="../../../_static/tinkerer.ico"/>
-    
-    <link rel="top" title="Psuedoneuromancer&#39;s scientific tool chest." href="../../../index.html" />
-    <link rel="next" title="Happy that github was quick to fix the hack with ssh-keys auditing. Kudos." href="../07/happy_that_github_was_quick_to_fix_the_hack_with_ssh_keys_auditing___kudos_.html" />
-    <link rel="prev" title="OpenACC may help with accelerated hardware. I hope the emphasis is still on simulation results." href="../../04/16/openacc_may_help_with_accelerated_hardware___i_hope_the_emphasis_is_still_on_simulation_results_.html" />
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" />
-     
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-    
     <script type="text/javascript">
-        $(document).ready(function() {
-            var bodywrapper = document.getElementsByClassName("documentwrapper")[0];
-            var sidebar = document.getElementsByClassName("sphinxsidebar")[0];
+        $(document).ready(function () {
+            // Adjusts document height if sidebar is taller
+            var documentwrapper = document.getElementsByTagName("article")[0];
+            var sidebar = document.getElementsByClassName("sidebar")[0];
 
-            if (sidebar.offsetHeight > bodywrapper.offsetHeight)
+            if (sidebar.offsetHeight > documentwrapper.offsetHeight)
             {
-                bodywrapper.style.minHeight = sidebar.offsetHeight + "px";
+                var mainwrapper = document.getElementsByClassName("main")[0];
+                documentwrapper.style.minHeight = mainwrapper.offsetHeight + "px";
+            }
+
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
             }
         });
-    </script>
+    </script></head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
 
-  </head>
-  <body>
-    
-    <div class="header">
-        <h1 class="heading">
-            <a href="../../../index.html">
-                <span>Psuedoneuromancer&#39;s scientific tool chest.</span>
-            </a>
-        </h1>
-        <h2 class="tagline">Things that help Srinath Vadlamani explore science and mathematics.</h2>
-    </div>
-    <div class="page_nav">
-        <ul>
-            
-            <li>
-                <a href="../../../index.html">Home</a>
-            </li>
-            
-            <li>
-                <a href="../../../pages/git_for_humans.html">Git for humans</a>
-            </li>
-            
-            <li>
-                <a href="../../../pages/accelerators_and_more.html">Accelerators and more</a>
-            </li>
-            
-            <li>
-                <a href="../../../pages/scientific_computing_tools.html">Scientific computing tools</a>
-            </li>
-            
-            <li>
-                <a href="../../../pages/compiler_fun.html">Compiler Fun</a>
-            </li>
-            
-            <li>
-                <a href="../../../pages/useful_linux.html">Useful Linux commands</a>
-            </li>
-            
-            <li>
-                <a href="../../../pages/macs_and_hpc.html">Macs and High Performance Computing</a>
-            </li>
-            
-            <li>
-                <a href="../../../pages/working_with_lcfs.html">Working with LCFs</a>
-            </li>
-            
-            <li>
-                <a href="../../../pages/snow_leopard_links.html">Snow Leopard Links</a>
-            </li>
-            
-            <li>
-                <a href="../../../pages/mt_lion.html">Mac OS X Mt. Lion tips</a>
-            </li>
-            
-            <li>
-                <a href="../../../pages/useful_vim_ideas.html">Vim ideas</a>
-            </li>
-            
-            <li>
-                <a href="../../../pages/about_me.html">About me</a>
-            </li>
-            
-            <li class="right">
-                
-    <div class="rss">
-        <a href="../../../rss.html" title="Subscribe via RSS"><span class="webfont">B</span>
-            
-        </a>
-    </div>
-            </li>
-        </ul>
-    </div>
-    <div class="clearer"></div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-
-<div class="widget">
-    <h1>Recent Posts</h1>
-    <ul>
-        <li class="recent_post">
-            <a href="../../06/07/when_using_git__commit_often___the_smaller_the_commit_the_better___because_then_git_revert_will_save_your_day__one_day_.html">When using git, commit often!  The smaller the commit the better.  Because then git-revert will save your day, one day!</a>
-        </li>
-        <li class="recent_post">
-            <a href="../../05/23/fortran_2003_8_standards_presented_by_dan_nagle_are_blowing_me_away___pointer_bounds_and_rank_remapping_will_have_to_be_implemented_in_any_new_codes_i_work_on_.html">Fortran 2003/8 standards presented by Dan Nagle are blowing me away!  Pointer bounds and rank remapping will have to be implemented in any new codes I work on.</a>
-        </li>
-        <li class="recent_post">
-            <a href="../../04/16/openacc_may_help_with_accelerated_hardware___i_hope_the_emphasis_is_still_on_simulation_results_.html">OpenACC may help with accelerated hardware.  I hope the emphasis is still on simulation results.</a>
-        </li>
-        <li class="recent_post">
-            <a href="#">Fortran 2003 is going to make things very interesting.  Coarrays will be the game changer.</a>
-        </li>
-        <li class="recent_post">
-            <a href="../07/happy_that_github_was_quick_to_fix_the_hack_with_ssh_keys_auditing___kudos_.html">Happy that github was quick to fix the hack with ssh-keys auditing.  Kudos.</a>
-        </li>
-        <li class="recent_post">
-            <a href="../07/so_xcode_now_installs_in__applications_to_remove_the_need_for_xcode_installer__which_installed_in__developers_____confusing___use_xcode_select_to_help_things_out_.html">So Xcode now installs in /Applications to remove the need for Xcode-Installer, which installed in /Developers ... confusing.  Use xcode-select to help things out.</a>
-        </li>
-        <li class="recent_post">
-            <a href="../../02/19/it_takes_some_time_to_organize_thoughts_on_the_interweb___tinkerer_is_very_helpful_.html">It takes some time to organize thoughts on the interweb.  Tinkerer is very helpful.</a>
-        </li>
-        <li class="recent_post">
-            <a href="../../02/17/restating__pushing_to_github_is_easy___it_is_getting_a_website_hosted_on_there_to_look_correct___try_adding_a__nojekyll_file_to_the_top_level_if_any_file_or_directory_in_your_website_project_has_underscores_.html">Restating: Pushing to github is easy.  It is getting a website hosted on there to look correct...try adding a .nojekyll file to the top level if any file or directory in your website project has underscores.</a>
-        </li>
-        <li class="recent_post">
-            <a href="../../02/14/seems_that_pushing_to_github_is_not_so_easy_.html">Seems that pushing to github is not so easy.</a>
-        </li>
-        <li class="recent_post">
-            <a href="../../02/14/this_should_help_with_logging_simple_ideas_that_i_find_useful_for_coding_.html">This should help with logging simple ideas that I find useful for coding.</a>
-        </li>
-    </ul>
-</div>
-
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body">
-            
-    
-    <div class="related">
-        <ul>
-            <li>
-                 &laquo; <a href="../../04/16/openacc_may_help_with_accelerated_hardware___i_hope_the_emphasis_is_still_on_simulation_results_.html">OpenACC may help with accelerated hardware.  I hope the emphasis is still on simulation results.</a>
-            </li>
-            <li class="right">
-                <a href="../07/happy_that_github_was_quick_to_fix_the_hack_with_ssh_keys_auditing___kudos_.html">Happy that github was quick to fix the hack with ssh-keys auditing.  Kudos.</a> &raquo; 
-            </li>
-        </ul>
-    </div>
-    
-        <div class="timestamp postmeta">
-            <span>March 23, 2012</span> 
+      <div id="container"><header>
+            <hgroup>
+              <h1><a href="../../../index.html">Psuedoneuromancer&#39;s scientific tool chest.</a></h1><h2>Things that help Srinath Vadlamani explore science and mathematics.</h2></hgroup>
+          </header>
+      <nav>
+            <ul><li class="quicklink"><div class="rss">
+        <a href="../../../rss.html" title="Subscribe via RSS"><span class="webfont">B</span></a>
+    </div></li><li class="main-nav">
+                  <a href="../../../index.html">Home</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../../../pages/git_for_humans.html">Git for humans</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../../../pages/accelerators_and_more.html">Accelerators and more</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../../../pages/scientific_computing_tools.html">Scientific computing tools</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../../../pages/compiler_fun.html">Compiler Fun</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../../../pages/useful_linux.html">Useful Linux commands</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../../../pages/macs_and_hpc.html">Macs and High Performance Computing</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../../../pages/working_with_lcfs.html">Working with LCFs</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../../../pages/snow_leopard_links.html">Snow Leopard Links</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../../../pages/mt_lion.html">Mac OS X Mt. Lion tips</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../../../pages/useful_vim_ideas.html">Vim ideas</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../../../pages/about_me.html">About me</a>
+                </li>
+              </ul>
+          </nav><div class="main-container"><div class="main wrapper clearfix"><article><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../../04/16/openacc_may_help_with_accelerated_hardware___i_hope_the_emphasis_is_still_on_simulation_results_.html">OpenACC may help with accelerated hardware.  I hope the emphasis is still on simulation results.</a></li>
+            <li class="right"><a href="../07/happy_that_github_was_quick_to_fix_the_hack_with_ssh_keys_auditing___kudos_.html">Happy that github was quick to fix the hack with ssh-keys auditing.  Kudos.</a> &raquo; </li>
+        </ul><div class="timestamp postmeta">
+            <span>March 23, 2012</span>
         </div>
     <div class="section" id="fortran-2003-is-going-to-make-things-very-interesting-coarrays-will-be-the-game-changer">
 <h1>Fortran 2003 is going to make things very interesting.  Coarrays will be the game changer.</h1>
 </div>
 
-    
     <div class="postmeta">
-        
         <div class="author">
             <span>Posted by Srinath Vadlamani</span>
         </div>
         
         
-        
-    </div>
-    
-
-          </div>
         </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-        &copy; Copyright 2012, Srinath Vadlamani.
-        Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+    <ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../../04/16/openacc_may_help_with_accelerated_hardware___i_hope_the_emphasis_is_still_on_simulation_results_.html">OpenACC may help with accelerated hardware.  I hope the emphasis is still on simulation results.</a></li>
+            <li class="right"><a href="../07/happy_that_github_was_quick_to_fix_the_hack_with_ssh_keys_auditing___kudos_.html">Happy that github was quick to fix the hack with ssh-keys auditing.  Kudos.</a> &raquo; </li>
+        </ul></article><aside class="sidebar"><section><div class="widget">
+    <h1>Recent Posts</h1>
+    <ul><li>
+            <a href="../../06/07/when_using_git__commit_often___the_smaller_the_commit_the_better___because_then_git_revert_will_save_your_day__one_day_.html">When using git, commit often!  The smaller the commit the better.  Because then git-revert will save your day, one day!</a>
+        </li><li>
+            <a href="../../05/23/fortran_2003_8_standards_presented_by_dan_nagle_are_blowing_me_away___pointer_bounds_and_rank_remapping_will_have_to_be_implemented_in_any_new_codes_i_work_on_.html">Fortran 2003/8 standards presented by Dan Nagle are blowing me away!  Pointer bounds and rank remapping will have to be implemented in any new codes I work on.</a>
+        </li><li>
+            <a href="../../04/16/openacc_may_help_with_accelerated_hardware___i_hope_the_emphasis_is_still_on_simulation_results_.html">OpenACC may help with accelerated hardware.  I hope the emphasis is still on simulation results.</a>
+        </li><li>
+            <a href="#">Fortran 2003 is going to make things very interesting.  Coarrays will be the game changer.</a>
+        </li><li>
+            <a href="../07/happy_that_github_was_quick_to_fix_the_hack_with_ssh_keys_auditing___kudos_.html">Happy that github was quick to fix the hack with ssh-keys auditing.  Kudos.</a>
+        </li><li>
+            <a href="../07/so_xcode_now_installs_in__applications_to_remove_the_need_for_xcode_installer__which_installed_in__developers_____confusing___use_xcode_select_to_help_things_out_.html">So Xcode now installs in /Applications to remove the need for Xcode-Installer, which installed in /Developers ... confusing.  Use xcode-select to help things out.</a>
+        </li><li>
+            <a href="../../02/19/it_takes_some_time_to_organize_thoughts_on_the_interweb___tinkerer_is_very_helpful_.html">It takes some time to organize thoughts on the interweb.  Tinkerer is very helpful.</a>
+        </li><li>
+            <a href="../../02/17/restating__pushing_to_github_is_easy___it_is_getting_a_website_hosted_on_there_to_look_correct___try_adding_a__nojekyll_file_to_the_top_level_if_any_file_or_directory_in_your_website_project_has_underscores_.html">Restating: Pushing to github is easy.  It is getting a website hosted on there to look correct...try adding a .nojekyll file to the top level if any file or directory in your website project has underscores.</a>
+        </li><li>
+            <a href="../../02/14/seems_that_pushing_to_github_is_not_so_easy_.html">Seems that pushing to github is not so easy.</a>
+        </li><li>
+            <a href="../../02/14/this_should_help_with_logging_simple_ideas_that_i_find_useful_for_coding_.html">This should help with logging simple ideas that I find useful for coding.</a>
+        </li></ul>
+</div>
+</section><section><div class="widget" id="searchbox">
+    <h1>Search</h1>
+    <form action="../../../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="webfont">L</span></button>
+    </form>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
 
-    
-    </div>
-  </body>
+        <div class="footer-container"><footer class="wrapper">&copy; Copyright 2012, Srinath Vadlamani. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
 </html>
