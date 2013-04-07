@@ -241,3 +241,13 @@ The comands are :
 Command-4: send line to ipython qtconsole
 Command-5: run entire file.
 
+
+Where is the current file
+_________________________
+
+If you want to know where the current file resides ::
+
+  :echo expand('%:p')
+
+This will give full path.
+
