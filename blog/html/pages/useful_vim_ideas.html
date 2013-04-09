@@ -30,7 +30,7 @@
         <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.html" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '1.0.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -45,8 +45,7 @@
 
             if (sidebar.offsetHeight > documentwrapper.offsetHeight)
             {
-                var mainwrapper = document.getElementsByClassName("main")[0];
-                documentwrapper.style.minHeight = mainwrapper.offsetHeight + "px";
+                documentwrapper.style.minHeight = sidebar.offsetHeight + "px";
             }
 
             // Scroll to content if on small screen
@@ -63,7 +62,9 @@
 
       <div id="container"><header>
             <hgroup>
-              <h1><a href="../index.html">Psuedoneuromancer&#39;s scientific tool chest.</a></h1><h2>Things that help Srinath Vadlamani explore science and mathematics.</h2></hgroup>
+              <h1><a href="../index.html">Psuedoneuromancer&#39;s scientific tool chest.</a></h1>
+              <h2>Things that help Srinath Vadlamani explore science and mathematics.</h2>
+            </hgroup>
           </header>
       <nav>
             <ul><li class="quicklink"><div class="rss">
@@ -131,6 +132,7 @@
 <li><a class="reference internal" href="#display-line-numbers-in-left-column" id="id18">Display line numbers in left column</a></li>
 <li><a class="reference internal" href="#macvim-and-ipython" id="id19">MacVim and Ipython</a></li>
 <li><a class="reference internal" href="#where-is-the-current-file" id="id20">Where is the current file</a></li>
+<li><a class="reference internal" href="#diff-current-buffer-with-another-file" id="id21">Diff current buffer with another file</a></li>
 </ul>
 </li>
 </ul>
@@ -150,8 +152,8 @@ Then you can:</p>
 <p>Build instruction here: <a class="reference external" href="https://github.com/b4winckler/macvim/wiki/Building">https://github.com/b4winckler/macvim/wiki/Building</a></p>
 <p>Uncomment the following 2 in os_mac.h:</p>
 <div class="highlight-vim"><div class="highlight"><pre>#<span class="nb">define</span> CASE_INSENSITIVE_FILENAME   <span class="sr">/* ignore case when comparing file names */</span>
-#<span class="nb">define</span> USE_FNAME_CASE                /* <span class="k">make</span> <span class="s2">&quot;:e os_Mac.c&quot;</span> open <span class="k">the</span> <span class="k">file</span> <span class="k">in</span> its
-                                 original case<span class="p">,</span> <span class="k">as</span> <span class="c">&quot;os_mac.c&quot; */</span>
+#<span class="nb">define</span> USE_FNAME_CASE                /* <span class="k">make</span> <span class="s2">&quot;:e os_Mac.c&quot;</span> open the <span class="k">file</span> <span class="k">in</span> its
+                                 original case<span class="p">,</span> <span class="k">as</span> <span class="s2">&quot;os_mac.c&quot;</span> */
 </pre></div>
 </div>
 <dl class="docutils">
@@ -178,8 +180,8 @@ Then you can:</p>
 
 <span class="nb">syntax</span> <span class="k">on</span>
 
-<span class="k">let</span> s:extfname <span class="p">=</span> expand<span class="p">(</span><span class="s2">&quot;%:e&quot;</span><span class="p">)</span>
-     <span class="k">if</span> s:extfname <span class="p">==</span>? <span class="c">&quot;f90&quot;</span>
+<span class="k">let</span> <span class="k">s</span>:extfname <span class="p">=</span> expand<span class="p">(</span><span class="s2">&quot;%:e&quot;</span><span class="p">)</span>
+     <span class="k">if</span> <span class="k">s</span>:extfname <span class="p">==</span>? <span class="s2">&quot;f90&quot;</span>
       <span class="k">let</span> fortran_free_source<span class="p">=</span><span class="m">1</span>
       unlet<span class="p">!</span> fortran_fixed_source
     <span class="k">else</span>
@@ -333,6 +335,14 @@ Command-5: run entire file.</p>
 </div>
 <p>This will give full path.</p>
 </div>
+<div class="section" id="diff-current-buffer-with-another-file">
+<h2><a class="toc-backref" href="#id21">Diff current buffer with another file</a></h2>
+<p>Sometimes you need to diff a file with the current buffer.  To do this (in a vertical format)</p>
+<div class="highlight-vim"><div class="highlight"><pre><span class="p">:</span><span class="k">vertical</span> <span class="k">diffsplit</span> <span class="p">&lt;</span>other <span class="k">file</span> name<span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Removing the prepended &#8220;vertical&#8221; will be a horizonal diff, which I find hard to read.</p>
+</div>
 </div>
 
     <div class="postmeta">
@@ -343,8 +353,6 @@ Command-5: run entire file.</p>
     </article><aside class="sidebar"><section><div class="widget">
     <h1>Recent Posts</h1>
     <ul><li>
-            <a href="../2013/04/04/profiling_measures_time_and_events_per_call__while_trace_looks_at_communication_events_over_time.html">Profiling measures time and events per call, while trace looks at communication events over time</a>
-        </li><li>
             <a href="../2012/06/07/when_using_git__commit_often___the_smaller_the_commit_the_better___because_then_git_revert_will_save_your_day__one_day_.html">When using git, commit often!  The smaller the commit the better.  Because then git-revert will save your day, one day!</a>
         </li><li>
             <a href="../2012/05/23/fortran_2003_8_standards_presented_by_dan_nagle_are_blowing_me_away___pointer_bounds_and_rank_remapping_will_have_to_be_implemented_in_any_new_codes_i_work_on_.html">Fortran 2003/8 standards presented by Dan Nagle are blowing me away!  Pointer bounds and rank remapping will have to be implemented in any new codes I work on.</a>
@@ -362,6 +370,8 @@ Command-5: run entire file.</p>
             <a href="../2012/02/17/restating__pushing_to_github_is_easy___it_is_getting_a_website_hosted_on_there_to_look_correct___try_adding_a__nojekyll_file_to_the_top_level_if_any_file_or_directory_in_your_website_project_has_underscores_.html">Restating: Pushing to github is easy.  It is getting a website hosted on there to look correct...try adding a .nojekyll file to the top level if any file or directory in your website project has underscores.</a>
         </li><li>
             <a href="../2012/02/14/seems_that_pushing_to_github_is_not_so_easy_.html">Seems that pushing to github is not so easy.</a>
+        </li><li>
+            <a href="../2012/02/14/this_should_help_with_logging_simple_ideas_that_i_find_useful_for_coding_.html">This should help with logging simple ideas that I find useful for coding.</a>
         </li></ul>
 </div>
 </section><section><div class="widget" id="searchbox">

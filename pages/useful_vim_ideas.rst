@@ -251,3 +251,12 @@ If you want to know where the current file resides ::
 
 This will give full path.
 
+
+Diff current buffer with another file
+_____________________________________
+
+Sometimes you need to diff a file with the current buffer.  To do this (in a vertical format) ::
+
+  :vertical diffsplit <other file name>
+
+Removing the prepended "vertical" will be a horizonal diff, which I find hard to read.
