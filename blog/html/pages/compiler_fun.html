@@ -30,7 +30,7 @@
         <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.html" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.0.2',
+        VERSION:     '1.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -45,7 +45,8 @@
 
             if (sidebar.offsetHeight > documentwrapper.offsetHeight)
             {
-                documentwrapper.style.minHeight = sidebar.offsetHeight + "px";
+                var mainwrapper = document.getElementsByClassName("main")[0];
+                documentwrapper.style.minHeight = mainwrapper.offsetHeight + "px";
             }
 
             // Scroll to content if on small screen
@@ -62,9 +63,7 @@
 
       <div id="container"><header>
             <hgroup>
-              <h1><a href="../index.html">Psuedoneuromancer&#39;s scientific tool chest.</a></h1>
-              <h2>Things that help Srinath Vadlamani explore science and mathematics.</h2>
-            </hgroup>
+              <h1><a href="../index.html">Psuedoneuromancer&#39;s scientific tool chest.</a></h1><h2>Things that help Srinath Vadlamani explore science and mathematics.</h2></hgroup>
           </header>
       <nav>
             <ul><li class="quicklink"><div class="rss">
@@ -209,6 +208,8 @@ contrib/download_prerequisites
     </article><aside class="sidebar"><section><div class="widget">
     <h1>Recent Posts</h1>
     <ul><li>
+            <a href="../2013/04/04/profiling_measures_time_and_events_per_call__while_trace_looks_at_communication_events_over_time.html">Profiling measures time and events per call, while trace looks at communication events over time</a>
+        </li><li>
             <a href="../2012/06/07/when_using_git__commit_often___the_smaller_the_commit_the_better___because_then_git_revert_will_save_your_day__one_day_.html">When using git, commit often!  The smaller the commit the better.  Because then git-revert will save your day, one day!</a>
         </li><li>
             <a href="../2012/05/23/fortran_2003_8_standards_presented_by_dan_nagle_are_blowing_me_away___pointer_bounds_and_rank_remapping_will_have_to_be_implemented_in_any_new_codes_i_work_on_.html">Fortran 2003/8 standards presented by Dan Nagle are blowing me away!  Pointer bounds and rank remapping will have to be implemented in any new codes I work on.</a>
@@ -226,8 +227,6 @@ contrib/download_prerequisites
             <a href="../2012/02/17/restating__pushing_to_github_is_easy___it_is_getting_a_website_hosted_on_there_to_look_correct___try_adding_a__nojekyll_file_to_the_top_level_if_any_file_or_directory_in_your_website_project_has_underscores_.html">Restating: Pushing to github is easy.  It is getting a website hosted on there to look correct...try adding a .nojekyll file to the top level if any file or directory in your website project has underscores.</a>
         </li><li>
             <a href="../2012/02/14/seems_that_pushing_to_github_is_not_so_easy_.html">Seems that pushing to github is not so easy.</a>
-        </li><li>
-            <a href="../2012/02/14/this_should_help_with_logging_simple_ideas_that_i_find_useful_for_coding_.html">This should help with logging simple ideas that I find useful for coding.</a>
         </li></ul>
 </div>
 </section><section><div class="widget" id="searchbox">
