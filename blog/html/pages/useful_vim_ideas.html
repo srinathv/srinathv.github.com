@@ -150,8 +150,8 @@ Then you can:</p>
 <p>Build instruction here: <a class="reference external" href="https://github.com/b4winckler/macvim/wiki/Building">https://github.com/b4winckler/macvim/wiki/Building</a></p>
 <p>Uncomment the following 2 in os_mac.h:</p>
 <div class="highlight-vim"><div class="highlight"><pre>#<span class="nb">define</span> CASE_INSENSITIVE_FILENAME   <span class="sr">/* ignore case when comparing file names */</span>
-#<span class="nb">define</span> USE_FNAME_CASE                /* <span class="k">make</span> <span class="s2">&quot;:e os_Mac.c&quot;</span> open <span class="k">the</span> <span class="k">file</span> <span class="k">in</span> its
-                                 original case<span class="p">,</span> <span class="k">as</span> <span class="c">&quot;os_mac.c&quot; */</span>
+#<span class="nb">define</span> USE_FNAME_CASE                /* <span class="k">make</span> <span class="s2">&quot;:e os_Mac.c&quot;</span> open the <span class="k">file</span> <span class="k">in</span> its
+                                 original case<span class="p">,</span> <span class="k">as</span> <span class="s2">&quot;os_mac.c&quot;</span> */
 </pre></div>
 </div>
 <dl class="docutils">
@@ -178,8 +178,8 @@ Then you can:</p>
 
 <span class="nb">syntax</span> <span class="k">on</span>
 
-<span class="k">let</span> s:extfname <span class="p">=</span> expand<span class="p">(</span><span class="s2">&quot;%:e&quot;</span><span class="p">)</span>
-     <span class="k">if</span> s:extfname <span class="p">==</span>? <span class="c">&quot;f90&quot;</span>
+<span class="k">let</span> <span class="k">s</span>:extfname <span class="p">=</span> expand<span class="p">(</span><span class="s2">&quot;%:e&quot;</span><span class="p">)</span>
+     <span class="k">if</span> <span class="k">s</span>:extfname <span class="p">==</span>? <span class="s2">&quot;f90&quot;</span>
       <span class="k">let</span> fortran_free_source<span class="p">=</span><span class="m">1</span>
       unlet<span class="p">!</span> fortran_fixed_source
     <span class="k">else</span>

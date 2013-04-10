@@ -51,4 +51,10 @@ which is how things are namespaced on a Mac if using Macports to load things::
 
   $port install binutils
 
+What is my machines processor?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+The following will give details about the cores of the machine you are running on (according to the OS).  
+Do note that the list of cores may be exaggerated due to the hardware implemented Simultaneous Multi-Threading (SMT) ::
+
+  $less /proc/cpuinfo
