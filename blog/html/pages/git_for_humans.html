@@ -147,6 +147,7 @@
 <li><a class="reference internal" href="#want-to-delete-branch-on-remote" id="id34">Want to delete branch on remote</a></li>
 <li><a class="reference internal" href="#aliases" id="id35">Aliases</a></li>
 <li><a class="reference internal" href="#ssh-keys-and-github" id="id36">SSH Keys and Github</a></li>
+<li><a class="reference internal" href="#how-to-fix-git-push-results-in-rpc-failed-result-22-http-code-411" id="id37">How to fix Git PUSH results in RPC failed, result=22, HTTP code = 411</a></li>
 </ul>
 </li>
 </ul>
@@ -473,6 +474,15 @@ remote. Merge managment is now a must.</p>
 </pre></div>
 </div>
 <p>And that did the trick.</p>
+</div>
+<div class="section" id="how-to-fix-git-push-results-in-rpc-failed-result-22-http-code-411">
+<h2><a class="toc-backref" href="#id37">How to fix Git PUSH results in RPC failed, result=22, HTTP code = 411</a></h2>
+<p>I got this error and then found this website: <a class="reference external" href="https://confluence.atlassian.com/display/FISHKB/Git+PUSH+results+in+RPC+failed,+result%3D22,+HTTP+code+%3D+411">https://confluence.atlassian.com/display/FISHKB/Git+PUSH+results+in+RPC+failed,+result%3D22,+HTTP+code+%3D+411</a>
+So the reason this happens is because the default file post size for Git has been exceeded.  The fix:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$git</span> config http.postBuffer 524288000
+</pre></div>
+</div>
+<p>I think this might be good to put <em>http.postBuffer 524288000</em> in your <em>.gitconfig</em>.</p>
 </div>
 </div>
 

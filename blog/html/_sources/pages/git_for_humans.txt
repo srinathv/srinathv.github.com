@@ -382,3 +382,15 @@ I was having difficulty working with my github repos because of the ssh-keys and
   url = git@github.com:/<USERNAME>/project1.git
 
 And that did the trick.  
+
+How to fix Git PUSH results in RPC failed, result=22, HTTP code = 411
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+I got this error and then found this website: https://confluence.atlassian.com/display/FISHKB/Git+PUSH+results+in+RPC+failed,+result%3D22,+HTTP+code+%3D+411
+So the reason this happens is because the default file post size for Git has been exceeded.  The fix::
+
+  $git config http.postBuffer 524288000
+
+I think this might be good to put *http.postBuffer 524288000* in your *.gitconfig*.
+
+
