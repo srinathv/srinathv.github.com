@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2013/04/26/svn_rollback_use_reverse_merge__svn_merge__r_head__what_is_should_be___thefile_
    2013/04/04/profiling_measures_time_and_events_per_call__while_trace_looks_at_communication_events_over_time
    2012/06/07/when_using_git__commit_often___the_smaller_the_commit_the_better___because_then_git_revert_will_save_your_day__one_day_
    2012/05/23/fortran_2003_8_standards_presented_by_dan_nagle_are_blowing_me_away___pointer_bounds_and_rank_remapping_will_have_to_be_implemented_in_any_new_codes_i_work_on_
