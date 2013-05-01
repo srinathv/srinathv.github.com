@@ -162,33 +162,19 @@ NAME
   
 
 Terminal displaying remote hostname
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+___________________________________
+I use so many different machines I have trouble keeping track which terminal window is on which remote machine.  Putting::
 
-I use so many different machines I have trouble keeping track which terminal window is on which
-remote machine.  Putting::
-
-PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME}: ${PWD/$HOME/~}\007"'
+  PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME}: ${PWD/$HOME/~}\007"'
 
 in your *.bashrc* on each machine you log into (including the local one) will put the hostname of the 
 current window's machine in the title bar.
   
 
 
-OPENCL
-~~~~~~
-
-Need something here
-
-
-
-OPENACC
-~~~~~~~
-
-Need something here
-
 
 Portland Group Compilers
-~~~~~~~~~~~~~~~~~~~~~~~~
+________________________
 
 Cool commands ::
 
