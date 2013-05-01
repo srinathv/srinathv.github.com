@@ -161,7 +161,16 @@ NAME
      purge -- force disk cache to be purged (flushed and emptied)
   
 
+Terminal displaying remote hostname
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+I use so many different machines I have trouble keeping track which terminal window is on which
+remote machine.  Putting::
+
+PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME}: ${PWD/$HOME/~}\007"'
+
+in your *.bashrc* on each machine you log into (including the local one) will put the hostname of the 
+current window's machine in the title bar.
   
 
 
