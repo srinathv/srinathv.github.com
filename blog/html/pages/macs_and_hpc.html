@@ -127,6 +127,8 @@
 <li><a class="reference internal" href="#gpus-and-the-macs" id="id10">GPUs and the Macs</a></li>
 <li><a class="reference internal" href="#remote-connections" id="id11">Remote Connections</a></li>
 <li><a class="reference internal" href="#local-memory-release" id="id12">Local Memory release</a></li>
+<li><a class="reference internal" href="#terminal-displaying-remote-hostname" id="id13">Terminal displaying remote hostname</a></li>
+<li><a class="reference internal" href="#portland-group-compilers" id="id14">Portland Group Compilers</a></li>
 </ul>
 </li>
 </ul>
@@ -267,12 +269,18 @@ your mac, as long as it has an NVIDIA GPU graphics card.</p>
 <dt>NAME</dt>
 <dd>purge &#8211; force disk cache to be purged (flushed and emptied)</dd>
 </dl>
+</div>
+<div class="section" id="terminal-displaying-remote-hostname">
+<h2><a class="toc-backref" href="#id13">Terminal displaying remote hostname</a></h2>
 <p>I use so many different machines I have trouble keeping track which terminal window is on which remote machine.  Putting:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">PROMPT_COMMAND</span><span class="o">=</span><span class="s1">&#39;echo -ne &quot;\033]0;${HOSTNAME}: ${PWD/$HOME/~}\007&quot;&#39;</span>
 </pre></div>
 </div>
 <p>in your <em>.bashrc</em> on each machine you log into (including the local one) will put the hostname of the
 current window&#8217;s machine in the title bar.</p>
+</div>
+<div class="section" id="portland-group-compilers">
+<h2><a class="toc-backref" href="#id14">Portland Group Compilers</a></h2>
 <p>Cool commands</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$pgcpuid</span>
 </pre></div>

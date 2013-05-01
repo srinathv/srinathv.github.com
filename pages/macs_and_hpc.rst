@@ -162,7 +162,8 @@ NAME
   
 
 Terminal displaying remote hostname
-___________________________________
+-----------------------------------
+
 I use so many different machines I have trouble keeping track which terminal window is on which remote machine.  Putting::
 
   PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME}: ${PWD/$HOME/~}\007"'
@@ -174,7 +175,7 @@ current window's machine in the title bar.
 
 
 Portland Group Compilers
-________________________
+------------------------
 
 Cool commands ::
 
