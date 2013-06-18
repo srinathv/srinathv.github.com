@@ -27,4 +27,5 @@ Sitemap
    pages/mt_lion
    pages/useful_vim_ideas
    pages/about_me
+   pages/homebrew_ing
 

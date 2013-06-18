@@ -13,6 +13,8 @@ I have had great sucess with macport's built GNU compilers.  I need to
 investigate when ports use the LLVM vs. the gcc, but other than that most 
 things are clear.  This is what I have :download:`installed <./files/sv_mp_installed.txt>`.
 
+
+
 Lion and Xcode >=4.3
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -107,7 +109,11 @@ use the namespaced mpi commands, you can add a
 
 The Parallel tab will now have a *Macports Open MPI* option.
 
+Homebrew vs. Macports
+---------------------
 
+I have recently discovered Homebrew as package manager for Mac OS X.  Homebrew tries to fill the void of linux packages,
+while also needing the user to download some applications, such as Lyx.
 
 
 Mac SSD needing some help
