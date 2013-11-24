@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2013/11/23/just_realized_that_modern_vim_installations_can_read_gzipped_text_files_
    2013/04/26/svn_rollback_use_reverse_merge__svn_merge__r_head__what_is_should_be___thefile_
    2013/04/04/profiling_measures_time_and_events_per_call__while_trace_looks_at_communication_events_over_time
    2012/06/07/when_using_git__commit_often___the_smaller_the_commit_the_better___because_then_git_revert_will_save_your_day__one_day_
