@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2013/11/23/unix__screen__is_such_a_great_tool_when_working_on_remote_machines_
    2013/11/23/readlink__f__filename__to_show_filename_with_full_path
    2013/11/23/just_realized_that_modern_vim_installations_can_read_gzipped_text_files_
    2013/04/26/svn_rollback_use_reverse_merge__svn_merge__r_head__what_is_should_be___thefile_
