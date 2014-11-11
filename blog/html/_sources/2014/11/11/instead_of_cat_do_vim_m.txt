@@ -1,0 +1,9 @@
+Instead of cat, do vim -M.
+==========================
+
+
+
+.. author:: default
+.. categories:: none
+.. tags:: none
+.. comments::

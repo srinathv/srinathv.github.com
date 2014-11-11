@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2014/11/11/instead_of_cat_do_vim_m
    2014/01/25/going_to_test_out_pyspread_as_a_possible_performance_recorder
    2013/11/23/unix__screen__is_such_a_great_tool_when_working_on_remote_machines_
    2013/11/23/readlink__f__filename__to_show_filename_with_full_path
