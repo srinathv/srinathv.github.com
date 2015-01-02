@@ -1,8 +1,5 @@
 Srinath Vadlamani Ph.D.
 ~~~~~~~~~~~~~~~~~~~~~~~
-    1525 Fillmore Ct.
-
-    Louisville, CO 80027 
 
     Email: `srinath.vadlamani@gmail.com <mailto:srinath.vadlamani@gmail.com>`_
 
