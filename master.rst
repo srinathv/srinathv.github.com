@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2015/01/02/if_you_have_interest_in_scientific_computing_please_consider_participating_in_https_sea_ucar_edu_conference_2015
    2015/01/02/git_push_force_a_savior_at_times
    2014/12/21/finding_tmux_to_be_quite_useful_and_very_easy_to_install_on_machines
    2014/12/21/use_http_nickmanderfield_com_2014_08_ultimate_guide_to_fixing_and_resetting_osx_yosemite_launchpad_to_fix_a_yosemite_os_x_broken_launchpad
