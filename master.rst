@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2015/04/20/run_find_name_bak_type_f_and_if_things_look_good_find_name_bak_type_f_delete_to_remove_all_files_with_bak_extension_in_all_subdirectories
    2015/01/02/if_you_have_interest_in_scientific_computing_please_consider_participating_in_https_sea_ucar_edu_conference_2015
    2015/01/02/git_push_force_a_savior_at_times
    2014/12/21/finding_tmux_to_be_quite_useful_and_very_easy_to_install_on_machines
@@ -33,8 +34,8 @@ Sitemap
    pages/useful_linux
    pages/macs_and_hpc
    pages/working_with_lcfs
-   pages/snow_leopard_links
-   pages/mt_lion
+.. pages/snow_leopard_links
+.. pages/mt_lion
    pages/useful_vim_ideas
    pages/about_me
    pages/homebrew_ing
