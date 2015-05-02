@@ -1,0 +1,9 @@
+Now that I followed the directions, how do I know if boost is working correctly with my Intel compilers: https://software.intel.com/en-us/articles/building-boost-with-intel-c-compiler-150
+===========================================================================================================================================================================================
+
+
+
+.. author:: default
+.. categories:: none
+.. tags:: none
+.. comments::
