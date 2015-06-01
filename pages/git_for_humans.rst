@@ -12,10 +12,10 @@ I think these are important ideas to keep in mind while using git:
 
 - git commit individual files will verbose comments
 
-- remote repos are better off as "bare" repos 
+- remote repos are better off as "bare" repos
 
   - these are repos that are created with::
-      
+
       $ git clone --bare fooRepo.git
 
   - you can/should not manipulate any files in this particular directory.
@@ -62,7 +62,7 @@ Pushing to another non-bare repo using ssh
 
 First, the *remote* repo must not be checked out to the branch you will push to.  You can be in the branch you will
 push. ::
-  
+
   $git checkout foo-branch
   $git push ssh://<username>@<machine.here.com>/<path to remote repo> <remote-branch name>
 
@@ -109,7 +109,7 @@ Once that is done then the following will create a branch that will track this r
 
   $ git branch --track <local Branch name> <remote Nick Name>/<desired branch name>
 
-Bam...now you have a branch that will pull from the <bareFoo> git repo. 
+Bam...now you have a branch that will pull from the <bareFoo> git repo.
 To make all pushes automatically go to tracked remote branches do::
 
   $git config --global push tracking
@@ -219,7 +219,7 @@ find the commit to revert, then ::
 
   $git revert <SHA>
 
-You will then have to finish the commit, which is a patch reverting the selected commit.  
+You will then have to finish the commit, which is a patch reverting the selected commit.
 
 
 
@@ -241,7 +241,7 @@ Another Git tutorial
 Post-recieve hooks
 ~~~~~~~~~~~~~~~~~~
 
-A very nice way of activating post-recieve hook for a git repo via `git notifier.  <http://www.icir.org/robin/git-notifier>`.  
+A very nice way of activating post-recieve hook for a git repo via `git notifier.  <http://www.icir.org/robin/git-notifier>`.
 
 Splitting up commits to make it more understandable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -257,12 +257,12 @@ It is important to note that the github webserver uses Jekyll, and to bypass it:
 
   From: Petros Amiridis (GitHub Staff)
   Subject: issue with srinathv.github.com
-  
 
-  *We use Jekyll by default when we build you site. Jekyll ignores all directories that start with an underscore.  
-  It is now possible to completely bypass Jekyll processing on GitHub Pages by creating a file named* **.nojekyll** 
-  *in the root of your pages repo and pushing it to GitHub. This should only be necessary if your site uses files 
-  or directories that start with underscores since Jekyll considers these to be special resources and 
+
+  *We use Jekyll by default when we build you site. Jekyll ignores all directories that start with an underscore.
+  It is now possible to completely bypass Jekyll processing on GitHub Pages by creating a file named* **.nojekyll**
+  *in the root of your pages repo and pushing it to GitHub. This should only be necessary if your site uses files
+  or directories that start with underscores since Jekyll considers these to be special resources and
   does not copy them to the final site.
 
 A must for Vim users
@@ -273,7 +273,7 @@ A must for Vim users
 Gitting a SVN repo
 ~~~~~~~~~~~~~~~~~~
 
-*git-svn* is the intrinsic command that allows one to git clone an existing SVN repo.  
+*git-svn* is the intrinsic command that allows one to git clone an existing SVN repo.
 
 Handling svn:exernals
 *********************
@@ -292,7 +292,7 @@ A nifty way to show commit logs and diff output each commit introduces ::
 
   git whatchanged <SHA>
 
-where <SHA> is for a specific commit.  
+where <SHA> is for a specific commit.
 
 Using Dropbox as a Git repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -309,11 +309,11 @@ som emore space.  You can now clone from the repo (which is empty) or
 
 
 Pushing to Dropbox repo
------------------------  
+-----------------------
 
 push to it from an existing repo *foo*.::
 
-  $cd ~/myWork/foo 
+  $cd ~/myWork/foo
   $git remote add dropbox file://$HOME/Dropbox/myrepos/foo.git
   $git push dropbox master
 
@@ -323,7 +323,7 @@ Pulling from Dropbox repo on a different computer
 -------------------------------------------------
 
 Say you jumped on a computer that is logged into your Dropbox account, but have not cloned your *foo* repo yet.  You want to::
-  
+
   $mkdir ~/myWork
   $cd ~/myWork
   $git clone -o dropbox file://$HOME/Dropbox/myrepos/foo.git
@@ -352,17 +352,17 @@ to get the nickname of the remote you want this new branch to also reside. Then:
   $git push -u <remote-name> <local-branch-name>
 
 As easy as that.  The *"-u"* will make sure your local branch now *tracks (makes the upstream)* the *new*-branch on the
-remote. Merge managment is now a must. 
+remote. Merge managment is now a must.
 
 Want to delete branch on remote
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To delete a branch on a remote repo you must::
-  
+
   $git push <remote nickname> :<branch name on remote>
 
 Do note the ":" before the branch name.  And you must also::
-  
+
   $git branch -D <local branch name>
 
 to remove the local branch.
@@ -376,12 +376,12 @@ This wiki page explains how to configure git to recognize aliases.  https://git.
 SSH Keys and Github
 ~~~~~~~~~~~~~~~~~~~
 
-I was having difficulty working with my github repos because of the ssh-keys and my remote URL address.  To set up ssh-keys for github correclty follow https://help.github.com/articles/generating-ssh-keys and https://help.github.com/categories/56/articles .  I still had to keep entering my username and password after correclty loading up the keys both on my machine and on github.  So I had to change the URL of my remote in *.git/config* :: 
+I was having difficulty working with my github repos because of the ssh-keys and my remote URL address.  To set up ssh-keys for github correclty follow https://help.github.com/articles/generating-ssh-keys and https://help.github.com/categories/56/articles .  I still had to keep entering my username and password after correclty loading up the keys both on my machine and on github.  So I had to change the URL of my remote in *.git/config* ::
 
   #url = https://github.com/<USERNAME>/project1.git
   url = git@github.com:/<USERNAME>/project1.git
 
-And that did the trick.  
+And that did the trick.
 
 How to fix Git PUSH results in RPC failed, result=22, HTTP code = 411
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -393,4 +393,13 @@ So the reason this happens is because the default file post size for Git has bee
 
 I think this might be good to put *http.postBuffer 524288000* in your *.gitconfig*.
 
+Force Git to overwrite local files on pull
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Sometimes when you pull it seems that you want to just use what is on the remote end and not the local working copy.  Git will suggest to *stash and save*.  So the best way to get all the changes from the remote::
+
+  $git fetch <remote name>
+  $git reset --hard origin/<branch name>
+
+will do the trick.
 
