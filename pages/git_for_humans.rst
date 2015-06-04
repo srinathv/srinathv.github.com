@@ -403,3 +403,14 @@ Sometimes when you pull it seems that you want to just use what is on the remote
 
 will do the trick.
 
+How to make branch on remote
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Once one has create a branch on the local machine::
+
+  $git checkout -b <branch name>
+
+one can create this branch on any remote with::
+
+  $git push <remote name> <branch name>
+
