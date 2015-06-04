@@ -43,4 +43,5 @@ Sitemap
    pages/useful_vim_ideas
    pages/about_me
    pages/homebrew_ing
+   pages/cmake_to_rule_them_all
 
