@@ -418,4 +418,14 @@ to the *alias* section of your *.gitconfig allows for::
 to show what you need.
 
 
+How to make branch on remote
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Once one has create a branch on the local machine::
+
+  $git checkout -b <branch name>
+
+one can create this branch on any remote with::
+
+  $git push <remote name> <branch name>
 
