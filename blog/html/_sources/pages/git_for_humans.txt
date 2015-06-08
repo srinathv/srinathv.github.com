@@ -403,3 +403,19 @@ Sometimes when you pull it seems that you want to just use what is on the remote
 
 will do the trick.
 
+
+Show only files commited in a particular commit
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It is helpful to see what files were in a commit.  So adding::
+
+  files = show --pretty="format:" --name-only
+
+to the *alias* section of your *.gitconfig allows for::
+
+  $git files <sha>
+
+to show what you need.
+
+
+
