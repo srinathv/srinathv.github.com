@@ -44,4 +44,5 @@ Sitemap
    pages/about_me
    pages/homebrew_ing
    pages/cmake_to_rule_them_all
+   pages/using_tau_for_your_code
 
