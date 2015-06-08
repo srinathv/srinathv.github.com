@@ -41,7 +41,8 @@ Sitemap
    .. pages/snow_leopard_links
    .. pages/mt_lion
    pages/useful_vim_ideas
-   pages/about_me
    pages/homebrew_ing
    pages/cmake_to_rule_them_all
+   pages/using_tau_for_your_code
+   pages/about_me
 
