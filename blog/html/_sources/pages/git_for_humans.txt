@@ -429,3 +429,9 @@ one can create this branch on any remote with::
 
   $git push <remote name> <branch name>
 
+How to remove a tag
+
+Hopefully this isn't done often but ::
+
+  $git tag -d 12345
+  $git push origin :refs/tags/12345

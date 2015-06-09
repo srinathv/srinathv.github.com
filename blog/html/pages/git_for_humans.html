@@ -522,6 +522,12 @@ So the reason this happens is because the default file post size for Git has bee
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$git</span> push &lt;remote name&gt; &lt;branch name&gt;
 </pre></div>
 </div>
+<p>How to remove a tag</p>
+<p>Hopefully this isn&#8217;t done often but</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$git</span> tag -d 12345
+<span class="nv">$git</span> push origin :refs/tags/12345
+</pre></div>
+</div>
 </div>
 </div>
 
