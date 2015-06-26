@@ -1,9 +1,0 @@
-Run find . -name "\*.bak" -type f, and if things look good, find . -name "\*.bak" -type f -delete, to remove all files with .bak extension in all subdirectories
-================================================================================================================================================================
-
-
-
-.. author:: default
-.. categories:: none
-.. tags:: none
-.. comments::

@@ -429,6 +429,15 @@ one can create this branch on any remote with::
 
   $git push <remote name> <branch name>
 
+How to push tag to remote
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Simple git push does not transmit the tag to the remote.  So first make a tag and the push as::
+
+  $git tag v<#>
+  $git push origin<or remote name> v<#>
+
+
 How to remove a tag
 ~~~~~~~~~~~~~~~~~~~
 
