@@ -22,7 +22,7 @@ helps. So at the top level of the source code you are searching, try ::
   ./physics/crcp/timers/timers.c
   ./src/share/timer.h
   ./utils/csm_share/shr_timer_mod.F90
-  
+
 The file wanted was *timer.h*, so now I know where to look.
 
 
@@ -41,10 +41,10 @@ So you want to disassemble...
 Some people say know what a computer program does.  But to really know, you have to look at the assembly code used by
 the machine.  Try::
 
-  $objdump -d <executable> 
+  $objdump -d <executable>
 
 Now, this GNU binutils utility may not be available on your machine.  Or it may be namespaced with a "g"::
-  
+
   $gobjdump -d <executable>
 
 which is how things are namespaced on a Mac if using Macports to load things::
@@ -54,7 +54,18 @@ which is how things are namespaced on a Mac if using Macports to load things::
 What is my machines processor?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following will give details about the cores of the machine you are running on (according to the OS).  
+The following will give details about the cores of the machine you are running on (according to the OS).
 Do note that the list of cores may be exaggerated due to the hardware implemented Simultaneous Multi-Threading (SMT) ::
 
   $less /proc/cpuinfo
+
+How to make directories executable and files readable to all users
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To recursively give directories read&execute privileges:
+
+find /path/to/base/dir -type d -exec chmod 755 {} +
+
+To recursively give files read privileges:
+
+find /path/to/base/dir -type f -exec chmod 644 {} +

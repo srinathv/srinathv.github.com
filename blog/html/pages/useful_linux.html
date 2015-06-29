@@ -120,6 +120,7 @@
 <li><a class="reference internal" href="#what-shell-am-i" id="id4">What shell am I?</a></li>
 <li><a class="reference internal" href="#so-you-want-to-disassemble" id="id5">So you want to disassemble...</a></li>
 <li><a class="reference internal" href="#what-is-my-machines-processor" id="id6">What is my machines processor?</a></li>
+<li><a class="reference internal" href="#how-to-make-directories-executable-and-files-readable-to-all-users" id="id7">How to make directories executable and files readable to all users</a></li>
 </ul>
 </li>
 </ul>
@@ -172,6 +173,13 @@ Do note that the list of cores may be exaggerated due to the hardware implemente
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$less</span> /proc/cpuinfo
 </pre></div>
 </div>
+</div>
+<div class="section" id="how-to-make-directories-executable-and-files-readable-to-all-users">
+<h2><a class="toc-backref" href="#id7">How to make directories executable and files readable to all users</a></h2>
+<p>To recursively give directories read&amp;execute privileges:</p>
+<p>find /path/to/base/dir -type d -exec chmod 755 {} +</p>
+<p>To recursively give files read privileges:</p>
+<p>find /path/to/base/dir -type f -exec chmod 644 {} +</p>
 </div>
 </div>
 
