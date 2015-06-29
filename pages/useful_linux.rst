@@ -62,10 +62,10 @@ Do note that the list of cores may be exaggerated due to the hardware implemente
 How to make directories executable and files readable to all users
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To recursively give directories read&execute privileges:
+To recursively give directories read&execute privileges::
 
 find /path/to/base/dir -type d -exec chmod 755 {} +
 
-To recursively give files read privileges:
+To recursively give files read privileges::
 
 find /path/to/base/dir -type f -exec chmod 644 {} +
