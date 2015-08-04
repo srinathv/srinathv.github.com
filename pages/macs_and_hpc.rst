@@ -1,4 +1,4 @@
-Macs and High Performance Computing 
+Macs and High Performance Computing
 ===================================
 
 .. contents:: What helps Macs with HPC
@@ -8,9 +8,9 @@ Macs and High Performance Computing
 Macports does help
 -------------------
 
-I like using macports since it really handles package dependencies well.  
-I have had great sucess with macport's built GNU compilers.  I need to 
-investigate when ports use the LLVM vs. the gcc, but other than that most 
+I like using macports since it really handles package dependencies well.
+I have had great sucess with macport's built GNU compilers.  I need to
+investigate when ports use the LLVM vs. the gcc, but other than that most
 things are clear.  This is what I have :download:`installed <./files/sv_mp_installed.txt>`.
 
 
@@ -19,9 +19,9 @@ Lion and Xcode >=4.3
 ~~~~~~~~~~~~~~~~~~~~
 
 It seems that there are some issues with the new Xcodes being placed only
-in the */Applications* folder.  After you have installed Xcode and activated the 
+in the */Applications* folder.  After you have installed Xcode and activated the
 "Command Tools" from the *Downloads* selection of Xcode's preferences, then run ::
-  
+
   $xcode-select /Aplications/Xcode
 
 I believe that sets where *xcodebuild* thinks Xcode lives, and now
@@ -37,11 +37,11 @@ It seems there are lots of issues with Mountain Lion and Macports.  One possible
 
 may help fix some issues.  Also the above code select may help.
 
-   
+
 Xcode on Mac OS-X
 +++++++++++++++++
 
-One of the great things about cmake is that it supports multiple GUI development environments, 
+One of the great things about cmake is that it supports multiple GUI development environments,
 including Xcode on the Mac, Microsoft Visual Studio on Windows, and KDevelop on Linux (and even on Mac!).
 
 Here's how you generate an Xcode project ::
@@ -56,13 +56,13 @@ This creates a directory called <projname>.xcodeproj, which you can directly ope
 
 This knows all about running maketa and everything!
 
- 
+
 
 
 Making macports packages defaults
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Most macports built packages have the executables namespaced as 
+Most macports built packages have the executables namespaced as
 not clash with the system ones.  It is nice to have the option
 of making a macports built package default by changing the name. ::
 
@@ -85,11 +85,11 @@ Macports OpenMPI and Totalview
 
 Macports namespaces its OpenMPI commands ::
 
-  openmpic++   openmpicxx   openmpif77   openmpirun   
+  openmpic++   openmpicxx   openmpif77   openmpirun
   openmpicc    openmpiexec  openmpif90
 
 so as to not conflict with other mpi implementations.
-This can affect your normal use of *totalview*.  To 
+This can affect your normal use of *totalview*.  To
 use the namespaced mpi commands, you can add a
 *.tvdrc* to your home directory with the following content ::
   dset TV::parallel_configs {
@@ -165,7 +165,7 @@ where man purge::
 
 NAME
      purge -- force disk cache to be purged (flushed and emptied)
-  
+
 
 Terminal displaying remote hostname
 -----------------------------------
@@ -174,9 +174,9 @@ I use so many different machines I have trouble keeping track which terminal win
 
   PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME}: ${PWD/$HOME/~}\007"'
 
-in your *.bashrc* on each machine you log into (including the local one) will put the hostname of the 
+in your *.bashrc* on each machine you log into (including the local one) will put the hostname of the
 current window's machine in the title bar.
-  
+
 
 
 
@@ -190,5 +190,12 @@ Cool commands ::
 and ::
 
   $pgaccelinfo
+
+GDB on Mac OS X
+~~~~~~~~~~~~~~~
+
+I found this useful for getting GDB to latch onto kernel processes:
+
+http://ntraft.com/installing-gdb-on-os-x-mavericks/
 
 
