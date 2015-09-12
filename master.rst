@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2015/09/12/installing_tmux_requires_pkg_config_for_libevent_such_as_configure_pkg_config_path_home_srinathv_software_libevent_2_0_22_lib64_pkgconfig
    2015/08/19/audiophiles_text_bit_rate_text_sampling_rate_times_text_bit_depth_times_text_number_of_channels_don_t_forget_l_r_channels
    2015/08/13/in_julia_on_my_mac_i_found_to_use_pkg_i_needed_to_git_config_global_url_https_insteadof_git
    2015/06/01/to_simply_list_all_files_in_a_git_repo_in_conflict_git_config_global_alias_conflicts_diff_name_only_diff_filter_u
