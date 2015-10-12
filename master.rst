@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2015/10/12/just_discovered_https_github_com_carlhuda_janus
    2015/10/08/new_xcode_installs_require_xcode_select_install_to_get_the_latest_command_line_tools_for_mac_os_x
    2015/09/24/http_www_geeknote_me_is_great_to_use_macvim_as_editor_geeknote_settings_editor_mvim_f
    2015/09/12/installing_tmux_requires_pkg_config_for_libevent_such_as_configure_pkg_config_path_home_srinathv_software_libevent_2_0_22_lib64_pkgconfig
