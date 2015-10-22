@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2015/10/22/mac_os_x_el_capitan_one_needs_to_sudo_chown_r_srinathv_usr_local
    2015/10/20/to_clean_up_a_massive_git_repo_https_rtyley_github_io_bfg_repo_cleaner
    2015/10/12/just_discovered_https_github_com_carlhuda_janus
    2015/10/08/new_xcode_installs_require_xcode_select_install_to_get_the_latest_command_line_tools_for_mac_os_x
