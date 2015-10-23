@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2015/10/22/every_new_version_of_xcode_requires_sudo_xcodebuild_license_to_get_much_of_homebrew_working
    2015/10/22/mac_os_x_el_capitan_one_needs_to_sudo_chown_r_srinathv_usr_local
    2015/10/20/to_clean_up_a_massive_git_repo_https_rtyley_github_io_bfg_repo_cleaner
    2015/10/12/just_discovered_https_github_com_carlhuda_janus
