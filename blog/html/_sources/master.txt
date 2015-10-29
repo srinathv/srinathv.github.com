@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2015/10/29/list_only_dirs_in_current_directory_find_type_d_maxdepth_1
    2015/10/28/do_git_fetch_p_origin_to_make_refs_remotes_origin_my_remote_branch_go_away_if_it_s_already_deleted_in_origin_the_p_option_tells_fetch_to_delete_any_tracking_branches_that_no_longer_exist_in_the_corresponding_remotes_by_default_they_are_kept_around
    2015/10/22/every_new_version_of_xcode_requires_sudo_xcodebuild_license_to_get_much_of_homebrew_working
    2015/10/22/mac_os_x_el_capitan_one_needs_to_sudo_chown_r_srinathv_usr_local
