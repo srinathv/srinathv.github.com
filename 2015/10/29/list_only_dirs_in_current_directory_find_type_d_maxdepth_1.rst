@@ -1,4 +1,4 @@
-list only dirs in current directory: 'find . -type d -maxdepth 1'
+list only dirs in current directory: 'find . -maxdepth 1 -type d'
 =================================================================
 
 
