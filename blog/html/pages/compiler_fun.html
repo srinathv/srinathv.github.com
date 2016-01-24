@@ -139,8 +139,8 @@
 <p>I recently have been working to build this on a 64bit linux machine (with serious GPU power) and hit a big road block.
 I installed the newest versions of <em>gmp,mpfr,mpc</em>.  The compilation of GCC kept failing.
 This was my configure:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd </span>gcc_4_6_3/
-srinath@mg1:/scr_0/srinath/gcc_4_6_3<span class="nv">$ </span>cat thisconfig.sh
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd</span> gcc_4_6_3/
+srinath@mg1:/scr_0/srinath/gcc_4_6_3$ cat thisconfig.sh
 ./configure <span class="se">\</span>
   --prefix<span class="o">=</span>/scr_0/srinath/gcc_suite <span class="se">\</span>
   --with-gmp<span class="o">=</span>/scr_0/srinath/gmp <span class="se">\</span>
@@ -166,21 +166,21 @@ srinath@mg1:/scr_0/srinath/gcc_4_6_3<span class="nv">$ </span>cat thisconfig.sh
 </div>
 <p>After search the web, I realized that the dynamic loader was never told where to look for these dynamic libraries, thus
 I needed to:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/scr_0/srinath/gmp/lib:/scr_0/srinath/mpc/lib:/scr_0/srinath/mpfr/lib:<span class="nv">$LD_LIBRARY_PATH</span>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$e</span>xport <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/scr_0/srinath/gmp/lib:/scr_0/srinath/mpc/lib:/scr_0/srinath/mpfr/lib:$LD_LIBRARY_PATH
 </pre></div>
 </div>
 <p>to get the correct paths set for the dynamic loader.  This trick got me past the above hurdle. But this still did not
 allow for a complete compile.</p>
 <p>The next step was to allow for gcc to build all prerequisites in its own source file system.  Located in the initial
 tar-ball is a <em>contrib</em> directory:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ls</span> contrib/download_prerequisites
+<div class="highlight-bash"><div class="highlight"><pre>$ls contrib/download_prerequisites
 contrib/download_prerequisites
-<span class="nv">$cat</span> contrib/download_prerequisites
-<span class="c">#! /bin/sh</span>
+<span class="nv">$ca</span>t contrib/download_prerequisites
+<span class="c1">#! /bin/sh</span>
 
-<span class="c"># Download some prerequisites needed by gcc.</span>
-<span class="c"># Run this from the top level of the gcc source tree and the gcc</span>
-<span class="c"># build will do the right thing.</span>
+<span class="c1"># Download some prerequisites needed by gcc.</span>
+<span class="c1"># Run this from the top level of the gcc source tree and the gcc</span>
+<span class="c1"># build will do the right thing.</span>
 </pre></div>
 </div>
 <p>This worked! So, there you have it, the best command for building gcc is this <em>contrib/download_prerequisites</em> command.</p>
@@ -212,6 +212,8 @@ contrib/download_prerequisites
     </article><aside class="sidebar"><section><div class="widget">
     <h1>Recent Posts</h1>
     <ul><li>
+            <a href="../2016/01/24/dboost_no_boost_cmake_on_will_stop_cmake_from_trying_to_look_for_boost_s_cmake_info_which_may_be_from_a_system_boost_and_trumps_setting_boost_root_and_the_like.html">-DBoost_NO_BOOST_CMAKE=ON will stop cmake from trying to look for boost's cmake info...which may be from a system boost and trumps setting BOOST_ROOT and the like.</a>
+        </li><li>
             <a href="../2015/11/01/janus_vim_distro_is_more_ruby_centric_for_me.html">janus vim distro is more ruby-centric for me.</a>
         </li><li>
             <a href="../2015/10/29/list_only_dirs_in_current_directory_find_type_d_maxdepth_1.html">list only dirs in current directory: 'find . -maxdepth 1 -type d'</a>
@@ -229,8 +231,6 @@ contrib/download_prerequisites
             <a href="../2015/10/08/new_xcode_installs_require_xcode_select_install_to_get_the_latest_command_line_tools_for_mac_os_x.html">new xcode installs require "xcode-select --install" to get the latest command line tools for Mac OS x</a>
         </li><li>
             <a href="../2015/09/24/http_www_geeknote_me_is_great_to_use_macvim_as_editor_geeknote_settings_editor_mvim_f.html">http://www.geeknote.me/ is great! To use macvim as editor: geeknote settings --editor 'mvim -f'</a>
-        </li><li>
-            <a href="../2015/09/12/installing_tmux_requires_pkg_config_for_libevent_such_as_configure_pkg_config_path_home_srinathv_software_libevent_2_0_22_lib64_pkgconfig.html">installing tmux requires pkg_config for libevent such as: './configure PKG_CONFIG_PATH=/home/srinathv/software/libevent/2.0.22/lib64/pkgconfig'</a>
         </li></ul>
 </div>
 </section><section><div class="widget" id="searchbox" role="search">

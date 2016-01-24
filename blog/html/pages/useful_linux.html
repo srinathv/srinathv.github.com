@@ -129,7 +129,7 @@
 <h2><a class="toc-backref" href="#id3">Print path with file name</a></h2>
 <p>When I grep source code to find an instance of a word or the like, I need to see what is the actual file, so a full path
 helps. So at the top level of the source code you are searching, try</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$find</span> . -type f -print <span class="p">|</span> grep -i timer
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$f</span>ind . -type f -print <span class="p">|</span> grep -i timer
 ./libs/utils/timer.c
 ./physics/crcp/timers/README
 ./physics/crcp/timers/makefile
@@ -145,7 +145,7 @@ helps. So at the top level of the source code you are searching, try</p>
 <div class="section" id="what-shell-am-i">
 <h2><a class="toc-backref" href="#id4">What shell am I?</a></h2>
 <p>Sometimes you can not tell what shell you are using when you have logged into a machine.  Try running:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>ps -p <span class="nv">$$</span>
+<div class="highlight-bash"><div class="highlight"><pre>$ ps -p <span class="nv">$$</span>
 </pre></div>
 </div>
 <p>So what is $ argument passed to -p option? Remember $ returns the PID (process identification number) of the current process, and the current process is your shell. So running a ps on that number displays a process status listing of your shell. In that listing you will find the name of your shell (look for CMD column) .</p>
@@ -154,15 +154,15 @@ helps. So at the top level of the source code you are searching, try</p>
 <h2><a class="toc-backref" href="#id5">So you want to disassemble...</a></h2>
 <p>Some people say know what a computer program does.  But to really know, you have to look at the assembly code used by
 the machine.  Try:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$objdump</span> -d &lt;executable&gt;
+<div class="highlight-bash"><div class="highlight"><pre>$objdump -d &lt;executable&gt;
 </pre></div>
 </div>
 <p>Now, this GNU binutils utility may not be available on your machine.  Or it may be namespaced with a &#8220;g&#8221;:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$gobjdump</span> -d &lt;executable&gt;
+<div class="highlight-bash"><div class="highlight"><pre>$gobjdump -d &lt;executable&gt;
 </pre></div>
 </div>
 <p>which is how things are namespaced on a Mac if using Macports to load things:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$port</span> install binutils
+<div class="highlight-bash"><div class="highlight"><pre>$port install binutils
 </pre></div>
 </div>
 </div>
@@ -170,7 +170,7 @@ the machine.  Try:</p>
 <h2><a class="toc-backref" href="#id6">What is my machines processor?</a></h2>
 <p>The following will give details about the cores of the machine you are running on (according to the OS).
 Do note that the list of cores may be exaggerated due to the hardware implemented Simultaneous Multi-Threading (SMT)</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$less</span> /proc/cpuinfo
+<div class="highlight-bash"><div class="highlight"><pre>$less /proc/cpuinfo
 </pre></div>
 </div>
 </div>
@@ -195,6 +195,8 @@ Do note that the list of cores may be exaggerated due to the hardware implemente
     </article><aside class="sidebar"><section><div class="widget">
     <h1>Recent Posts</h1>
     <ul><li>
+            <a href="../2016/01/24/dboost_no_boost_cmake_on_will_stop_cmake_from_trying_to_look_for_boost_s_cmake_info_which_may_be_from_a_system_boost_and_trumps_setting_boost_root_and_the_like.html">-DBoost_NO_BOOST_CMAKE=ON will stop cmake from trying to look for boost's cmake info...which may be from a system boost and trumps setting BOOST_ROOT and the like.</a>
+        </li><li>
             <a href="../2015/11/01/janus_vim_distro_is_more_ruby_centric_for_me.html">janus vim distro is more ruby-centric for me.</a>
         </li><li>
             <a href="../2015/10/29/list_only_dirs_in_current_directory_find_type_d_maxdepth_1.html">list only dirs in current directory: 'find . -maxdepth 1 -type d'</a>
@@ -212,8 +214,6 @@ Do note that the list of cores may be exaggerated due to the hardware implemente
             <a href="../2015/10/08/new_xcode_installs_require_xcode_select_install_to_get_the_latest_command_line_tools_for_mac_os_x.html">new xcode installs require "xcode-select --install" to get the latest command line tools for Mac OS x</a>
         </li><li>
             <a href="../2015/09/24/http_www_geeknote_me_is_great_to_use_macvim_as_editor_geeknote_settings_editor_mvim_f.html">http://www.geeknote.me/ is great! To use macvim as editor: geeknote settings --editor 'mvim -f'</a>
-        </li><li>
-            <a href="../2015/09/12/installing_tmux_requires_pkg_config_for_libevent_such_as_configure_pkg_config_path_home_srinathv_software_libevent_2_0_22_lib64_pkgconfig.html">installing tmux requires pkg_config for libevent such as: './configure PKG_CONFIG_PATH=/home/srinathv/software/libevent/2.0.22/lib64/pkgconfig'</a>
         </li></ul>
 </div>
 </section><section><div class="widget" id="searchbox" role="search">
