@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2016/02/02/to_get_ssh_keys_working_with_tmux_add_to_users_srinathv_tmux_conf_the_following_set_g_update_environment_ssh_askpass_ssh_auth_sock_ssh_agent_pid_ssh_connection
    2016/01/24/dboost_no_boost_cmake_on_will_stop_cmake_from_trying_to_look_for_boost_s_cmake_info_which_may_be_from_a_system_boost_and_trumps_setting_boost_root_and_the_like
    2015/11/01/janus_vim_distro_is_more_ruby_centric_for_me
    2015/10/29/list_only_dirs_in_current_directory_find_type_d_maxdepth_1
