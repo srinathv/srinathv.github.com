@@ -143,11 +143,11 @@ Yes this works.</p>
 <div class="section" id="parallel-debugging-with-gdb">
 <h2><a class="toc-backref" href="#id2">Parallel debugging with GDB</a></h2>
 <p>This method latches an instance of <em>gdb</em> to each process.:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$mpirun -np &lt;NP&gt; xterm -e gdb ./program
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$mpirun -np &lt;NP&gt; xterm -e gdb ./program
 </pre></div>
 </div>
 <p>which launches a <em>xterm</em> for each process.  You will have to:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$run &lt;arg1&gt; &lt;arg2&gt; ... &lt;argN&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$run &lt;arg1&gt; &lt;arg2&gt; ... &lt;argN&gt;
 </pre></div>
 </div>
 <p>in each <em>xterm</em> window before the program executes.</p>
@@ -160,11 +160,11 @@ crontab -e :edits contents of crontab</p>
 <div class="section" id="python-stuff">
 <h2><a class="toc-backref" href="#id4">Python stuff</a></h2>
 <p>The ipython community has done a fantastic job turning your browser into an interface.:</p>
-<div class="highlight-bash"><div class="highlight"><pre>ipython notebook --pylab inline
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ipython notebook --pylab inline
 </pre></div>
 </div>
 <p>I use:</p>
-<div class="highlight-bash"><div class="highlight"><pre>ipython qtconsole --pylab inline
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ipython qtconsole --pylab inline
 </pre></div>
 </div>
 <p>which requires a stable QT build.</p>
@@ -210,13 +210,13 @@ you use on your local machine).</p>
 taken directly from the github page, but placed here for convenience.</p>
 <p>1.Check for SSH keys. Have an existing key pair? You can skip to Step 4.
 First, we need to check for existing ssh keys on your computer:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ <span class="nb">cd</span> ~/.sshChecks to see <span class="k">if</span> there is a directory named <span class="s2">&quot;.ssh&quot;</span> in your user directory
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/.sshChecks to see <span class="k">if</span> there is a directory named <span class="s2">&quot;.ssh&quot;</span> in your user directory
 </pre></div>
 </div>
 <p>If it says “No such file or directory“ skip to step 3. Otherwise continue to step 2.</p>
 <p>2.Backup and remove existing SSH keys.
 Since there is already an SSH directory you’ll want to back the old one up and remove it:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ ls
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ls
 config        id_rsa  id_rsa.pub      known_hosts
 $ mkdir key_backup
 $ cp id_rsad
@@ -225,18 +225,18 @@ $ rm id_rsa
 </div>
 <p>3. Generate a new SSH key.
 To generate a new SSH key, enter the code below. We want the default settings so when asked to enter a file in which to save the key, just press enter.:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ ssh-keygen -t rsa -C <span class="s2">&quot;your_email@youremail.com&quot;</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ssh-keygen -t rsa -C <span class="s2">&quot;your_email@youremail.com&quot;</span>
 Generating public/private rsa key pair.
 Enter file in which to save the key <span class="o">(</span>/Users/your_user_directory/.ssh/id_rsa<span class="o">)</span>:&lt;press enter&gt;
 </pre></div>
 </div>
 <p>Now you need to enter a passphrase.  You must do this to insure security.</p>
-<div class="highlight-bash"><div class="highlight"><pre>Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>:&lt;enter a passphrase&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span></span>Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>:&lt;enter a passphrase&gt;
 Enter same passphrase again:&lt;enter passphrase again&gt;
 </pre></div>
 </div>
 <p>Which should give you something like this:</p>
-<div class="highlight-bash"><div class="highlight"><pre>Your identification has been saved in /Users/your_user_directory/.ssh/id_rsa.
+<div class="highlight-bash"><div class="highlight"><pre><span></span>Your identification has been saved in /Users/your_user_directory/.ssh/id_rsa.
 Your public key has been saved in /Users/your_user_directory/.ssh/id_rsa.pub.
 The key fingerprint is:
 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db user_name@username.com
@@ -258,11 +258,11 @@ The key&#39;s randomart image is:
 remote computers.</p>
 <p>You enable key-based authentication by distributing your public key to the remote machines you wish to access.
 This can be done with the following:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$scp ~/.ssh/id_rsa.pub username@volt:
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$scp ~/.ssh/id_rsa.pub username@volt:
 </pre></div>
 </div>
 <p>Next, ssh to the remote machine (you will still have to enter your password)and append the public key to the ~/.ssh/authorized_keys file:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ca</span>t id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$ca</span>t id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
 <span class="nv">$c</span>hmod <span class="m">700</span> .ssh
 <span class="nv">$c</span>hmod <span class="m">600</span> .ssh/authorized_keys
 $rm id_rsa.pub
@@ -270,7 +270,7 @@ $rm id_rsa.pub
 </pre></div>
 </div>
 <p>You should install the public key in this manner on every remote machine you want to access using key-based authentication. To test your keys, try to ssh into the remote machine:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ssh &lt;user@&lt;remotemachine&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ssh &lt;user@&lt;remotemachine&gt;
 Enter passphrase <span class="k">for</span> key <span class="s1">&#39;/home/username/.ssh/id_rsa&#39;</span>
 </pre></div>
 </div>
@@ -279,15 +279,15 @@ Enter passphrase <span class="k">for</span> key <span class="s1">&#39;/home/user
 <div class="section" id="gnu-screen">
 <h2><a class="toc-backref" href="#id13">GNU SCREEN</a></h2>
 <p>Launching GNU screen on a remote machine is probably the first thing you should do.  Consider it as a text-based window system that keeps running in the background, even if you &#8220;detach&#8221; because of any type of severed connection, even unintentional.  A great website is <a class="reference external" href="https://wiki.archlinux.org/index.php/GNU_Screen">https://wiki.archlinux.org/index.php/GNU_Screen</a> .  I launch screen when I first log into a machine:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$screen
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$screen
 </pre></div>
 </div>
 <p>And when I relog into a system I look for active screens:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$screen -ls
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$screen -ls
 </pre></div>
 </div>
 <p>To reattach to a single active screen:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$screen -r
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$screen -r
 </pre></div>
 </div>
 <p>This will only improve how you work with a remote machine.</p>
@@ -302,6 +302,8 @@ Enter passphrase <span class="k">for</span> key <span class="s1">&#39;/home/user
     </article><aside class="sidebar"><section><div class="widget">
     <h1>Recent Posts</h1>
     <ul><li>
+            <a href="../2016/02/21/use_http_www_technobuffalo_com_2014_10_21_how_to_enable_sms_relay_on_your_mac_ipad_and_iphone_to_get_sms_working_from_your_mac_via_your_iphone.html">use http://www.technobuffalo.com/2014/10/21/how-to-enable-sms-relay-on-your-mac-ipad-and-iphone/ to get sms working from your mac via your iphone</a>
+        </li><li>
             <a href="../2016/02/02/to_get_ssh_keys_working_with_tmux_add_to_users_srinathv_tmux_conf_the_following_set_g_update_environment_ssh_askpass_ssh_auth_sock_ssh_agent_pid_ssh_connection.html">To get ssh keys working with tmux, add to /Users/srinathv/.tmux.conf the following 'set -g update-environment "SSH_ASKPASS SSH_AUTH_SOCK SSH_AGENT_PID SSH_CONNECTION"'</a>
         </li><li>
             <a href="../2016/01/24/dboost_no_boost_cmake_on_will_stop_cmake_from_trying_to_look_for_boost_s_cmake_info_which_may_be_from_a_system_boost_and_trumps_setting_boost_root_and_the_like.html">-DBoost_NO_BOOST_CMAKE=ON will stop cmake from trying to look for boost's cmake info...which may be from a system boost and trumps setting BOOST_ROOT and the like.</a>
@@ -319,8 +321,6 @@ Enter passphrase <span class="k">for</span> key <span class="s1">&#39;/home/user
             <a href="../2015/10/20/to_clean_up_a_massive_git_repo_https_rtyley_github_io_bfg_repo_cleaner.html">To clean up a massive git repo: https://rtyley.github.io/bfg-repo-cleaner/</a>
         </li><li>
             <a href="../2015/10/12/just_discovered_https_github_com_carlhuda_janus.html">just discovered https://github.com/carlhuda/janus</a>
-        </li><li>
-            <a href="../2015/10/08/new_xcode_installs_require_xcode_select_install_to_get_the_latest_command_line_tools_for_mac_os_x.html">new xcode installs require "xcode-select --install" to get the latest command line tools for Mac OS x</a>
         </li></ul>
 </div>
 </section><section><div class="widget" id="searchbox" role="search">

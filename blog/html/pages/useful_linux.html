@@ -129,7 +129,7 @@
 <h2><a class="toc-backref" href="#id3">Print path with file name</a></h2>
 <p>When I grep source code to find an instance of a word or the like, I need to see what is the actual file, so a full path
 helps. So at the top level of the source code you are searching, try</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$f</span>ind . -type f -print <span class="p">|</span> grep -i timer
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$f</span>ind . -type f -print <span class="p">|</span> grep -i timer
 ./libs/utils/timer.c
 ./physics/crcp/timers/README
 ./physics/crcp/timers/makefile
@@ -145,7 +145,7 @@ helps. So at the top level of the source code you are searching, try</p>
 <div class="section" id="what-shell-am-i">
 <h2><a class="toc-backref" href="#id4">What shell am I?</a></h2>
 <p>Sometimes you can not tell what shell you are using when you have logged into a machine.  Try running:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ ps -p <span class="nv">$$</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ps -p <span class="nv">$$</span>
 </pre></div>
 </div>
 <p>So what is $ argument passed to -p option? Remember $ returns the PID (process identification number) of the current process, and the current process is your shell. So running a ps on that number displays a process status listing of your shell. In that listing you will find the name of your shell (look for CMD column) .</p>
@@ -154,15 +154,15 @@ helps. So at the top level of the source code you are searching, try</p>
 <h2><a class="toc-backref" href="#id5">So you want to disassemble...</a></h2>
 <p>Some people say know what a computer program does.  But to really know, you have to look at the assembly code used by
 the machine.  Try:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$objdump -d &lt;executable&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$objdump -d &lt;executable&gt;
 </pre></div>
 </div>
 <p>Now, this GNU binutils utility may not be available on your machine.  Or it may be namespaced with a &#8220;g&#8221;:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$gobjdump -d &lt;executable&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$gobjdump -d &lt;executable&gt;
 </pre></div>
 </div>
 <p>which is how things are namespaced on a Mac if using Macports to load things:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$port install binutils
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$port install binutils
 </pre></div>
 </div>
 </div>
@@ -170,18 +170,18 @@ the machine.  Try:</p>
 <h2><a class="toc-backref" href="#id6">What is my machines processor?</a></h2>
 <p>The following will give details about the cores of the machine you are running on (according to the OS).
 Do note that the list of cores may be exaggerated due to the hardware implemented Simultaneous Multi-Threading (SMT)</p>
-<div class="highlight-bash"><div class="highlight"><pre>$less /proc/cpuinfo
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$less /proc/cpuinfo
 </pre></div>
 </div>
 </div>
 <div class="section" id="how-to-make-directories-executable-and-files-readable-to-all-users">
 <h2><a class="toc-backref" href="#id7">How to make directories executable and files readable to all users</a></h2>
 <p>To recursively give directories read&amp;execute privileges:</p>
-<div class="highlight-bash"><div class="highlight"><pre>find /path/to/base/dir -type d -exec chmod <span class="m">755</span> <span class="o">{}</span> +
+<div class="highlight-bash"><div class="highlight"><pre><span></span>find /path/to/base/dir -type d -exec chmod <span class="m">755</span> <span class="o">{}</span> +
 </pre></div>
 </div>
 <p>To recursively give files read privileges:</p>
-<div class="highlight-bash"><div class="highlight"><pre>find /path/to/base/dir -type f -exec chmod <span class="m">644</span> <span class="o">{}</span> +
+<div class="highlight-bash"><div class="highlight"><pre><span></span>find /path/to/base/dir -type f -exec chmod <span class="m">644</span> <span class="o">{}</span> +
 </pre></div>
 </div>
 </div>
@@ -195,6 +195,8 @@ Do note that the list of cores may be exaggerated due to the hardware implemente
     </article><aside class="sidebar"><section><div class="widget">
     <h1>Recent Posts</h1>
     <ul><li>
+            <a href="../2016/02/21/use_http_www_technobuffalo_com_2014_10_21_how_to_enable_sms_relay_on_your_mac_ipad_and_iphone_to_get_sms_working_from_your_mac_via_your_iphone.html">use http://www.technobuffalo.com/2014/10/21/how-to-enable-sms-relay-on-your-mac-ipad-and-iphone/ to get sms working from your mac via your iphone</a>
+        </li><li>
             <a href="../2016/02/02/to_get_ssh_keys_working_with_tmux_add_to_users_srinathv_tmux_conf_the_following_set_g_update_environment_ssh_askpass_ssh_auth_sock_ssh_agent_pid_ssh_connection.html">To get ssh keys working with tmux, add to /Users/srinathv/.tmux.conf the following 'set -g update-environment "SSH_ASKPASS SSH_AUTH_SOCK SSH_AGENT_PID SSH_CONNECTION"'</a>
         </li><li>
             <a href="../2016/01/24/dboost_no_boost_cmake_on_will_stop_cmake_from_trying_to_look_for_boost_s_cmake_info_which_may_be_from_a_system_boost_and_trumps_setting_boost_root_and_the_like.html">-DBoost_NO_BOOST_CMAKE=ON will stop cmake from trying to look for boost's cmake info...which may be from a system boost and trumps setting BOOST_ROOT and the like.</a>
@@ -212,8 +214,6 @@ Do note that the list of cores may be exaggerated due to the hardware implemente
             <a href="../2015/10/20/to_clean_up_a_massive_git_repo_https_rtyley_github_io_bfg_repo_cleaner.html">To clean up a massive git repo: https://rtyley.github.io/bfg-repo-cleaner/</a>
         </li><li>
             <a href="../2015/10/12/just_discovered_https_github_com_carlhuda_janus.html">just discovered https://github.com/carlhuda/janus</a>
-        </li><li>
-            <a href="../2015/10/08/new_xcode_installs_require_xcode_select_install_to_get_the_latest_command_line_tools_for_mac_os_x.html">new xcode installs require "xcode-select --install" to get the latest command line tools for Mac OS x</a>
         </li></ul>
 </div>
 </section><section><div class="widget" id="searchbox" role="search">
