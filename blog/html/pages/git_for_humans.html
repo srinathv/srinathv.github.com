@@ -216,8 +216,8 @@ git reset --hard <span class="o">[</span>ENTER HERE THE COMMIT HASH YOU WANT<spa
 <h2><a class="toc-backref" href="#id11">Pushing to another non-bare repo using ssh</a></h2>
 <p>First, the <em>remote</em> repo must not be checked out to the branch you will push to.  You can be in the branch you will
 push.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$git checkout foo-branch
-$git push ssh://&lt;username&gt;@&lt;machine.here.com&gt;/&lt;path to remote repo&gt; &lt;remote-branch name&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> checkout foo-branch
+<span class="nv">$git</span> push ssh://&lt;username&gt;@&lt;machine.here.com&gt;/&lt;path to remote repo&gt; &lt;remote-branch name&gt;
 </pre></div>
 </div>
 </div>
@@ -230,7 +230,7 @@ new file:  foo/.svn/blah blah blah
 </pre></div>
 </div>
 <p>To get rid of the &#8221;.svn&#8221; directory from being committed:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$git rm -r --cached foo/.svn
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> rm -r --cached foo/.svn
 </pre></div>
 </div>
 <p>The &#8220;-r&#8221; allows for the recursive removal.</p>
@@ -238,7 +238,7 @@ new file:  foo/.svn/blah blah blah
 <div class="section" id="creating-a-bare-repo">
 <h2><a class="toc-backref" href="#id13">Creating a &#8220;bare&#8221; repo</a></h2>
 <p>What I have done is take an active git repo an do the following:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$git clone --bare &lt;URL/location of <span class="nb">source</span> git repo&gt; &lt;name of new bare repo&gt;.git
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> clone --bare &lt;URL/location of <span class="nb">source</span> git repo&gt; &lt;name of new bare repo&gt;.git
 </pre></div>
 </div>
 <p>I think the .git suffix helps denote that this is a bare repo.  All the repos on GitHub have the .git suffix.</p>
@@ -251,7 +251,7 @@ You can set it up as a remote as:</p>
 </pre></div>
 </div>
 <p>Then you must get git to understand how to interact with the remote once before tracking.  This remote may have a slew of branches.:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$git fetch &lt;remote Nick Name&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> fetch &lt;remote Nick Name&gt;
 </pre></div>
 </div>
 <p>Once that is done then the following will create a branch that will track this repo:</p>
@@ -260,7 +260,7 @@ You can set it up as a remote as:</p>
 </div>
 <p>Bam...now you have a branch that will pull from the &lt;bareFoo&gt; git repo.
 To make all pushes automatically go to tracked remote branches do:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$git config --global push tracking
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> config --global push tracking
 </pre></div>
 </div>
 </div>
@@ -303,14 +303,14 @@ git push origin master
 <div class="section" id="making-a-shared-repo">
 <h2><a class="toc-backref" href="#id19">Making a shared repo</a></h2>
 <p>In the bare repo itself do:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$git repo-config core.sharedRepository <span class="nb">true</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> repo-config core.sharedRepository <span class="nb">true</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="clean-up-a-repo">
 <h2><a class="toc-backref" href="#id20">Clean up a repo</a></h2>
 <p>Recompresses history and states.:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$git gc
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> gc
 </pre></div>
 </div>
 </div>
@@ -330,7 +330,7 @@ $ git config master.merge refs/heads/master
 </div>
 <p>How to prevent a bad push</p>
 <p>To not allow a repo to accept a push that would fast forward which will screw up the local history:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$git config --system receive.denyNonFastForwards <span class="nb">true</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> config --system receive.denyNonFastForwards <span class="nb">true</span>
 </pre></div>
 </div>
 <p>(from <a class="reference external" href="http://randyfay.com/node/89">http://randyfay.com/node/89</a>)</p>
@@ -345,11 +345,11 @@ $ git config master.merge refs/heads/master
 <p>The big advantage of a DVCS is that the user can and <em>SHOULD</em> commit small and often.  Self contained changes should be
 committed.  This way if there is an issue in the future, you can use <em>git revert</em> to revert the commit as a patch, that
 is then applied at the top of the <em>HEAD</em>.  Simply,</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$git log <span class="p">|</span> less
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> log <span class="p">|</span> less
 </pre></div>
 </div>
 <p>find the commit to revert, then</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$git revert &lt;SHA&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> revert &lt;SHA&gt;
 </pre></div>
 </div>
 <p>You will then have to finish the commit, which is a patch reverting the selected commit.</p>
@@ -415,24 +415,24 @@ collections of scripts that try to address this.</p>
 <h2><a class="toc-backref" href="#id33">Using Dropbox as a Git repository</a></h2>
 <p>Yup ... to cool to be true.:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$cd</span> ~/Dropbox
-$mkdir -p myrepos/foo.git
+<span class="nv">$mkdir</span> -p myrepos/foo.git
 <span class="nv">$cd</span> myrepos/foo.git
-$git init --bare
+<span class="nv">$git</span> init --bare
 </pre></div>
 </div>
 <p>Now you have the bare repo in you Dropbox space.  Fairly secure place for personal stuff.  Maybe even worth paying for
 som emore space.  You can now clone from the repo (which is empty) or</p>
 <p>push to it from an existing repo <em>foo</em>.:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$cd</span> ~/myWork/foo
-$git remote add dropbox file://$HOME/Dropbox/myrepos/foo.git
-$git push dropbox master
+<span class="nv">$git</span> remote add dropbox file://<span class="nv">$HOME</span>/Dropbox/myrepos/foo.git
+<span class="nv">$git</span> push dropbox master
 </pre></div>
 </div>
 <p>And you have just pushed your local <em>master</em> to the <em>dropbox</em> remote.</p>
 <p>Say you jumped on a computer that is logged into your Dropbox account, but have not cloned your <em>foo</em> repo yet.  You want to:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$mkdir ~/myWork
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$mkdir</span> ~/myWork
 <span class="nv">$cd</span> ~/myWork
-$git clone -o dropbox file://$HOME/Dropbox/myrepos/foo.git
+<span class="nv">$git</span> clone -o dropbox file://<span class="nv">$HOME</span>/Dropbox/myrepos/foo.git
 </pre></div>
 </div>
 <p>which will make the local repo <em>foo</em> with the correct remote called <em>dropbox</em> that will merge with <em>master</em>.</p>
@@ -440,7 +440,7 @@ $git clone -o dropbox file://$HOME/Dropbox/myrepos/foo.git
 <div class="section" id="want-to-diff-two-files-in-different-branches">
 <h2><a class="toc-backref" href="#id34">Want to diff two files in different branches</a></h2>
 <p>Say you want to compare two files that live in different branches</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$git difftool branch1:File1 branch2:File2
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> difftool branch1:File1 branch2:File2
 </pre></div>
 </div>
 <p>It is necessary to have <em>difftool</em> set in your <em>.gitconfig</em> global file.</p>
@@ -449,11 +449,11 @@ $git clone -o dropbox file://$HOME/Dropbox/myrepos/foo.git
 <h2><a class="toc-backref" href="#id35">Want to create your local branch on remote</a></h2>
 <p>Suppose you branched locally to do some great development.  Now, you want to have this work also available on a remote
 (possibly at github), then you first:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$less .git/config
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$less</span> .git/config
 </pre></div>
 </div>
 <p>to get the nickname of the remote you want this new branch to also reside. Then:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$git push -u &lt;remote-name&gt; &lt;local-branch-name&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> push -u &lt;remote-name&gt; &lt;local-branch-name&gt;
 </pre></div>
 </div>
 <p>As easy as that.  The <em>&#8220;-u&#8221;</em> will make sure your local branch now <em>tracks (makes the upstream)</em> the <em>new</em>-branch on the
@@ -462,11 +462,11 @@ remote. Merge managment is now a must.</p>
 <div class="section" id="want-to-delete-branch-on-remote">
 <h2><a class="toc-backref" href="#id36">Want to delete branch on remote</a></h2>
 <p>To delete a branch on a remote repo you must:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$git push &lt;remote nickname&gt; :&lt;branch name on remote&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> push &lt;remote nickname&gt; :&lt;branch name on remote&gt;
 </pre></div>
 </div>
 <p>Do note the &#8221;:&#8221; before the branch name.  And you must also:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$git branch -D &lt;<span class="nb">local</span> branch name&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> branch -D &lt;<span class="nb">local</span> branch name&gt;
 </pre></div>
 </div>
 <p>to remove the local branch.</p>
@@ -488,7 +488,7 @@ remote. Merge managment is now a must.</p>
 <h2><a class="toc-backref" href="#id39">How to fix Git PUSH results in RPC failed, result=22, HTTP code = 411</a></h2>
 <p>I got this error and then found this website: <a class="reference external" href="https://confluence.atlassian.com/display/FISHKB/Git+PUSH+results+in+RPC+failed,+result%3D22,+HTTP+code+%3D+411">https://confluence.atlassian.com/display/FISHKB/Git+PUSH+results+in+RPC+failed,+result%3D22,+HTTP+code+%3D+411</a>
 So the reason this happens is because the default file post size for Git has been exceeded.  The fix:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$git config http.postBuffer 524288000
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> config http.postBuffer 524288000
 </pre></div>
 </div>
 <p>I think this might be good to put <em>http.postBuffer 524288000</em> in your <em>.gitconfig</em>.</p>
@@ -496,8 +496,8 @@ So the reason this happens is because the default file post size for Git has bee
 <div class="section" id="force-git-to-overwrite-local-files-on-pull">
 <h2><a class="toc-backref" href="#id40">Force Git to overwrite local files on pull</a></h2>
 <p>Sometimes when you pull it seems that you want to just use what is on the remote end and not the local working copy.  Git will suggest to <em>stash and save</em>.  So the best way to get all the changes from the remote:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$git fetch &lt;remote name&gt;
-$git reset --hard origin/&lt;branch name&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> fetch &lt;remote name&gt;
+<span class="nv">$git</span> reset --hard origin/&lt;branch name&gt;
 </pre></div>
 </div>
 <p>will do the trick.</p>
@@ -509,7 +509,7 @@ $git reset --hard origin/&lt;branch name&gt;
 </pre></div>
 </div>
 <p>to the <em>alias</em> section of your <a href="#id3"><span class="problematic" id="id4">*</span></a>.gitconfig allows for:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$git files &lt;sha&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> files &lt;sha&gt;
 </pre></div>
 </div>
 <p>to show what you need.</p>
@@ -517,27 +517,27 @@ $git reset --hard origin/&lt;branch name&gt;
 <div class="section" id="how-to-make-branch-on-remote">
 <h2><a class="toc-backref" href="#id42">How to make branch on remote</a></h2>
 <p>Once one has create a branch on the local machine:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$git checkout -b &lt;branch name&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> checkout -b &lt;branch name&gt;
 </pre></div>
 </div>
 <p>one can create this branch on any remote with:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$git push &lt;remote name&gt; &lt;branch name&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> push &lt;remote name&gt; &lt;branch name&gt;
 </pre></div>
 </div>
 </div>
 <div class="section" id="how-to-push-tag-to-remote">
 <h2><a class="toc-backref" href="#id43">How to push tag to remote</a></h2>
 <p>Simple git push does not transmit the tag to the remote.  So first make a tag and the push as:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$git tag v&lt;<span class="c1">#&gt;</span>
-$git push origin&lt;or remote name&gt; v&lt;<span class="c1">#&gt;</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> tag v&lt;<span class="c1">#&gt;</span>
+<span class="nv">$git</span> push origin&lt;or remote name&gt; v&lt;<span class="c1">#&gt;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="how-to-remove-a-tag">
 <h2><a class="toc-backref" href="#id44">How to remove a tag</a></h2>
 <p>Hopefully this isn&#8217;t done often but</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$git tag -d 12345
-$git push origin :refs/tags/12345
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> tag -d 12345
+<span class="nv">$git</span> push origin :refs/tags/12345
 </pre></div>
 </div>
 </div>
@@ -551,6 +551,8 @@ $git push origin :refs/tags/12345
     </article><aside class="sidebar"><section><div class="widget">
     <h1>Recent Posts</h1>
     <ul><li>
+            <a href="../2016/03/03/use_grep_hn_to_get_file_name_and_line_number_for_the_match.html">Use 'grep -Hn' to get file name and line number for the match</a>
+        </li><li>
             <a href="../2016/02/21/ssh_add_k_ssh_id_rsa_to_get_ssh_keys_added_to_mac_os_x_keychain.html"><no title></a>
         </li><li>
             <a href="../2016/02/21/use_http_www_technobuffalo_com_2014_10_21_how_to_enable_sms_relay_on_your_mac_ipad_and_iphone_to_get_sms_working_from_your_mac_via_your_iphone.html">use http://www.technobuffalo.com/2014/10/21/how-to-enable-sms-relay-on-your-mac-ipad-and-iphone/ to get sms working from your mac via your iphone</a>
@@ -568,8 +570,6 @@ $git push origin :refs/tags/12345
             <a href="../2015/10/22/every_new_version_of_xcode_requires_sudo_xcodebuild_license_to_get_much_of_homebrew_working.html">every new version of xcode requires 'sudo xcodebuild -license' to get much of Homebrew working</a>
         </li><li>
             <a href="../2015/10/22/mac_os_x_el_capitan_one_needs_to_sudo_chown_r_srinathv_usr_local.html">Mac OS X El Capitan, one needs to sudo chown -R srinathv /usr/local</a>
-        </li><li>
-            <a href="../2015/10/20/to_clean_up_a_massive_git_repo_https_rtyley_github_io_bfg_repo_cleaner.html">To clean up a massive git repo: https://rtyley.github.io/bfg-repo-cleaner/</a>
         </li></ul>
 </div>
 </section><section><div class="widget" id="searchbox" role="search">

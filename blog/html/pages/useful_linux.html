@@ -129,7 +129,7 @@
 <h2><a class="toc-backref" href="#id3">Print path with file name</a></h2>
 <p>When I grep source code to find an instance of a word or the like, I need to see what is the actual file, so a full path
 helps. So at the top level of the source code you are searching, try</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$f</span>ind . -type f -print <span class="p">|</span> grep -i timer
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$find</span> . -type f -print <span class="p">|</span> grep -i timer
 ./libs/utils/timer.c
 ./physics/crcp/timers/README
 ./physics/crcp/timers/makefile
@@ -154,15 +154,15 @@ helps. So at the top level of the source code you are searching, try</p>
 <h2><a class="toc-backref" href="#id5">So you want to disassemble...</a></h2>
 <p>Some people say know what a computer program does.  But to really know, you have to look at the assembly code used by
 the machine.  Try:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$objdump -d &lt;executable&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$objdump</span> -d &lt;executable&gt;
 </pre></div>
 </div>
 <p>Now, this GNU binutils utility may not be available on your machine.  Or it may be namespaced with a &#8220;g&#8221;:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$gobjdump -d &lt;executable&gt;
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$gobjdump</span> -d &lt;executable&gt;
 </pre></div>
 </div>
 <p>which is how things are namespaced on a Mac if using Macports to load things:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$port install binutils
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$port</span> install binutils
 </pre></div>
 </div>
 </div>
@@ -170,7 +170,7 @@ the machine.  Try:</p>
 <h2><a class="toc-backref" href="#id6">What is my machines processor?</a></h2>
 <p>The following will give details about the cores of the machine you are running on (according to the OS).
 Do note that the list of cores may be exaggerated due to the hardware implemented Simultaneous Multi-Threading (SMT)</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$less /proc/cpuinfo
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$less</span> /proc/cpuinfo
 </pre></div>
 </div>
 </div>
@@ -195,6 +195,8 @@ Do note that the list of cores may be exaggerated due to the hardware implemente
     </article><aside class="sidebar"><section><div class="widget">
     <h1>Recent Posts</h1>
     <ul><li>
+            <a href="../2016/03/03/use_grep_hn_to_get_file_name_and_line_number_for_the_match.html">Use 'grep -Hn' to get file name and line number for the match</a>
+        </li><li>
             <a href="../2016/02/21/ssh_add_k_ssh_id_rsa_to_get_ssh_keys_added_to_mac_os_x_keychain.html"><no title></a>
         </li><li>
             <a href="../2016/02/21/use_http_www_technobuffalo_com_2014_10_21_how_to_enable_sms_relay_on_your_mac_ipad_and_iphone_to_get_sms_working_from_your_mac_via_your_iphone.html">use http://www.technobuffalo.com/2014/10/21/how-to-enable-sms-relay-on-your-mac-ipad-and-iphone/ to get sms working from your mac via your iphone</a>
@@ -212,8 +214,6 @@ Do note that the list of cores may be exaggerated due to the hardware implemente
             <a href="../2015/10/22/every_new_version_of_xcode_requires_sudo_xcodebuild_license_to_get_much_of_homebrew_working.html">every new version of xcode requires 'sudo xcodebuild -license' to get much of Homebrew working</a>
         </li><li>
             <a href="../2015/10/22/mac_os_x_el_capitan_one_needs_to_sudo_chown_r_srinathv_usr_local.html">Mac OS X El Capitan, one needs to sudo chown -R srinathv /usr/local</a>
-        </li><li>
-            <a href="../2015/10/20/to_clean_up_a_massive_git_repo_https_rtyley_github_io_bfg_repo_cleaner.html">To clean up a massive git repo: https://rtyley.github.io/bfg-repo-cleaner/</a>
         </li></ul>
 </div>
 </section><section><div class="widget" id="searchbox" role="search">
