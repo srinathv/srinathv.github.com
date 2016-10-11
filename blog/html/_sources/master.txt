@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2016/10/11/mac_os_x_sierra_ssh_add_problems_https_www_reddit_com_r_osx_comments_52zn5r_difficulties_with_sshagent_in_macos_sierra
    2016/08/15/to_adjust_a_tag_bad_form_in_git_git_tag_exiting_tag_name_f_git_push_origin_tags_f
    2016/08/05/to_remove_java_do_sudo_rm_fr_library_internet_plug_ins_javaappletplugin_plugin_sudo_rm_fr_library_preferencepanes_javacontrolpanel_prefpane
    2016/04/14/vboxmanage_modifyhd_users_srinathv_virtualbox_vms_windows_windows_vdi_resize_50000_is_how_you_make_resize_the_birtual_drive_note_the_use_of_the_space
