@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2016/10/14/git_for_each_ref_format_committerdate_09_authorname_09_refname_sort_k5n_k2m_k3n_k4n_awk_print_is_a_great_way_to_see_authors_for_branches
    2016/10/11/mac_os_x_sierra_ssh_add_problems_https_www_reddit_com_r_osx_comments_52zn5r_difficulties_with_sshagent_in_macos_sierra
    2016/08/15/to_adjust_a_tag_bad_form_in_git_git_tag_exiting_tag_name_f_git_push_origin_tags_f
    2016/08/05/to_remove_java_do_sudo_rm_fr_library_internet_plug_ins_javaappletplugin_plugin_sudo_rm_fr_library_preferencepanes_javacontrolpanel_prefpane
