@@ -1,0 +1,9 @@
+text.tex.latex is grammar for latex in atom
+===========================================
+
+
+
+.. author:: default
+.. categories:: none
+.. tags:: none
+.. comments::
