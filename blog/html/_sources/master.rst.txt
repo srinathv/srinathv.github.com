@@ -4,6 +4,9 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2017/06/06/best_way_to_find_you_public_ip_curl_ipinfo_io_ip
+   2017/05/13/mac_host_ssh_to_vbox_using_nat_https_forums_virtualbox_org_viewtopic_php_f_8_t_55766
+   2017/05/13/good_ssh_config_tutorial_http_nerderati_com_2011_03_17_simplify_your_life_with_an_ssh_config_file
    2017/01/09/text_tex_latex_is_grammar_for_latex_in_atom
    2016/10/14/git_for_each_ref_format_committerdate_09_authorname_09_refname_sort_k5n_k2m_k3n_k4n_awk_print_is_a_great_way_to_see_authors_for_branches
    2016/10/11/mac_os_x_sierra_ssh_add_problems_https_www_reddit_com_r_osx_comments_52zn5r_difficulties_with_sshagent_in_macos_sierra

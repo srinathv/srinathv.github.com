@@ -31,12 +31,13 @@
         <link rel="search" title="Search" href="../search.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.html" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.5',
+        VERSION:     '1.6.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
+        SOURCELINK_SUFFIX: '.txt',
         HAS_SOURCE:  true
       };
-    </script><script type="text/javascript" src="../_static/underscore.js"></script><script type="text/javascript" src="../_static/doctools.js"></script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </script><script type="text/javascript" src="../_static/underscore.js"></script><script type="text/javascript" src="../_static/doctools.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -113,7 +114,7 @@
     <div class="section" id="git-for-humans">
 <h1><a class="toc-backref" href="#id5">Git for humans</a></h1>
 <div class="contents topic" id="gett-n-git-gone">
-<p class="topic-title first">Gett&#8217;n Git Gone</p>
+<p class="topic-title first">Gett’n Git Gone</p>
 <ul class="simple">
 <li><a class="reference internal" href="#git-for-humans" id="id5">Git for humans</a><ul>
 <li><a class="reference internal" href="#big-rules" id="id6">Big rules</a></li>
@@ -122,8 +123,8 @@
 <li><a class="reference internal" href="#want-to-see-url-of-remote" id="id9">Want to see URL of remote</a></li>
 <li><a class="reference internal" href="#want-see-repo-at-a-certain-version" id="id10">Want see repo at a certain version</a></li>
 <li><a class="reference internal" href="#pushing-to-another-non-bare-repo-using-ssh" id="id11">Pushing to another non-bare repo using ssh</a></li>
-<li><a class="reference internal" href="#undoing-a-git-add" id="id12">Undoing a &#8220;git add&#8221;</a></li>
-<li><a class="reference internal" href="#creating-a-bare-repo" id="id13">Creating a &#8220;bare&#8221; repo</a></li>
+<li><a class="reference internal" href="#undoing-a-git-add" id="id12">Undoing a “git add”</a></li>
+<li><a class="reference internal" href="#creating-a-bare-repo" id="id13">Creating a “bare” repo</a></li>
 <li><a class="reference internal" href="#tracking-a-remote-repo-as-branch" id="id14">Tracking a remote repo as branch</a></li>
 <li><a class="reference internal" href="#link-to-using-http-with-ldap-on-a-repo" id="id15">Link to using http with LDAP on a repo</a></li>
 <li><a class="reference internal" href="#submodules" id="id16">Submodules</a></li>
@@ -167,7 +168,7 @@
 <ul>
 <li><p class="first">git commit individual files will verbose comments</p>
 </li>
-<li><p class="first">remote repos are better off as &#8220;bare&#8221; repos</p>
+<li><p class="first">remote repos are better off as “bare” repos</p>
 <ul>
 <li><p class="first">these are repos that are created with:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ git clone --bare fooRepo.git
@@ -200,11 +201,11 @@
 <div class="highlight-bash"><div class="highlight"><pre><span></span>git remote show origin
 </pre></div>
 </div>
-<p>or &#8220;origin&#8221; should be the nickname of the remote.</p>
+<p>or “origin” should be the nickname of the remote.</p>
 </div>
 <div class="section" id="want-see-repo-at-a-certain-version">
 <h2><a class="toc-backref" href="#id10">Want see repo at a certain version</a></h2>
-<p>You could &#8220;reset&#8221; your repository to any commit you want (e.g. 1 month ago).</p>
+<p>You could “reset” your repository to any commit you want (e.g. 1 month ago).</p>
 <p>Use git-reset for that:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>git clone <span class="o">[</span>remote_address_here<span class="o">]</span> my_repo
 <span class="nb">cd</span> my_repo
@@ -222,21 +223,21 @@ push.</p>
 </div>
 </div>
 <div class="section" id="undoing-a-git-add">
-<h2><a class="toc-backref" href="#id12">Undoing a &#8220;git add&#8221;</a></h2>
+<h2><a class="toc-backref" href="#id12">Undoing a “git add”</a></h2>
 <p>Say you did a git add on a directory and there was a hidden directory that got added:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ git add foo/
 $ git status
 new file:  foo/.svn/blah blah blah
 </pre></div>
 </div>
-<p>To get rid of the &#8221;.svn&#8221; directory from being committed:</p>
+<p>To get rid of the “.svn” directory from being committed:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> rm -r --cached foo/.svn
 </pre></div>
 </div>
-<p>The &#8220;-r&#8221; allows for the recursive removal.</p>
+<p>The “-r” allows for the recursive removal.</p>
 </div>
 <div class="section" id="creating-a-bare-repo">
-<h2><a class="toc-backref" href="#id13">Creating a &#8220;bare&#8221; repo</a></h2>
+<h2><a class="toc-backref" href="#id13">Creating a “bare” repo</a></h2>
 <p>What I have done is take an active git repo an do the following:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> clone --bare &lt;URL/location of <span class="nb">source</span> git repo&gt; &lt;name of new bare repo&gt;.git
 </pre></div>
@@ -258,7 +259,7 @@ You can set it up as a remote as:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ git branch --track &lt;<span class="nb">local</span> Branch name&gt; &lt;remote Nick Name&gt;/&lt;desired branch name&gt;
 </pre></div>
 </div>
-<p>Bam...now you have a branch that will pull from the &lt;bareFoo&gt; git repo.
+<p>Bam…now you have a branch that will pull from the &lt;bareFoo&gt; git repo.
 To make all pushes automatically go to tracked remote branches do:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> config --global push tracking
 </pre></div>
@@ -298,7 +299,7 @@ git push origin master
 </div>
 <div class="section" id="all-things-reset">
 <h2><a class="toc-backref" href="#id18">All things RESET</a></h2>
-<p>Knowing this helps your &#8220;get GIT&#8221;. <a class="reference external" href="http://progit.org/2011/07/11/reset.html">http://progit.org/2011/07/11/reset.html</a></p>
+<p>Knowing this helps your “get GIT”. <a class="reference external" href="http://progit.org/2011/07/11/reset.html">http://progit.org/2011/07/11/reset.html</a></p>
 </div>
 <div class="section" id="making-a-shared-repo">
 <h2><a class="toc-backref" href="#id19">Making a shared repo</a></h2>
@@ -358,7 +359,7 @@ is then applied at the top of the <em>HEAD</em>.  Simply,</p>
 <h2><a class="toc-backref" href="#id24">How to create branches on remotes</a></h2>
 <blockquote>
 <div><a class="reference external" href="http://progit.org/book/ch3-5.html">http://progit.org/book/ch3-5.html</a></div></blockquote>
-<p>Note:  The line &#8220;git checkout -b serverfix origin/serverfix&#8221; really should have a &#8220;-B&#8221;, because that will reset the properties of an existing branch, while &#8220;-b&#8221; only creates new ones with trailing properties.</p>
+<p>Note:  The line “git checkout -b serverfix origin/serverfix” really should have a “-B”, because that will reset the properties of an existing branch, while “-b” only creates new ones with trailing properties.</p>
 </div>
 <div class="section" id="another-git-tutorial">
 <h2><a class="toc-backref" href="#id25">Another Git tutorial</a></h2>
@@ -375,7 +376,7 @@ is then applied at the top of the <em>HEAD</em>.  Simply,</p>
 </div>
 <div class="section" id="using-github-com-as-webserver">
 <h2><a class="toc-backref" href="#id28">Using github.com as webserver</a></h2>
-<p>It is possible now to have github serve your webpages (obvious because you can see this page&#8217;s URL).</p>
+<p>It is possible now to have github serve your webpages (obvious because you can see this page’s URL).</p>
 <p>It is important to note that the github webserver uses Jekyll, and to bypass it:</p>
 <blockquote>
 <div><p>From: Petros Amiridis (GitHub Staff)
@@ -413,7 +414,7 @@ collections of scripts that try to address this.</p>
 </div>
 <div class="section" id="using-dropbox-as-a-git-repository">
 <h2><a class="toc-backref" href="#id33">Using Dropbox as a Git repository</a></h2>
-<p>Yup ... to cool to be true.:</p>
+<p>Yup … to cool to be true.:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$cd</span> ~/Dropbox
 <span class="nv">$mkdir</span> -p myrepos/foo.git
 <span class="nv">$cd</span> myrepos/foo.git
@@ -456,7 +457,7 @@ som emore space.  You can now clone from the repo (which is empty) or</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> push -u &lt;remote-name&gt; &lt;local-branch-name&gt;
 </pre></div>
 </div>
-<p>As easy as that.  The <em>&#8220;-u&#8221;</em> will make sure your local branch now <em>tracks (makes the upstream)</em> the <em>new</em>-branch on the
+<p>As easy as that.  The <em>“-u”</em> will make sure your local branch now <em>tracks (makes the upstream)</em> the <em>new</em>-branch on the
 remote. Merge managment is now a must.</p>
 </div>
 <div class="section" id="want-to-delete-branch-on-remote">
@@ -465,7 +466,7 @@ remote. Merge managment is now a must.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> push &lt;remote nickname&gt; :&lt;branch name on remote&gt;
 </pre></div>
 </div>
-<p>Do note the &#8221;:&#8221; before the branch name.  And you must also:</p>
+<p>Do note the “:” before the branch name.  And you must also:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> branch -D &lt;<span class="nb">local</span> branch name&gt;
 </pre></div>
 </div>
@@ -488,7 +489,7 @@ remote. Merge managment is now a must.</p>
 <h2><a class="toc-backref" href="#id39">How to fix Git PUSH results in RPC failed, result=22, HTTP code = 411</a></h2>
 <p>I got this error and then found this website: <a class="reference external" href="https://confluence.atlassian.com/display/FISHKB/Git+PUSH+results+in+RPC+failed,+result%3D22,+HTTP+code+%3D+411">https://confluence.atlassian.com/display/FISHKB/Git+PUSH+results+in+RPC+failed,+result%3D22,+HTTP+code+%3D+411</a>
 So the reason this happens is because the default file post size for Git has been exceeded.  The fix:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> config http.postBuffer 524288000
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> config http.postBuffer <span class="m">524288000</span>
 </pre></div>
 </div>
 <p>I think this might be good to put <em>http.postBuffer 524288000</em> in your <em>.gitconfig</em>.</p>
@@ -535,8 +536,8 @@ So the reason this happens is because the default file post size for Git has bee
 </div>
 <div class="section" id="how-to-remove-a-tag">
 <h2><a class="toc-backref" href="#id44">How to remove a tag</a></h2>
-<p>Hopefully this isn&#8217;t done often but</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> tag -d 12345
+<p>Hopefully this isn’t done often but</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$git</span> tag -d <span class="m">12345</span>
 <span class="nv">$git</span> push origin :refs/tags/12345
 </pre></div>
 </div>
@@ -551,25 +552,25 @@ So the reason this happens is because the default file post size for Git has bee
     </article><aside class="sidebar"><section><div class="widget">
     <h1>Recent Posts</h1>
     <ul><li>
-            <a href="../2017/01/09/text_tex_latex_is_grammar_for_latex_in_atom.html">text.tex.latex is grammar for latex in atom</a>
+            <a href="../2017/06/06/best_way_to_find_you_public_ip_curl_ipinfo_io_ip.html">best way to find you public IP: “curl ipinfo.io/ip”</a>
         </li><li>
-            <a href="../2016/10/14/git_for_each_ref_format_committerdate_09_authorname_09_refname_sort_k5n_k2m_k3n_k4n_awk_print_is_a_great_way_to_see_authors_for_branches.html">git for-each-ref --format='%(committerdate) %09 %(authorname) %09 %(refname)' | sort -k5n -k2M -k3n -k4n | awk '{print  }' is a great way to see authors for branches</a>
+            <a href="../2017/05/13/mac_host_ssh_to_vbox_using_nat_https_forums_virtualbox_org_viewtopic_php_f_8_t_55766.html">Mac host ssh to Vbox using NAT: https://forums.virtualbox.org/viewtopic.php?f=8&t=55766</a>
+        </li><li>
+            <a href="../2017/05/13/good_ssh_config_tutorial_http_nerderati_com_2011_03_17_simplify_your_life_with_an_ssh_config_file.html">Good .ssh/config tutorial: http://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/</a>
+        </li><li>
+            <a href="../2016/10/14/git_for_each_ref_format_committerdate_09_authorname_09_refname_sort_k5n_k2m_k3n_k4n_awk_print_is_a_great_way_to_see_authors_for_branches.html">git for-each-ref –format=’%(committerdate) %09 %(authorname) %09 %(refname)’ | sort -k5n -k2M -k3n -k4n | awk ‘{print  }’ is a great way to see authors for branches</a>
         </li><li>
             <a href="../2016/10/11/mac_os_x_sierra_ssh_add_problems_https_www_reddit_com_r_osx_comments_52zn5r_difficulties_with_sshagent_in_macos_sierra.html"><no title></a>
         </li><li>
-            <a href="../2016/08/15/to_adjust_a_tag_bad_form_in_git_git_tag_exiting_tag_name_f_git_push_origin_tags_f.html">to adjust a tag (bad form) in git: git tag <exiting tag name> =f; git push origin --tags -f</a>
+            <a href="../2016/08/15/to_adjust_a_tag_bad_form_in_git_git_tag_exiting_tag_name_f_git_push_origin_tags_f.html">to adjust a tag (bad form) in git: git tag <exiting tag name> =f; git push origin –tags -f</a>
         </li><li>
             <a href="../2016/08/05/to_remove_java_do_sudo_rm_fr_library_internet_plug_ins_javaappletplugin_plugin_sudo_rm_fr_library_preferencepanes_javacontrolpanel_prefpane.html"><no title></a>
         </li><li>
-            <a href="../2016/04/14/vboxmanage_modifyhd_users_srinathv_virtualbox_vms_windows_windows_vdi_resize_50000_is_how_you_make_resize_the_birtual_drive_note_the_use_of_the_space.html">VBoxManage modifyhd /Users/srinathv/VirtualBox VMs/Windows/Windows.vdi --resize 50000 is how you make resize the birtual drive.  Note the use of THE space</a>
+            <a href="../2016/04/14/vboxmanage_modifyhd_users_srinathv_virtualbox_vms_windows_windows_vdi_resize_50000_is_how_you_make_resize_the_birtual_drive_note_the_use_of_the_space.html">VBoxManage modifyhd /Users/srinathv/VirtualBox VMs/Windows/Windows.vdi –resize 50000 is how you make resize the birtual drive.  Note the use of THE space</a>
         </li><li>
-            <a href="../2016/03/03/use_grep_hn_to_get_file_name_and_line_number_for_the_match.html">Use 'grep -Hn' to get file name and line number for the match</a>
+            <a href="../2016/03/03/use_grep_hn_to_get_file_name_and_line_number_for_the_match.html">Use ‘grep -Hn’ to get file name and line number for the match</a>
         </li><li>
             <a href="../2016/02/21/ssh_add_k_ssh_id_rsa_to_get_ssh_keys_added_to_mac_os_x_keychain.html"><no title></a>
-        </li><li>
-            <a href="../2016/02/21/use_http_www_technobuffalo_com_2014_10_21_how_to_enable_sms_relay_on_your_mac_ipad_and_iphone_to_get_sms_working_from_your_mac_via_your_iphone.html">use http://www.technobuffalo.com/2014/10/21/how-to-enable-sms-relay-on-your-mac-ipad-and-iphone/ to get sms working from your mac via your iphone</a>
-        </li><li>
-            <a href="../2016/02/02/to_get_ssh_keys_working_with_tmux_add_to_users_srinathv_tmux_conf_the_following_set_g_update_environment_ssh_askpass_ssh_auth_sock_ssh_agent_pid_ssh_connection.html">To get ssh keys working with tmux, add to /Users/srinathv/.tmux.conf the following 'set -g update-environment "SSH_ASKPASS SSH_AUTH_SOCK SSH_AGENT_PID SSH_CONNECTION"'</a>
         </li></ul>
 </div>
 </section><section><div class="widget" id="searchbox" role="search">
