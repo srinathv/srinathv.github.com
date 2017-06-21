@@ -1,0 +1,9 @@
+To get Jupyter notebook working on Mac OS 10.12.4, I need to ' ~/.jupyter/jupyter_notebook_config.py
+c.NotebookApp.browser = u'Safari'
+
+
+
+.. author:: default
+.. categories:: none
+.. tags:: none
+.. comments::

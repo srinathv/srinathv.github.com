@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2017/06/21/to_get_jupyter_notebook_working_on_mac_os_10_12_4_i_need_to_jupyter_jupyter_notebook_config_py_c_notebookapp_browser_u_safari
    2017/06/06/best_way_to_find_you_public_ip_curl_ipinfo_io_ip
    2017/05/13/mac_host_ssh_to_vbox_using_nat_https_forums_virtualbox_org_viewtopic_php_f_8_t_55766
    2017/05/13/good_ssh_config_tutorial_http_nerderati_com_2011_03_17_simplify_your_life_with_an_ssh_config_file
