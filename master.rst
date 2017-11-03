@@ -64,7 +64,6 @@ Sitemap
    pages/compiler_fun
    pages/useful_linux
    pages/macs_and_hpc
-   pages/mac_and_vscode
    pages/working_with_lcfs
    .. pages/snow_leopard_links
    .. pages/mt_lion
@@ -73,4 +72,5 @@ Sitemap
    pages/cmake_to_rule_them_all
    pages/using_tau_for_your_code
    pages/about_me
+   pages/macs_and_vs_code
 
