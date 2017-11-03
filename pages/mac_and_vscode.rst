@@ -13,6 +13,6 @@ A possible fix is ::
 
     $sudo chown -R $USER:admin ~/Library/Caches/com.microsoft.VSCode
     $sudo chown -R $USER:admin ~/Library/Caches/com.microsoft.VSCode.ShipIt
-    sudo chown -R $USER:admin /Applications/Visual\ Studio\ Code.app/
+    $sudo chown -R $USER:admin /Applications/Visual\ Studio\ Code.app/
 
 
