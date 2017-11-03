@@ -15,7 +15,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="description" content="My blog">
         <meta name="viewport" content="width=device-width">
-        <title>Homebrew-ing &mdash; Psuedoneuromancer&#39;s scientific tool chest.</title>
+        <title>Macs and VS Code &mdash; Psuedoneuromancer&#39;s scientific tool chest.</title>
             <link rel="stylesheet" href="../_static/normalize.css" type="text/css">
             <link rel="stylesheet" href="../_static/sphinx.css" type="text/css">
             <link rel="stylesheet" href="../_static/main.css" type="text/css">
@@ -98,7 +98,7 @@
                   <a href="useful_vim_ideas.html">Vim ideas</a>
                 </li>
               <li class="main-nav">
-                  <a href="#">Homebrew-ing</a>
+                  <a href="homebrew_ing.html">Homebrew-ing</a>
                 </li>
               <li class="main-nav">
                   <a href="cmake_to_rule_them_all.html">CMake to rule them all</a>
@@ -114,8 +114,18 @@
                 </li>
               </ul>
           </nav><div class="main-container" role="main"><div class="main wrapper body clearfix"><article role="article">
-    <div class="section" id="homebrew-ing">
-<h1>Homebrew-ing</h1>
+    <div class="section" id="macs-and-vs-code">
+<h1>Macs and VS Code</h1>
+<div class="section" id="vs-code-helper-udpate-issue-fix">
+<h2>VS Code Helper udpate issue fix</h2>
+<p>I have found that the helper app for VS code seems to have ownership issues.
+A possible fix is</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">$sudo</span> chown -R <span class="nv">$USER</span>:admin ~/Library/Caches/com.microsoft.VSCode
+<span class="nv">$sudo</span> chown -R <span class="nv">$USER</span>:admin ~/Library/Caches/com.microsoft.VSCode.ShipIt
+<span class="nv">$sudo</span> chown -R <span class="nv">$USER</span>:admin /Applications/Visual<span class="se">\ </span>Studio<span class="se">\ </span>Code.app/
+</pre></div>
+</div>
+</div>
 </div>
 
     <div class="postmeta">

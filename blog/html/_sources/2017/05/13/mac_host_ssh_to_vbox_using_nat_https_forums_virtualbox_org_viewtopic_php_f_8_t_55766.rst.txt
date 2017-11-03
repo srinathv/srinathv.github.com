@@ -1,9 +1,0 @@
-Mac host ssh to Vbox using NAT: https://forums.virtualbox.org/viewtopic.php?f=8&t=55766 
-========================================================================================
-
-
-
-.. author:: default
-.. categories:: none
-.. tags:: none
-.. comments::

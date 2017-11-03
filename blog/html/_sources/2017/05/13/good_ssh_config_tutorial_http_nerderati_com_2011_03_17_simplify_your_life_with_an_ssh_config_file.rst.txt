@@ -1,9 +1,0 @@
-Good .ssh/config tutorial: http://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/
-======================================================================================================
-
-
-
-.. author:: default
-.. categories:: none
-.. tags:: none
-.. comments::

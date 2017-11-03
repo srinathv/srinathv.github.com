@@ -1,9 +1,0 @@
-best way to find you public IP: "curl ipinfo.io/ip"
-===================================================
-
-
-
-.. author:: default
-.. categories:: none
-.. tags:: none
-.. comments::
