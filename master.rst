@@ -64,6 +64,7 @@ Sitemap
    pages/compiler_fun
    pages/useful_linux
    pages/macs_and_hpc
+   pages/mac_and_vscode
    pages/working_with_lcfs
    .. pages/snow_leopard_links
    .. pages/mt_lion
